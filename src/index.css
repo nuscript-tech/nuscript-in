@@ -10,53 +10,53 @@
     --font-body: 'Space Grotesk', sans-serif;
 
     /* --- Background & Core Surfaces --- */
-    --background: 222 47% 11%;       /* #0F172A */
-    --foreground: 210 28% 93%;       /* #E6EDF3 */
+    --background: 210 20% 98%;          /* #F8FAFC */
+    --foreground: 222 47% 11%;          /* #0F172A */
 
     /* --- Brand & Action Colors --- */
-    --primary: 141 94% 42%;          /* #08CF65 - Brand Green */
-    --primary-foreground: 153 96% 7%;/* #052e16 - dark green for button text */
+    --primary: 160 84% 39%;             /* #059669 - Brand Green (darkened for light bg) */
+    --primary-foreground: 0 0% 100%;    /* #FFFFFF - white text on green */
 
-    --secondary: 222 37% 28%;        /* #2E3F62 */
-    --secondary-foreground: 210 28% 93%;
+    --secondary: 210 40% 96%;           /* #F1F5F9 */
+    --secondary-foreground: 222 47% 11%;
 
     /* --- Components (Cards & Surfaces) --- */
-    --card: 213 39% 15%;             /* #112836 */
-    --card-foreground: 210 28% 93%;
-    --popover: 213 39% 15%;
-    --popover-foreground: 210 28% 93%;
+    --card: 0 0% 100%;                  /* #FFFFFF */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
     /* --- Muted Elements & Borders --- */
-    --muted: 218 27% 20%;            /* #243249 tertiary */
-    --muted-foreground: 210 11% 57%; /* #9AA7B2 */
+    --muted: 210 40% 96%;               /* #F1F5F9 */
+    --muted-foreground: 215 16% 47%;    /* #64748B */
     
-    /* --- New Subheading Colors --- */
-    --subheading: 211 18% 58%;       /* #A0B0C0 */
-    --subheading-tertiary: 208 16% 42%; /* #7C8A99 */
-    --accent: 218 27% 20%;
-    --accent-foreground: 210 28% 93%;
+    /* --- Subheading Colors --- */
+    --subheading: 215 20% 40%;          /* #536379 */
+    --subheading-tertiary: 215 16% 47%; /* #64748B */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 213 30% 24%;           /* #2A3A4F */
-    --input: 213 30% 24%;
-    --ring: 142 93% 46%;             /* #0BDA51 */
+    --border: 214 32% 91%;              /* #E2E8F0 */
+    --input: 214 32% 91%;
+    --ring: 160 84% 39%;                /* #059669 */
 
-    --chart-1: 142 93% 46%;
+    --chart-1: 160 84% 39%;
     --chart-2: 217 91% 60%;
     --chart-3: 38 92% 50%;
-    --chart-4: 43 74% 66%;
+    --chart-4: 43 74% 49%;
     --chart-5: 0 84% 60%;
     --radius: 0.75rem;
 
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 210 28% 93%;
-    --sidebar-primary: 142 93% 46%;
-    --sidebar-primary-foreground: 153 96% 7%;
-    --sidebar-accent: 218 27% 20%;
-    --sidebar-accent-foreground: 210 28% 93%;
-    --sidebar-border: 213 30% 24%;
-    --sidebar-ring: 142 93% 46%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 160 84% 39%;
   }
 }
 
@@ -66,7 +66,7 @@
   }
 
   body {
-    @apply bg-background text-text;
+    @apply bg-background text-foreground;
     font-family: var(--font-body);
     font-weight: 400;
     font-size: 1.125rem;

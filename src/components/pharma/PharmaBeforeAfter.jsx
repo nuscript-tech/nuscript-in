@@ -21,7 +21,7 @@ export default function PharmaBeforeAfter() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#0BDA51" }}
+            style={{ color: "#059669" }}
           >
             The Transformation
           </motion.p>
@@ -31,10 +31,10 @@ export default function PharmaBeforeAfter() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="font-unbounded text-3xl lg:text-4xl font-bold"
-            style={{ color: "#F1F5F9" }}
+            style={{ color: "#0F172A" }}
           >
             Before vs.{" "}
-            <span style={{ color: "#0BDA51" }}>After.</span>
+            <span style={{ color: "#059669" }}>After.</span>
           </motion.h2>
         </div>
 
@@ -44,17 +44,17 @@ export default function PharmaBeforeAfter() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="rounded-2xl overflow-hidden border"
-          style={{ borderColor: "rgba(11,218,81,0.2)", boxShadow: "0 0 60px rgba(11,218,81,0.08)" }}
+          style={{ borderColor: "rgba(5,150,105,0.15)", boxShadow: "0 0 60px rgba(5,150,105,0.06)" }}
         >
           {/* Header */}
           <div className="grid grid-cols-2">
-            <div className="px-8 py-5 border-r border-b" style={{ background: "rgba(239,68,68,0.06)", borderColor: "rgba(11,218,81,0.15)" }}>
+            <div className="px-8 py-5 border-r border-b" style={{ background: "rgba(239,68,68,0.06)", borderColor: "rgba(5,150,105,0.15)" }}>
               <span className="font-unbounded text-xs font-bold tracking-widest uppercase" style={{ color: "#EF4444" }}>
                 Before PharmaStockAI
               </span>
             </div>
-            <div className="px-8 py-5 border-b" style={{ background: "rgba(11,218,81,0.08)", borderColor: "rgba(11,218,81,0.15)" }}>
-              <span className="font-unbounded text-xs font-bold tracking-widest uppercase" style={{ color: "#0BDA51" }}>
+            <div className="px-8 py-5 border-b" style={{ background: "rgba(5,150,105,0.06)", borderColor: "rgba(5,150,105,0.15)" }}>
+              <span className="font-unbounded text-xs font-bold tracking-widest uppercase" style={{ color: "#059669" }}>
                 After PharmaStockAI
               </span>
             </div>
@@ -65,19 +65,19 @@ export default function PharmaBeforeAfter() {
             <div
               key={i}
               className="grid grid-cols-2 border-b last:border-b-0"
-              style={{ borderColor: "rgba(11,218,81,0.1)" }}
+              style={{ borderColor: "rgba(5,150,105,0.08)" }}
             >
-              <div className="px-8 py-5 flex items-center gap-3 border-r" style={{ borderColor: "rgba(11,218,81,0.1)", background: i % 2 === 0 ? "rgba(239,68,68,0.02)" : "transparent" }}>
-                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(239,68,68,0.15)" }}>
+              <div className="px-8 py-5 flex items-center gap-3 border-r" style={{ borderColor: "rgba(5,150,105,0.08)", background: i % 2 === 0 ? "rgba(239,68,68,0.03)" : "transparent" }}>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(239,68,68,0.10)" }}>
                   <X className="w-3 h-3" style={{ color: "#EF4444" }} />
                 </div>
-                <span className="text-sm" style={{ color: "#94A3B8" }}>{row.before}</span>
+                <span className="text-sm" style={{ color: "#475569" }}>{row.before}</span>
               </div>
               <div className="px-8 py-5 flex items-center gap-3" style={{ background: i % 2 === 0 ? "rgba(11,218,81,0.03)" : "transparent" }}>
-                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(11,218,81,0.15)" }}>
-                  <Check className="w-3 h-3" style={{ color: "#0BDA51" }} />
+                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(5,150,105,0.15)" }}>
+                  <Check className="w-3 h-3" style={{ color: "#059669" }} />
                 </div>
-                <span className="text-sm font-medium" style={{ color: "#E2E8F0" }}>{row.after}</span>
+                <span className="text-sm font-medium" style={{ color: "#1E293B" }}>{row.after}</span>
               </div>
             </div>
           ))}

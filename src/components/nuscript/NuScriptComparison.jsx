@@ -14,7 +14,7 @@ const rows = [
 
 export default function NuScriptComparison() {
   return (
-    <section id="comparison" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(11,218,81,0.1)" }}>
+    <section id="comparison" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(5,150,105,0.08)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -32,10 +32,10 @@ export default function NuScriptComparison() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-unbounded text-3xl lg:text-4xl font-bold leading-tight mb-12"
-          style={{ color: "#F1F5F9" }}
+          style={{ color: "#0F172A" }}
         >
           The Old Way vs.{" "}
-          <span style={{ color: "#0BDA51" }}>The MedScribeAI Way.</span>
+          <span style={{ color: "#059669" }}>The MedScribeAI Way.</span>
         </motion.h2>
 
         <motion.div
@@ -44,13 +44,13 @@ export default function NuScriptComparison() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="rounded-2xl border overflow-hidden"
-          style={{ borderColor: "rgba(11,218,81,0.2)" }}
+          style={{ borderColor: "rgba(5,150,105,0.15)" }}
         >
           {/* Header */}
-          <div className="grid grid-cols-3 text-xs font-semibold tracking-widest uppercase" style={{ background: "rgba(11,218,81,0.1)" }}>
-            <div className="px-6 py-4" style={{ color: "#7B8FA0" }}>Metric</div>
-            <div className="px-6 py-4 border-l" style={{ color: "#EF4444", borderColor: "rgba(11,218,81,0.15)" }}>The Old Way</div>
-            <div className="px-6 py-4 border-l" style={{ color: "#0BDA51", borderColor: "rgba(11,218,81,0.15)" }}>The MedScribeAI Way</div>
+          <div className="grid grid-cols-3 text-xs font-semibold tracking-widest uppercase" style={{ background: "rgba(5,150,105,0.08)" }}>
+            <div className="px-6 py-4" style={{ color: "#94A3B8" }}>Metric</div>
+            <div className="px-6 py-4 border-l" style={{ color: "#EF4444", borderColor: "rgba(5,150,105,0.15)" }}>The Old Way</div>
+            <div className="px-6 py-4 border-l" style={{ color: "#059669", borderColor: "rgba(5,150,105,0.15)" }}>The MedScribeAI Way</div>
           </div>
 
           {rows.map((row, i) => (
@@ -61,16 +61,16 @@ export default function NuScriptComparison() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
               className="grid grid-cols-3 border-t"
-              style={{ borderColor: "rgba(11,218,81,0.1)", background: i % 2 === 0 ? "rgba(6,13,26,0.4)" : "transparent" }}
+              style={{ borderColor: "rgba(5,150,105,0.08)", background: i % 2 === 0 ? "rgba(6,13,26,0.4)" : "transparent" }}
             >
-              <div className="px-6 py-4 text-sm font-medium" style={{ color: "#7B8FA0" }}>{row.metric}</div>
-              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(11,218,81,0.1)" }}>
+              <div className="px-6 py-4 text-sm font-medium" style={{ color: "#94A3B8" }}>{row.metric}</div>
+              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(5,150,105,0.08)" }}>
                 <X className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#EF4444" }} />
-                <span className="text-sm" style={{ color: "#7B8FA0" }}>{row.old}</span>
+                <span className="text-sm" style={{ color: "#94A3B8" }}>{row.old}</span>
               </div>
-              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(11,218,81,0.1)" }}>
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#0BDA51" }} />
-                <span className="text-sm font-medium" style={{ color: "#CBD5E1" }}>{row.new}</span>
+              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(5,150,105,0.08)" }}>
+                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#059669" }} />
+                <span className="text-sm font-medium" style={{ color: "#334155" }}>{row.new}</span>
               </div>
             </motion.div>
           ))}
