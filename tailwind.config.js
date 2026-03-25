@@ -6,29 +6,29 @@ module.exports = {
   	extend: {
   		fontFamily: {
   			heading: ['var(--font-heading)', 'sans-serif'],
-  			body: ['var(--font-body)', 'ui-sans-serif', 'system-ui'],
-  			// legacy aliases
+  			body: ['var(--font-body)', 'sans-serif'],
+  			// legacy aliases — all resolve to Space Grotesk now
   			unbounded: ['var(--font-heading)', 'sans-serif'],
   			jakarta: ['var(--font-body)', 'sans-serif'],
   		},
   		fontWeight: {
-  			heading: '500',
+  			heading: '600',
   			body: '400',
   		},
   		letterSpacing: {
-  			heading: '0.005em',
-  			body: '0em',
+  			heading: '-0.015em',
+  			body: '0.01em',
   		},
   		fontSize: {
-  			'heading-1': ['2.75rem', { lineHeight: '1.2' }],
-  			'heading-2': ['2rem', { lineHeight: '1.25' }],
-  			'heading-3': ['1.625rem', { lineHeight: '1.3' }],
-  			'heading-4': ['1.375rem', { lineHeight: '1.3' }],
-  			'heading-5': ['1.25rem', { lineHeight: '1.35' }],
-  			'heading-6': ['1.125rem', { lineHeight: '1.35' }],
-  			'body-base': ['1rem', { lineHeight: '1.5' }],
-  			'body-sm': ['0.875rem', { lineHeight: '1.4' }],
-  			'body-xs': ['0.75rem', { lineHeight: '1.35' }],
+  			'heading-1': ['3.25rem', { lineHeight: '1.15' }],
+  			'heading-2': ['2.5rem', { lineHeight: '1.2' }],
+  			'heading-3': ['1.875rem', { lineHeight: '1.25' }],
+  			'heading-4': ['1.5rem', { lineHeight: '1.3' }],
+  			'heading-5': ['1.3rem', { lineHeight: '1.35' }],
+  			'heading-6': ['1.15rem', { lineHeight: '1.35' }],
+  			'body-base': ['1.0625rem', { lineHeight: '1.6' }],
+  			'body-sm': ['0.9375rem', { lineHeight: '1.5' }],
+  			'body-xs': ['0.8125rem', { lineHeight: '1.4' }],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
