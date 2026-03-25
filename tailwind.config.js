@@ -20,14 +20,22 @@ module.exports = {
   			body: '0.01em',
   		},
   		fontSize: {
+  			// ── Tailwind default overrides (SaaS-scale) ──
+  			'xs':   ['0.8125rem', { lineHeight: '1.4' }],    // 13px (was 12px)
+  			'sm':   ['1rem', { lineHeight: '1.5' }],          // 16px (was 14px)
+  			'base': ['1.125rem', { lineHeight: '1.6' }],      // 18px (was 16px)
+  			'lg':   ['1.25rem', { lineHeight: '1.55' }],      // 20px (was 18px)
+  			'xl':   ['1.375rem', { lineHeight: '1.4' }],      // 22px (was 20px)
+  			'2xl':  ['1.625rem', { lineHeight: '1.35' }],     // 26px (was 24px)
+  			// ── Design-system tokens ──
   			'heading-1': ['3.25rem', { lineHeight: '1.15' }],
   			'heading-2': ['2.5rem', { lineHeight: '1.2' }],
   			'heading-3': ['1.875rem', { lineHeight: '1.25' }],
   			'heading-4': ['1.5rem', { lineHeight: '1.3' }],
   			'heading-5': ['1.3rem', { lineHeight: '1.35' }],
   			'heading-6': ['1.15rem', { lineHeight: '1.35' }],
-  			'body-base': ['1.0625rem', { lineHeight: '1.6' }],
-  			'body-sm': ['0.9375rem', { lineHeight: '1.5' }],
+  			'body-base': ['1.125rem', { lineHeight: '1.6' }],
+  			'body-sm': ['1rem', { lineHeight: '1.5' }],
   			'body-xs': ['0.8125rem', { lineHeight: '1.4' }],
   		},
   		borderRadius: {
