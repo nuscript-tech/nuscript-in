@@ -11,7 +11,7 @@ export default function PharmaHero() {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(5,150,105,0.15) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(11,218,81,0.15) 0%, transparent 70%)" }}
           animate={{ x: [0, 60, 0], y: [0, -40, 0] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -37,11 +37,11 @@ export default function PharmaHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-unbounded text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6"
-              style={{ color: "#0F172A" }}
+              style={{ color: "#F1F5F9" }}
             >
               The Autonomous Engine{" "}
               for{" "}
-              <span style={{ color: "#059669" }}>Indian Pharmacy.</span>
+              <span style={{ color: "#0BDA51" }}>Indian Pharmacy.</span>
             </motion.h1>
 
             <motion.p
@@ -49,7 +49,7 @@ export default function PharmaHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
               className="text-base lg:text-lg leading-relaxed mb-10 max-w-xl"
-              style={{ color: "#475569" }}
+              style={{ color: "#94A3B8" }}
             >
               Moving beyond traditional ERPs. PharmaStockAI is a predictive intelligence layer built to
               automate procurement, eliminate expiry waste, and maximize margins for Indian retailers and distributors.
@@ -64,7 +64,7 @@ export default function PharmaHero() {
               <a
                 href="#contact"
                 className="group inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-lg text-sm transition-all duration-300"
-                style={{ background: "#059669", color: "#FFFFFF" }}
+                style={{ background: "#08CF65", color: "#0F172A" }}
               >
                 Get the Intelligence Report
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -72,7 +72,7 @@ export default function PharmaHero() {
               <a
                 href="#pillars"
                 className="inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-lg text-sm border transition-all duration-300"
-                style={{ borderColor: "rgba(11,218,81,0.4)", color: "#059669", background: "transparent" }}
+                style={{ borderColor: "rgba(11,218,81,0.4)", color: "#6EF797", background: "transparent" }}
               >
                 View Demo
               </a>

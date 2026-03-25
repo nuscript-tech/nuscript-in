@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const NODES = [
-  { id: "core", x: 50, y: 50, r: 22, label: "AI Core", color: "#059669", pulse: true },
-  { id: "n1", x: 18, y: 22, r: 12, label: "NuScriptAI", color: "#059669" },
-  { id: "n2", x: 82, y: 22, r: 12, label: "PharmaStockAI", color: "#0D9488" },
-  { id: "n3", x: 15, y: 72, r: 10, label: "Voice Engine", color: "#059669" },
+  { id: "core", x: 50, y: 50, r: 22, label: "AI Core", color: "#08CF65", pulse: true },
+  { id: "n1", x: 18, y: 22, r: 12, label: "NuScriptAI", color: "#0BDA51" },
+  { id: "n2", x: 82, y: 22, r: 12, label: "PharmaStockAI", color: "#2DD4BF" },
+  { id: "n3", x: 15, y: 72, r: 10, label: "Voice Engine", color: "#6EE7B7" },
   { id: "n4", x: 85, y: 72, r: 10, label: "Demand AI", color: "#34D399" },
   { id: "n5", x: 50, y: 88, r: 9, label: "Analytics", color: "#10B981" },
   { id: "n6", x: 50, y: 12, r: 9, label: "Data Layer", color: "#A3E635" },
@@ -38,29 +38,29 @@ export default function HeroVisual() {
       {/* Ambient glow */}
       <div
         className="absolute inset-0 rounded-3xl blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(circle at 50% 50%, rgba(5,150,105,0.15) 0%, rgba(13,148,136,0.08) 50%, transparent 80%)" }}
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(8,207,101,0.5) 0%, rgba(45,212,191,0.2) 50%, transparent 80%)" }}
       />
 
       <div
         className="relative rounded-2xl border overflow-hidden"
-        style={{ background: "rgba(255,255,255,0.92)", borderColor: "rgba(8,207,101,0.2)", backdropFilter: "blur(12px)" }}
+        style={{ background: "rgba(10,20,35,0.85)", borderColor: "rgba(8,207,101,0.2)", backdropFilter: "blur(12px)" }}
       >
         {/* Header */}
         <div
           className="flex items-center justify-between px-5 py-3 border-b"
-          style={{ borderColor: "rgba(5,150,105,0.10)", background: "rgba(0,0,0,0.04)" }}
+          style={{ borderColor: "rgba(8,207,101,0.15)", background: "rgba(0,0,0,0.3)" }}
         >
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <span className="text-xs font-mono" style={{ color: "#059669" }}>
+          <span className="text-xs font-mono" style={{ color: "#4ADE80" }}>
             nuscript · AI Neural Graph
           </span>
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-xs font-mono" style={{ color: "#059669" }}>LIVE</span>
+            <span className="text-xs font-mono" style={{ color: "#6EE7B7" }}>LIVE</span>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ export default function HeroVisual() {
           >
             <defs>
               <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#059669" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#08CF65" stopOpacity="0.9" />
                 <stop offset="100%" stopColor="#05A050" stopOpacity="0.6" />
               </radialGradient>
               <filter id="glow">
@@ -106,7 +106,7 @@ export default function HeroVisual() {
                 <motion.circle
                   key={i}
                   r="1"
-                  fill="#059669"
+                  fill="#08CF65"
                   filter="url(#glow)"
                   initial={{ cx: a.x, cy: a.y, opacity: 0 }}
                   animate={{
@@ -132,7 +132,7 @@ export default function HeroVisual() {
                   <motion.circle
                     cx={node.x} cy={node.y} r={node.r + 4}
                     fill="none"
-                    stroke="#059669"
+                    stroke="#08CF65"
                     strokeWidth="0.5"
                     initial={{ opacity: 0.6, r: node.r + 2 }}
                     animate={{ opacity: 0, r: node.r + 10 }}
@@ -165,14 +165,14 @@ export default function HeroVisual() {
         {/* Bottom stats bar */}
         <div
           className="grid grid-cols-3 divide-x border-t"
-          style={{ borderColor: "rgba(5,150,105,0.10)", divideColor: "rgba(5,150,105,0.08)" }}
+          style={{ borderColor: "rgba(8,207,101,0.15)", divideColor: "rgba(8,207,101,0.1)" }}
         >
           {[
-            { label: "Accuracy", value: "99.4%", color: "#059669" },
-            { label: "Uptime", value: "99.99%", color: "#0D9488" },
-            { label: "TAT", value: "< 2 min", color: "#059669" },
+            { label: "Accuracy", value: "99.4%", color: "#08CF65" },
+            { label: "Uptime", value: "99.99%", color: "#2DD4BF" },
+            { label: "TAT", value: "< 2 min", color: "#6EE7B7" },
           ].map((s) => (
-            <div key={s.label} className="px-4 py-3 text-center" style={{ borderColor: "rgba(5,150,105,0.08)" }}>
+            <div key={s.label} className="px-4 py-3 text-center" style={{ borderColor: "rgba(8,207,101,0.12)" }}>
               <p className="text-xs font-bold font-mono" style={{ color: s.color }}>{s.value}</p>
               <p className="text-xs mt-0.5" style={{ color: "#4A6A6A" }}>{s.label}</p>
             </div>

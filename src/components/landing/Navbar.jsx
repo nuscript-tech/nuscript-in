@@ -36,7 +36,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
             <img
-              src="/nuscript-logo.png"
+              src="/nuscript-logo-white.png"
               alt="NuScript Technologies"
               className="h-8 w-auto"
             />
@@ -58,7 +58,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => window.scrollTo(0, 0)}
-              className="text-sm font-medium bg-primary text-white px-5 py-2.5 rounded-lg hover:bg-primary-hover transition-colors duration-300"
+              className="text-sm font-medium bg-slate-950 text-white px-5 py-2.5 rounded-lg hover:bg-slate-800 transition-colors duration-300"
             >
               Get in Touch
             </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="block text-sm font-medium bg-primary text-white px-5 py-2.5 rounded-lg text-center"
+                className="block text-sm font-medium bg-slate-950 text-white px-5 py-2.5 rounded-lg text-center"
               >
                 Get in Touch
               </Link>

@@ -10,9 +10,9 @@ const paths = [
     description: "AI-native transcription chassis that delivers 99%+ accuracy and instant TAT for US healthcare providers.",
     cta: "Scale My MTSO Operations",
     href: "/nuscriptai",
-    color: "#059669",
+    color: "#0BDA51",
     bg: "rgba(11,218,81,0.07)",
-    border: "rgba(5,150,105,0.18)",
+    border: "rgba(11,218,81,0.25)",
   },
   {
     label: "PharmaStockAI",
@@ -20,9 +20,9 @@ const paths = [
     description: "Predictive intelligence that eliminates expiry waste and stockouts — protecting margins at every shelf.",
     cta: "Optimize My Pharmacy Stock",
     href: "/pharmastockai",
-    color: "#2563EB",
+    color: "#60A5FA",
     bg: "rgba(96,165,250,0.07)",
-    border: "rgba(37,99,235,0.15)",
+    border: "rgba(96,165,250,0.25)",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function DualPathCTA() {
           <h2 className="font-heading text-3xl lg:text-4xl font-semibold text-foreground mb-4">
             Choose Your Path to Automation.
           </h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#475569" }}>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "#94A3B8" }}>
             Whether you are serving global healthcare or local retail, NuScript Technologies provides the autonomous engine for your success.
           </p>
         </motion.div>
@@ -59,12 +59,12 @@ export default function DualPathCTA() {
             >
               <p className="text-xs font-medium tracking-widest uppercase mb-3" style={{ color: path.color }}>{path.tag}</p>
               <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{path.label}</h3>
-              <p className="text-sm leading-relaxed mb-8 flex-1" style={{ color: "#475569" }}>{path.description}</p>
+              <p className="text-sm leading-relaxed mb-8 flex-1" style={{ color: "#94A3B8" }}>{path.description}</p>
               <Link
                 to={path.href}
                 onClick={() => window.scrollTo(0, 0)}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 self-start"
-                style={{ background: path.color, color: "#FFFFFF" }}
+                style={{ background: path.color, color: "#0F172A" }}
               >
                 {path.cta}
                 <ArrowRight className="w-4 h-4" />

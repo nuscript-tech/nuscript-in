@@ -6,8 +6,8 @@ export default function AboutHero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full opacity-[0.06] blur-3xl" style={{ background: "#60A5FA" }} />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full opacity-[0.05] blur-3xl" style={{ background: "#0D9488" }} />
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{ background: "#60A5FA" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full opacity-8 blur-3xl" style={{ background: "#0D9488" }} />
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="agrid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -25,10 +25,10 @@ export default function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-unbounded text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6"
-            style={{ color: "#0F172A" }}
+            style={{ color: "#F1F5F9" }}
           >
             Engineering Precision for<br />
-            India's <span style={{ color: "#2563EB" }}>Essential Sectors.</span>
+            India's <span style={{ color: "#60A5FA" }}>Essential Sectors.</span>
           </motion.h1>
 
           <motion.p
@@ -36,9 +36,9 @@ export default function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
             className="text-base lg:text-lg leading-relaxed mb-10 max-w-2xl"
-            style={{ color: "#475569" }}
+            style={{ color: "#94A3B8" }}
           >
-            Born in Coimbatore. Proven in Global Healthcare. We are NuScript Technologies — a venture-backed innovation hub dedicated to replacing manual bottlenecks with <strong style={{ color: "#1E293B" }}>autonomous intelligence.</strong>
+            Born in Coimbatore. Proven in Global Healthcare. We are NuScript Technologies — a venture-backed innovation hub dedicated to replacing manual bottlenecks with <strong style={{ color: "#E2E8F0" }}>autonomous intelligence.</strong>
           </motion.p>
 
           <motion.div
@@ -50,7 +50,7 @@ export default function AboutHero() {
             <a
               href="#origins"
               className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300"
-              style={{ background: "#2563EB", color: "#FFFFFF" }}
+              style={{ background: "#60A5FA", color: "#0F172A" }}
             >
               Our Journey
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -58,7 +58,7 @@ export default function AboutHero() {
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 border"
-              style={{ borderColor: "rgba(96,165,250,0.4)", color: "#2563EB" }}
+              style={{ borderColor: "rgba(96,165,250,0.4)", color: "#60A5FA" }}
             >
               Join the Mission
             </a>
