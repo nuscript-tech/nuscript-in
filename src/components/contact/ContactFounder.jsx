@@ -40,11 +40,11 @@ export default function ContactFounder() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: "#0EA5E9" }}>Founder's Office</p>
                   <p className="text-sm font-medium" style={{ color: "#E2E8F0" }}>arvind.manohar@nuscript.in</p>
-                  <p className="text-xs mt-0.5" style={{ color: "#475569" }}>Enterprise & strategic discussions only</p>
+                  <p className="text-xs mt-0.5" style={{ color: "#7B8FA0" }}>Enterprise & strategic discussions only</p>
                 </div>
               </a>
               <div className="px-6 py-4 rounded-xl" style={{ background: "rgba(14,165,233,0.06)", border: "1px solid rgba(14,165,233,0.12)" }}>
-                <p className="text-xs" style={{ color: "#64748B" }}>
+                <p className="text-xs" style={{ color: "#7B8FA0" }}>
                   Looking for our US Operations? Visit{" "}
                   <a
                     href="https://nuscripthealth.com"

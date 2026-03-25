@@ -73,9 +73,9 @@ export default function PharmaTechSpecs() {
               <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(11,218,81,0.12)" }}>
                 <spec.icon className="w-5 h-5" style={{ color: "#0BDA51" }} />
               </div>
-              <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#94A3B8" }}>{spec.title}</p>
+              <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#7B8FA0" }}>{spec.title}</p>
               <p className="font-unbounded text-base font-bold mb-3" style={{ color: "#E2E8F0" }}>{spec.value}</p>
-              <p className="text-sm leading-relaxed" style={{ color: "#64748B" }}>{spec.detail}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>{spec.detail}</p>
             </motion.div>
           ))}
         </div>

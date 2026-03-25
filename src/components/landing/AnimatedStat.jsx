@@ -60,7 +60,7 @@ export default function AnimatedStat({ value, label, labelStyle }) {
       <p className="font-unbounded text-2xl font-bold" style={{ color: "#0BDA51" }}>
         {display}
       </p>
-      <p className="text-xs mt-1 max-w-[120px] leading-snug" style={labelStyle || { color: "#64748B" }}>
+      <p className="text-xs mt-1 max-w-[120px] leading-snug" style={labelStyle || { color: "#7B8FA0" }}>
         {label}
       </p>
     </div>

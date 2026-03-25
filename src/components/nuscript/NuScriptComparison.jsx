@@ -48,7 +48,7 @@ export default function NuScriptComparison() {
         >
           {/* Header */}
           <div className="grid grid-cols-3 text-xs font-semibold tracking-widest uppercase" style={{ background: "rgba(11,218,81,0.1)" }}>
-            <div className="px-6 py-4" style={{ color: "#64748B" }}>Metric</div>
+            <div className="px-6 py-4" style={{ color: "#7B8FA0" }}>Metric</div>
             <div className="px-6 py-4 border-l" style={{ color: "#EF4444", borderColor: "rgba(11,218,81,0.15)" }}>The Old Way</div>
             <div className="px-6 py-4 border-l" style={{ color: "#0BDA51", borderColor: "rgba(11,218,81,0.15)" }}>The MedScribeAI Way</div>
           </div>
@@ -63,10 +63,10 @@ export default function NuScriptComparison() {
               className="grid grid-cols-3 border-t"
               style={{ borderColor: "rgba(11,218,81,0.1)", background: i % 2 === 0 ? "rgba(6,13,26,0.4)" : "transparent" }}
             >
-              <div className="px-6 py-4 text-sm font-medium" style={{ color: "#94A3B8" }}>{row.metric}</div>
+              <div className="px-6 py-4 text-sm font-medium" style={{ color: "#7B8FA0" }}>{row.metric}</div>
               <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(11,218,81,0.1)" }}>
                 <X className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#EF4444" }} />
-                <span className="text-sm" style={{ color: "#64748B" }}>{row.old}</span>
+                <span className="text-sm" style={{ color: "#7B8FA0" }}>{row.old}</span>
               </div>
               <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(11,218,81,0.1)" }}>
                 <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#0BDA51" }} />

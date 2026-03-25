@@ -72,7 +72,7 @@ export default function PharmaFeatureSummary() {
         >
           <div className="flex items-center gap-3">
             <Shield className="w-4 h-4 flex-shrink-0" style={{ color: "#2DD4BF" }} />
-            <p className="text-xs font-body" style={{ color: "#64748B" }}>
+            <p className="text-xs font-body" style={{ color: "#7B8FA0" }}>
               Precision Inventory for the Foundations of India. Built on a decade of deep expertise in pharma and diagnostics.
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function PharmaFeatureSummary() {
             href="https://pharmastock.co.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 whitespace-nowrap border"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 border text-center"
             style={{ borderColor: "#2DD4BF", color: "#2DD4BF", background: "transparent" }}
           >
             Explore the Full Inventory Platform at pharmastock.co.in

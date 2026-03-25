@@ -13,7 +13,7 @@ export default function ContactFooterBar() {
       style={{ borderColor: "rgba(96,165,250,0.1)" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-xs" style={{ color: "#475569" }}>
+        <div className="text-xs" style={{ color: "#7B8FA0" }}>
           Looking for our US Operations? Visit{" "}
           <a
             href="https://nuscripthealth.com"
@@ -31,7 +31,7 @@ export default function ContactFooterBar() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs transition-opacity hover:opacity-80"
-            style={{ color: "#64748B" }}
+            style={{ color: "#7B8FA0" }}
           >
             <Linkedin className="w-4 h-4" style={{ color: "#60A5FA" }} />
             LinkedIn

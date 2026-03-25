@@ -61,7 +61,7 @@ export default function AboutWay() {
                 <v.icon className="w-6 h-6" style={{ color: "#0EA5E9" }} />
               </div>
               <h3 className="font-unbounded font-bold text-lg mb-3" style={{ color: "#F1F5F9" }}>{v.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#64748B" }}>{v.detail}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>{v.detail}</p>
             </motion.div>
           ))}
         </div>

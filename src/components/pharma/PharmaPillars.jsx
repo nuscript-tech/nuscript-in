@@ -115,7 +115,7 @@ export default function PharmaPillars() {
                     <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: "#0BDA51" }} />
                     <div>
                       <p className="text-sm font-semibold" style={{ color: "#CBD5E1" }}>{f.name}</p>
-                      <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "#64748B" }}>{f.detail}</p>
+                      <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "#7B8FA0" }}>{f.detail}</p>
                     </div>
                   </li>
                 ))}

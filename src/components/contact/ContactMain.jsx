@@ -74,7 +74,7 @@ export default function ContactMain() {
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#0BDA51" }} />
                 <div>
                    <p className="text-sm font-semibold mb-1" style={{ color: "#F1F5F9" }}>NuScript Technologies Private Limited</p>
-                   <p className="text-sm leading-relaxed" style={{ color: "#64748B" }}>
+                   <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>
                      657 Tristar Towers, East Wing<br />
                      3rd Floor, Avinashi Road<br />
                      Coimbatore, Tamil Nadu 641037, India
@@ -83,7 +83,7 @@ export default function ContactMain() {
               </div>
               <div className="flex gap-3">
                 <Clock className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#0BDA51" }} />
-                <p className="text-sm" style={{ color: "#64748B" }}>Monday – Friday: 9:00 AM – 6:00 PM IST</p>
+                <p className="text-sm" style={{ color: "#94A3B8" }}>Monday – Friday: 9:00 AM – 6:00 PM IST</p>
               </div>
               <div className="flex gap-3">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#0BDA51" }} />
@@ -126,7 +126,7 @@ export default function ContactMain() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Path Selector */}
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#64748B" }}>I am interested in:</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#7B8FA0" }}>I am interested in:</p>
                   <div className="space-y-3">
                     {paths.map((p) => {
                       const active = selected.includes(p.id);
@@ -143,11 +143,11 @@ export default function ContactMain() {
                         >
                           {active
                              ? <CheckSquare className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#0BDA51" }} />
-                             : <Square className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#334155" }} />
+                             : <Square className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#64748B" }} />
                            }
                           <div>
                             <p className="text-sm font-semibold" style={{ color: active ? "#F1F5F9" : "#94A3B8" }}>{p.label}</p>
-                            <p className="text-xs mt-0.5" style={{ color: "#475569" }}>{p.sub}</p>
+                            <p className="text-xs mt-0.5" style={{ color: "#7B8FA0" }}>{p.sub}</p>
                           </div>
                         </button>
                       );
@@ -165,7 +165,7 @@ export default function ContactMain() {
                   <FormInput label="Phone Number" name="phone" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#64748B" }}>
+                  <label className="block text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#7B8FA0" }}>
                     How can we help your business scale?
                   </label>
                   <textarea
@@ -204,7 +204,7 @@ function FormInput({ label, name, type = "text", placeholder, value, onChange, r
   const [focused, setFocused] = useState(false);
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#64748B" }}>{label}</label>
+      <label className="block text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#7B8FA0" }}>{label}</label>
       <input
         type={type}
         name={name}

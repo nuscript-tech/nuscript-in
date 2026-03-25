@@ -22,7 +22,7 @@ export default function NuScriptDashboardVisual() {
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <span className="text-xs font-mono" style={{ color: "#475569" }}>medscribeai — transcription queue</span>
+          <span className="text-xs font-mono" style={{ color: "#64748B" }}>medscribeai — transcription queue</span>
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#0BDA51" }} />
             <span className="text-xs" style={{ color: "#0BDA51" }}>Live</span>
@@ -39,7 +39,7 @@ export default function NuScriptDashboardVisual() {
             ].map((s) => (
               <div key={s.label} className="rounded-lg p-3 border text-center" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(255,255,255,0.06)" }}>
                 <p className="font-unbounded font-bold text-sm" style={{ color: s.color }}>{s.value}</p>
-                <p className="text-[10px] mt-0.5 leading-tight" style={{ color: "#475569" }}>{s.label}</p>
+                <p className="text-[10px] mt-0.5 leading-tight" style={{ color: "#64748B" }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -61,8 +61,8 @@ export default function NuScriptDashboardVisual() {
                   </motion.div>
               }
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-mono" style={{ color: "#94A3B8" }}>{job.id}</p>
-                <p className="text-[10px]" style={{ color: "#475569" }}>{job.provider} · {job.specialty}</p>
+                <p className="text-xs font-mono" style={{ color: "#64748B" }}>{job.id}</p>
+                <p className="text-[10px]" style={{ color: "#64748B" }}>{job.provider} · {job.specialty}</p>
               </div>
               <span className="text-xs font-mono" style={{ color: job.status === "complete" ? "#0BDA51" : "#0EA5E9" }}>{job.time}</span>
             </motion.div>
@@ -71,7 +71,7 @@ export default function NuScriptDashboardVisual() {
           {/* Footer */}
           <div className="flex items-center gap-2 pt-1">
             <Mic className="w-3 h-3" style={{ color: "#0BDA51" }} />
-            <span className="text-[10px]" style={{ color: "#475569" }}>Voice → Structured Report · Zero Manual Review</span>
+            <span className="text-[10px]" style={{ color: "#64748B" }}>Voice → Structured Report · Zero Manual Review</span>
           </div>
         </div>
       </div>

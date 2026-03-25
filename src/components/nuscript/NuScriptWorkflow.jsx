@@ -84,7 +84,7 @@ export default function NuScriptWorkflow() {
               style={
                 active === i
                   ? { background: "#08CF65", color: "#0F172A" }
-                  : { background: "rgba(8,207,101,0.08)", color: "#64748B", border: "1px solid rgba(8,207,101,0.2)" }
+                  : { background: "rgba(8,207,101,0.08)", color: "#7B8FA0", border: "1px solid rgba(8,207,101,0.2)" }
               }
             >
               {p.number}. {p.title.split(" ").slice(0, 2).join(" ")}…
@@ -122,7 +122,7 @@ export default function NuScriptWorkflow() {
                 style={{ background: "rgba(11,218,81,0.05)", borderColor: "rgba(11,218,81,0.15)" }}
               >
                 <p className="font-semibold text-sm mb-1" style={{ color: "#E2E8F0" }}>{f.label}</p>
-                <p className="text-sm" style={{ color: "#64748B" }}>{f.detail}</p>
+                <p className="text-sm" style={{ color: "#94A3B8" }}>{f.detail}</p>
               </motion.div>
             ))}
           </div>

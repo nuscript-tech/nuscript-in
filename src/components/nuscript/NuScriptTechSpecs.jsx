@@ -50,7 +50,7 @@ export default function NuScriptTechSpecs() {
               <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: "rgba(11,218,81,0.15)" }}>
                 <spec.icon className="w-5 h-5" style={{ color: "#0BDA51" }} />
               </div>
-              <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "#64748B" }}>{spec.label}</p>
+              <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "#7B8FA0" }}>{spec.label}</p>
               <p className="text-sm font-medium" style={{ color: "#CBD5E1" }}>{spec.value}</p>
             </motion.div>
           ))}

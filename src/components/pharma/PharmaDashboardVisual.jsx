@@ -24,7 +24,7 @@ export default function PharmaDashboardVisual() {
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <span className="text-xs font-mono" style={{ color: "#475569" }}>pharmastockai — inventory ops</span>
+          <span className="text-xs font-mono" style={{ color: "#64748B" }}>pharmastockai — inventory ops</span>
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#60A5FA" }} />
             <span className="text-xs" style={{ color: "#60A5FA" }}>Live</span>
@@ -35,7 +35,7 @@ export default function PharmaDashboardVisual() {
           {/* Forecast chart */}
           <div className="rounded-xl p-3.5 border" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(96,165,250,0.15)" }}>
             <div className="flex items-center justify-between mb-2.5">
-              <span className="text-xs font-semibold" style={{ color: "#64748B" }}>Demand Forecast — Next 30d</span>
+              <span className="text-xs font-semibold" style={{ color: "#7B8FA0" }}>Demand Forecast — Next 30d</span>
               <div className="flex items-center gap-1 text-xs" style={{ color: "#60A5FA" }}>
                 <TrendingDown className="w-3 h-3" />
                 Waste ↓ 6.2%
@@ -72,10 +72,10 @@ export default function PharmaDashboardVisual() {
                 : <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#22C55E" }} />
               }
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium" style={{ color: "#94A3B8" }}>{a.drug}</p>
-                <p className="text-[10px]" style={{ color: "#475569" }}>{a.action}</p>
+                <p className="text-xs font-medium" style={{ color: "#7B8FA0" }}>{a.drug}</p>
+                <p className="text-[10px]" style={{ color: "#64748B" }}>{a.action}</p>
               </div>
-              <span className="text-[10px] font-mono" style={{ color: "#475569" }}>{a.stock}</span>
+              <span className="text-[10px] font-mono" style={{ color: "#64748B" }}>{a.stock}</span>
             </motion.div>
           ))}
         </div>

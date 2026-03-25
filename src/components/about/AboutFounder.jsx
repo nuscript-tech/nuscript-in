@@ -38,7 +38,7 @@ export default function AboutFounder() {
               </p>
               <div>
                 <p className="font-unbounded font-bold text-base" style={{ color: "#F1F5F9" }}>Arvind Manohar</p>
-                <p className="text-sm mt-1" style={{ color: "#64748B" }}>Founder & CEO, NuScript Technologies · 8 Startups · 4 Exits</p>
+                <p className="text-sm mt-1" style={{ color: "#94A3B8" }}>Founder & CEO, NuScript Technologies · 8 Startups · 4 Exits</p>
               </div>
             </div>
 
@@ -51,7 +51,7 @@ export default function AboutFounder() {
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl p-4 border text-center" style={{ background: "rgba(96,165,250,0.05)", borderColor: "rgba(96,165,250,0.15)" }}>
                   <p className="font-unbounded font-bold text-xl" style={{ color: "#0EA5E9" }}>{stat.value}</p>
-                  <p className="text-xs mt-1" style={{ color: "#64748B" }}>{stat.label}</p>
+                  <p className="text-xs mt-1" style={{ color: "#7B8FA0" }}>{stat.label}</p>
                 </div>
               ))}
             </div>

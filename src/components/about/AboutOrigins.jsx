@@ -73,7 +73,7 @@ export default function AboutOrigins() {
                   </div>
                   <div>
                     <p className="font-unbounded font-bold text-sm mb-1" style={{ color: "#0BDA51" }}>{item.year} — {item.label}</p>
-                    <p className="text-sm" style={{ color: "#64748B" }}>{item.detail}</p>
+                    <p className="text-sm" style={{ color: "#94A3B8" }}>{item.detail}</p>
                   </div>
                 </motion.div>
               ))}
