@@ -14,29 +14,29 @@ const bars = [55, 70, 45, 90, 80, 60, 95, 85, 75, 88, 92, 78];
 export default function PharmaDashboardVisual() {
   return (
     <div className="relative w-full max-w-lg ml-auto">
-      <div className="absolute -inset-4 rounded-3xl opacity-15 blur-2xl" style={{ background: "linear-gradient(135deg, #3B82F6, #1D4ED8)" }} />
+      <div className="absolute -inset-4 rounded-3xl opacity-15 blur-2xl" style={{ background: "linear-gradient(135deg, #00C0FF, #1D4ED8)" }} />
 
-      <div className="relative rounded-2xl overflow-hidden border" style={{ background: "#050A14", borderColor: "rgba(59,130,246,0.25)" }}>
+      <div className="relative rounded-2xl overflow-hidden border" style={{ background: "#04142F", borderColor: "rgba(0,192,255,0.25)" }}>
          {/* Header */}
-         <div className="flex items-center justify-between px-5 py-3.5 border-b" style={{ borderColor: "rgba(59,130,246,0.15)", background: "rgba(0,0,0,0.3)" }}>
+         <div className="flex items-center justify-between px-5 py-3.5 border-b" style={{ borderColor: "rgba(0,192,255,0.15)", background: "rgba(0,0,0,0.3)" }}>
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <span className="text-xs font-mono" style={{ color: "#64748B" }}>pharmastockai — inventory ops</span>
+          <span className="text-xs font-mono" style={{ color: "#385A8A" }}>pharmastockai — inventory ops</span>
           <div className="flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#3B82F6" }} />
-            <span className="text-xs" style={{ color: "#3B82F6" }}>Live</span>
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00C0FF" }} />
+            <span className="text-xs" style={{ color: "#00C0FF" }}>Live</span>
           </div>
         </div>
 
         <div className="p-5 space-y-3">
           {/* Forecast chart */}
-          <div className="rounded-xl p-3.5 border" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(59,130,246,0.15)" }}>
+          <div className="rounded-xl p-3.5 border" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(0,192,255,0.15)" }}>
             <div className="flex items-center justify-between mb-2.5">
-              <span className="text-xs font-semibold" style={{ color: "#7B8FA0" }}>Demand Forecast — Next 30d</span>
-              <div className="flex items-center gap-1 text-xs" style={{ color: "#3B82F6" }}>
+              <span className="text-xs font-semibold" style={{ color: "#4678CD" }}>Demand Forecast — Next 30d</span>
+              <div className="flex items-center gap-1 text-xs" style={{ color: "#00C0FF" }}>
                 <TrendingDown className="w-3 h-3" />
                 Waste ↓ 6.2%
               </div>
@@ -49,7 +49,7 @@ export default function PharmaDashboardVisual() {
                   animate={{ height: `${h}%` }}
                   transition={{ duration: 0.5, delay: i * 0.04 }}
                   className="flex-1 rounded-sm"
-                   style={{ background: i > 8 ? "#3B82F6" : "rgba(59,130,246,0.3)" }}
+                   style={{ background: i > 8 ? "#00C0FF" : "rgba(0,192,255,0.3)" }}
                 />
               ))}
             </div>
@@ -68,14 +68,14 @@ export default function PharmaDashboardVisual() {
               {a.level === "warn"
                 ? <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#F59E0B" }} />
                 : a.level === "info"
-                ? <Package className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#3B82F6" }} />
-                : <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#10B981" }} />
+                ? <Package className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00C0FF" }} />
+                : <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00C0FF" }} />
               }
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium" style={{ color: "#7B8FA0" }}>{a.drug}</p>
-                <p className="text-[10px]" style={{ color: "#64748B" }}>{a.action}</p>
+                <p className="text-xs font-medium" style={{ color: "#4678CD" }}>{a.drug}</p>
+                <p className="text-[10px]" style={{ color: "#385A8A" }}>{a.action}</p>
               </div>
-              <span className="text-[10px] font-mono" style={{ color: "#64748B" }}>{a.stock}</span>
+              <span className="text-[10px] font-mono" style={{ color: "#385A8A" }}>{a.stock}</span>
             </motion.div>
           ))}
         </div>

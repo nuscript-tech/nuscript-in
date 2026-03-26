@@ -14,7 +14,7 @@ const rows = [
 
 export default function NuScriptComparison() {
   return (
-    <section id="comparison" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(16,185,129,0.1)" }}>
+    <section id="comparison" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(0,192,255,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function NuScriptComparison() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-unbounded text-3xl lg:text-4xl font-bold leading-tight mb-12"
-          style={{ color: "#F1F5F9" }}
+          style={{ color: "#E8F1FF" }}
         >
           The Old Way vs.{" "}
           <span className="gradient-text">The MedScribeAI Way.</span>
@@ -44,13 +44,13 @@ export default function NuScriptComparison() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="rounded-2xl border overflow-hidden"
-          style={{ borderColor: "rgba(16,185,129,0.2)" }}
+          style={{ borderColor: "rgba(0,192,255,0.2)" }}
         >
           {/* Header */}
-          <div className="grid grid-cols-3 text-xs font-semibold tracking-widest uppercase" style={{ background: "rgba(16,185,129,0.1)" }}>
-            <div className="px-6 py-4" style={{ color: "#7B8FA0" }}>Metric</div>
-            <div className="px-6 py-4 border-l" style={{ color: "#EF4444", borderColor: "rgba(16,185,129,0.15)" }}>The Old Way</div>
-            <div className="px-6 py-4 border-l" style={{ color: "#10B981", borderColor: "rgba(16,185,129,0.15)" }}>The MedScribeAI Way</div>
+          <div className="grid grid-cols-3 text-xs font-semibold tracking-widest uppercase" style={{ background: "rgba(0,192,255,0.1)" }}>
+            <div className="px-6 py-4" style={{ color: "#4678CD" }}>Metric</div>
+            <div className="px-6 py-4 border-l" style={{ color: "#EF4444", borderColor: "rgba(0,192,255,0.15)" }}>The Old Way</div>
+            <div className="px-6 py-4 border-l" style={{ color: "#00C0FF", borderColor: "rgba(0,192,255,0.15)" }}>The MedScribeAI Way</div>
           </div>
 
           {rows.map((row, i) => (
@@ -61,16 +61,16 @@ export default function NuScriptComparison() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
               className="grid grid-cols-3 border-t"
-              style={{ borderColor: "rgba(16,185,129,0.1)", background: i % 2 === 0 ? "rgba(6,13,26,0.4)" : "transparent" }}
+              style={{ borderColor: "rgba(0,192,255,0.1)", background: i % 2 === 0 ? "rgba(6,13,26,0.4)" : "transparent" }}
             >
-              <div className="px-6 py-4 text-sm font-medium" style={{ color: "#7B8FA0" }}>{row.metric}</div>
-              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(16,185,129,0.1)" }}>
+              <div className="px-6 py-4 text-sm font-medium" style={{ color: "#4678CD" }}>{row.metric}</div>
+              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(0,192,255,0.1)" }}>
                 <X className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#EF4444" }} />
-                <span className="text-sm" style={{ color: "#7B8FA0" }}>{row.old}</span>
+                <span className="text-sm" style={{ color: "#4678CD" }}>{row.old}</span>
               </div>
-              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(16,185,129,0.1)" }}>
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#10B981" }} />
-                <span className="text-sm font-medium" style={{ color: "#CBD5E1" }}>{row.new}</span>
+              <div className="px-6 py-4 border-l flex items-start gap-2" style={{ borderColor: "rgba(0,192,255,0.1)" }}>
+                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#00C0FF" }} />
+                <span className="text-sm font-medium" style={{ color: "#9CB2D8" }}>{row.new}</span>
               </div>
             </motion.div>
           ))}

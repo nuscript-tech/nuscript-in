@@ -10,53 +10,53 @@
     --font-body: 'Instrument Sans', sans-serif;
 
     /* --- Background & Core Surfaces --- */
-    --background: 222 47% 11%;       /* #0F172A */
-    --foreground: 210 28% 93%;       /* #E6EDF3 */
+    --background: 222 80% 10%;          /* #04142F */
+    --foreground: 220 60% 95%;          /* #E8F1FF */
 
     /* --- Brand & Action Colors --- */
-    --primary: 160 59% 39%;            /* #10B981 - Brand Emerald */
-    --primary-foreground: 153 96% 7%;/* #052e16 - dark green for button text */
+    --primary: 195 100% 50%;            /* #00C0FF - Brand Cyan */
+    --primary-foreground: 222 80% 10%;  /* #04142F */
 
-    --secondary: 222 37% 28%;        /* #2E3F62 */
-    --secondary-foreground: 210 28% 93%;
+    --secondary: 220 65% 20%;           /* #0D295A */
+    --secondary-foreground: 220 60% 95%;
 
     /* --- Components (Cards & Surfaces) --- */
-    --card: 213 39% 15%;             /* #112836 */
-    --card-foreground: 210 28% 93%;
-    --popover: 213 39% 15%;
-    --popover-foreground: 210 28% 93%;
+    --card: 220 65% 20%;                /* #0D295A */
+    --card-foreground: 220 60% 95%;
+    --popover: 220 65% 20%;
+    --popover-foreground: 220 60% 95%;
 
     /* --- Muted Elements & Borders --- */
-    --muted: 218 27% 20%;            /* #243249 tertiary */
-    --muted-foreground: 210 11% 57%; /* #9AA7B2 */
+    --muted: 220 55% 22%;               /* #163272 */
+    --muted-foreground: 218 40% 60%;    /* #7A9AC4 */
     
-    /* --- New Subheading Colors --- */
-    --subheading: 211 18% 58%;       /* #A0B0C0 */
-    --subheading-tertiary: 208 16% 42%; /* #7C8A99 */
-    --accent: 218 27% 20%;
-    --accent-foreground: 210 28% 93%;
+    /* --- Subheading Colors --- */
+    --subheading: 218 45% 73%;          /* #9CB2D8 */
+    --subheading-tertiary: 218 50% 55%; /* #4678CD */
+    --accent: 220 55% 22%;
+    --accent-foreground: 220 60% 95%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 213 30% 24%;           /* #2A3A4F */
-    --input: 213 30% 24%;
-    --ring: 160 59% 39%;             /* #10B981 */
+    --border: 220 55% 22%;              /* #162D5A */
+    --input: 220 55% 22%;
+    --ring: 195 100% 50%;               /* #00C0FF */
 
-    --chart-1: 160 59% 39%;
-    --chart-2: 217 91% 60%;
+    --chart-1: 195 100% 50%;
+    --chart-2: 160 59% 39%;
     --chart-3: 38 92% 50%;
     --chart-4: 43 74% 66%;
     --chart-5: 0 84% 60%;
     --radius: 0.75rem;
 
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 210 28% 93%;
-    --sidebar-primary: 160 59% 39%;
-    --sidebar-primary-foreground: 153 96% 7%;
-    --sidebar-accent: 218 27% 20%;
-    --sidebar-accent-foreground: 210 28% 93%;
-    --sidebar-border: 213 30% 24%;
-    --sidebar-ring: 160 59% 39%;
+    --sidebar-background: 222 80% 10%;
+    --sidebar-foreground: 220 60% 95%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 222 80% 10%;
+    --sidebar-accent: 220 55% 22%;
+    --sidebar-accent-foreground: 220 60% 95%;
+    --sidebar-border: 220 55% 22%;
+    --sidebar-ring: 195 100% 50%;
   }
 }
 
@@ -129,7 +129,7 @@
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(90deg, #10B981 0%, #3B82F6 50%, #10B981 100%);
+    background: linear-gradient(90deg, #00C0FF 0%, #10B981 40%, #00C0FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

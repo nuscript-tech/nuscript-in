@@ -50,7 +50,7 @@ export default function NuScriptWorkflow() {
   const Icon = pillar.icon;
 
   return (
-    <section id="workflow" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(16,185,129,0.1)" }}>
+    <section id="workflow" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(0,192,255,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function NuScriptWorkflow() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#10B981" }}
+          style={{ color: "#00C0FF" }}
         >
           Autonomous Workflow
         </motion.p>
@@ -68,7 +68,7 @@ export default function NuScriptWorkflow() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-unbounded text-3xl lg:text-4xl font-bold leading-tight mb-12"
-          style={{ color: "#F1F5F9" }}
+          style={{ color: "#E8F1FF" }}
         >
           Three pillars of{" "}
           <span className="gradient-text">zero-touch documentation.</span>
@@ -83,8 +83,8 @@ export default function NuScriptWorkflow() {
               className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300"
               style={
                 active === i
-                  ? { background: "#10B981", color: "#0F172A" }
-                  : { background: "rgba(16,185,129,0.08)", color: "#7B8FA0", border: "1px solid rgba(16,185,129,0.2)" }
+                  ? { background: "#00C0FF", color: "#04142F" }
+                  : { background: "rgba(0,192,255,0.08)", color: "#4678CD", border: "1px solid rgba(0,192,255,0.2)" }
               }
             >
               {p.number}. {p.title.split(" ").slice(0, 2).join(" ")}…
@@ -101,14 +101,14 @@ export default function NuScriptWorkflow() {
           className="grid lg:grid-cols-2 gap-12 items-start"
         >
           <div>
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "rgba(16,185,129,0.15)" }}>
-              <Icon className="w-6 h-6" style={{ color: "#10B981" }} />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "rgba(0,192,255,0.15)" }}>
+              <Icon className="w-6 h-6" style={{ color: "#00C0FF" }} />
             </div>
-            <h3 className="font-unbounded text-2xl font-bold mb-2" style={{ color: "#F1F5F9" }}>
+            <h3 className="font-unbounded text-2xl font-bold mb-2" style={{ color: "#E8F1FF" }}>
               {pillar.title}
             </h3>
-            <p className="text-sm font-medium mb-4" style={{ color: "#10B981" }}>{pillar.subtitle}</p>
-            <p className="leading-relaxed" style={{ color: "#D1D5DB" }}>{pillar.description}</p>
+            <p className="text-sm font-medium mb-4" style={{ color: "#00C0FF" }}>{pillar.subtitle}</p>
+            <p className="leading-relaxed" style={{ color: "#9CB2D8" }}>{pillar.description}</p>
           </div>
 
           <div className="space-y-4">
@@ -119,10 +119,10 @@ export default function NuScriptWorkflow() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="rounded-xl p-5 border"
-                style={{ background: "rgba(16,185,129,0.05)", borderColor: "rgba(16,185,129,0.15)" }}
+                style={{ background: "rgba(0,192,255,0.05)", borderColor: "rgba(0,192,255,0.15)" }}
               >
-                <p className="font-semibold text-sm mb-1" style={{ color: "#E2E8F0" }}>{f.label}</p>
-                <p className="text-sm" style={{ color: "#94A3B8" }}>{f.detail}</p>
+                <p className="font-semibold text-sm mb-1" style={{ color: "#C8D8F0" }}>{f.label}</p>
+                <p className="text-sm" style={{ color: "#9CB2D8" }}>{f.detail}</p>
               </motion.div>
             ))}
           </div>

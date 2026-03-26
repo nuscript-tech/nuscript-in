@@ -65,7 +65,7 @@ export default function ProductCard({ product, index }) {
 
         {/* Market tag */}
         <div className="flex items-center justify-between">
-          <span className="text-xs text-slate-400 font-medium tracking-wide uppercase">
+          <span className="text-xs text-[#7A9AC4] font-medium tracking-wide uppercase">
             {product.market}
           </span>
           <motion.div

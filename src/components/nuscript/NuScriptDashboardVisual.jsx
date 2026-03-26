@@ -12,20 +12,20 @@ const jobs = [
 export default function NuScriptDashboardVisual() {
   return (
     <div className="relative w-full max-w-lg ml-auto">
-      <div className="absolute -inset-4 rounded-3xl opacity-15 blur-2xl" style={{ background: "linear-gradient(135deg, #10B981, #3B82F6)" }} />
+      <div className="absolute -inset-4 rounded-3xl opacity-15 blur-2xl" style={{ background: "linear-gradient(135deg, #00C0FF, #00C0FF)" }} />
 
-      <div className="relative rounded-2xl overflow-hidden border" style={{ background: "#0A1628", borderColor: "rgba(16,185,129,0.25)" }}>
+      <div className="relative rounded-2xl overflow-hidden border" style={{ background: "#061A3D", borderColor: "rgba(0,192,255,0.25)" }}>
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b" style={{ borderColor: "rgba(16,185,129,0.15)", background: "rgba(0,0,0,0.3)" }}>
+        <div className="flex items-center justify-between px-5 py-3.5 border-b" style={{ borderColor: "rgba(0,192,255,0.15)", background: "rgba(0,0,0,0.3)" }}>
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <span className="text-xs font-mono" style={{ color: "#64748B" }}>medscribeai — transcription queue</span>
+          <span className="text-xs font-mono" style={{ color: "#385A8A" }}>medscribeai — transcription queue</span>
           <div className="flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#10B981" }} />
-            <span className="text-xs" style={{ color: "#10B981" }}>Live</span>
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00C0FF" }} />
+            <span className="text-xs" style={{ color: "#00C0FF" }}>Live</span>
           </div>
         </div>
 
@@ -33,13 +33,13 @@ export default function NuScriptDashboardVisual() {
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-2 mb-4">
             {[
-              { label: "Processed Today", value: "2,847", color: "#10B981" },
-              { label: "Avg. Turnaround", value: "0.4s", color: "#3B82F6" },
+              { label: "Processed Today", value: "2,847", color: "#00C0FF" },
+              { label: "Avg. Turnaround", value: "0.4s", color: "#00C0FF" },
               { label: "Accuracy Rate", value: "99.4%", color: "#8B5CF6" },
             ].map((s) => (
               <div key={s.label} className="rounded-lg p-3 border text-center" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(255,255,255,0.06)" }}>
                 <p className="font-unbounded font-bold text-sm" style={{ color: s.color }}>{s.value}</p>
-                <p className="text-[10px] mt-0.5 leading-tight" style={{ color: "#64748B" }}>{s.label}</p>
+                <p className="text-[10px] mt-0.5 leading-tight" style={{ color: "#385A8A" }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -55,23 +55,23 @@ export default function NuScriptDashboardVisual() {
               style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(255,255,255,0.05)" }}
             >
               {job.status === "complete"
-                ? <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#10B981" }} />
+                ? <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00C0FF" }} />
                 : <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}>
-                    <Zap className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#3B82F6" }} />
+                    <Zap className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00C0FF" }} />
                   </motion.div>
               }
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-mono" style={{ color: "#64748B" }}>{job.id}</p>
-                <p className="text-[10px]" style={{ color: "#64748B" }}>{job.provider} · {job.specialty}</p>
+                <p className="text-xs font-mono" style={{ color: "#385A8A" }}>{job.id}</p>
+                <p className="text-[10px]" style={{ color: "#385A8A" }}>{job.provider} · {job.specialty}</p>
               </div>
-              <span className="text-xs font-mono" style={{ color: job.status === "complete" ? "#10B981" : "#3B82F6" }}>{job.time}</span>
+              <span className="text-xs font-mono" style={{ color: job.status === "complete" ? "#00C0FF" : "#00C0FF" }}>{job.time}</span>
             </motion.div>
           ))}
 
           {/* Footer */}
           <div className="flex items-center gap-2 pt-1">
-            <Mic className="w-3 h-3" style={{ color: "#10B981" }} />
-            <span className="text-[10px]" style={{ color: "#64748B" }}>Voice → Structured Report · Zero Manual Review</span>
+            <Mic className="w-3 h-3" style={{ color: "#00C0FF" }} />
+            <span className="text-[10px]" style={{ color: "#385A8A" }}>Voice → Structured Report · Zero Manual Review</span>
           </div>
         </div>
       </div>

@@ -14,8 +14,8 @@ const products = [
       "Complete removal of manual transcription. Our platform transforms dictation into structured clinical reports with unbeatable speed and 99%+ accuracy.",
     cta: "Scale Your MTSO",
     href: "/nuscriptai",
-    accentColor: "#10B981",
-    dotColor: "#10B981",
+    accentColor: "#00C0FF",
+    dotColor: "#00C0FF",
   },
   {
     id: "pharma",
@@ -27,8 +27,8 @@ const products = [
       "An autonomous inventory engine that ends stockouts and eliminates expiry waste through predictive intelligence.",
     cta: "Optimize Your Pharmacy",
     href: "/pharmastockai",
-    accentColor: "#10B981",
-    dotColor: "#10B981",
+    accentColor: "#00C0FF",
+    dotColor: "#00C0FF",
   },
 ];
 
@@ -49,9 +49,9 @@ function ProductCard({ product, index }) {
           className="relative rounded-2xl overflow-hidden border border-border bg-card cursor-pointer transition-all duration-500 h-full"
           style={{
             boxShadow: hovered
-              ? `0 0 40px 0 rgba(59,130,246,0.18), 0 0 0 1px rgba(59,130,246,0.25)`
+              ? `0 0 40px 0 rgba(0,192,255,0.18), 0 0 0 1px rgba(0,192,255,0.25)`
               : "none",
-            borderColor: hovered ? "rgba(59,130,246,0.3)" : undefined,
+            borderColor: hovered ? "rgba(0,192,255,0.3)" : undefined,
           }}
         >
           {/* Top accent bar */}
@@ -92,7 +92,7 @@ function ProductCard({ product, index }) {
             </p>
 
             {/* Description */}
-            <p className="text-sm font-jakarta mb-10" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
+            <p className="text-sm font-jakarta mb-10" style={{ lineHeight: "1.7", color: "#9CB2D8" }}>
               {product.description}
             </p>
 
@@ -101,7 +101,7 @@ function ProductCard({ product, index }) {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 group"
               style={{
                 background: hovered ? product.accentColor : "transparent",
-                color: hovered ? "#0F172A" : product.accentColor,
+                color: hovered ? "#04142F" : product.accentColor,
                 border: `1.5px solid ${product.accentColor}`,
               }}
             >
@@ -126,7 +126,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#3B82F6" }}
+            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00C0FF" }}
           >
             Dual Engine Platform
           </motion.p>

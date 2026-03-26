@@ -10,7 +10,7 @@ export default function NuScriptHero() {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.18) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(0,192,255,0.18) 0%, transparent 70%)" }}
           animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
           transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -23,7 +23,7 @@ export default function NuScriptHero() {
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10B981" strokeWidth="1"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00C0FF" strokeWidth="1"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -40,7 +40,7 @@ export default function NuScriptHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-unbounded text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6"
-              style={{ color: "#F1F5F9" }}
+              style={{ color: "#E8F1FF" }}
             >
               The End of Manual<br />
               <span className="gradient-text">Transcription</span> for MTSOs.
@@ -51,9 +51,9 @@ export default function NuScriptHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
               className="text-base lg:text-lg leading-relaxed mb-10 max-w-2xl"
-              style={{ color: "#94A3B8" }}
+              style={{ color: "#9CB2D8" }}
             >
-              Stop managing headcounts and start managing outcomes. MedScribeAI is the high-performance dictation-to-report platform built exclusively for Indian MTSOs to serve the US healthcare market with <strong style={{ color: "#E2E8F0" }}>99%+ accuracy</strong> and <strong style={{ color: "#E2E8F0" }}>zero manual processing.</strong>
+              Stop managing headcounts and start managing outcomes. MedScribeAI is the high-performance dictation-to-report platform built exclusively for Indian MTSOs to serve the US healthcare market with <strong style={{ color: "#C8D8F0" }}>99%+ accuracy</strong> and <strong style={{ color: "#C8D8F0" }}>zero manual processing.</strong>
             </motion.p>
 
             <motion.div
@@ -65,7 +65,7 @@ export default function NuScriptHero() {
               <a
                 href="#workflow"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300"
-                style={{ background: "#10B981", color: "#0F172A" }}
+                style={{ background: "#00C0FF", color: "#04142F" }}
               >
                 Automate Your Workflow
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -73,7 +73,7 @@ export default function NuScriptHero() {
               <a
                 href="#comparison"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 border"
-                style={{ borderColor: "rgba(59,130,246,0.4)", color: "#10B981", background: "transparent" }}
+                style={{ borderColor: "rgba(0,192,255,0.4)", color: "#00C0FF", background: "transparent" }}
               >
                 Scale Without Hiring
               </a>

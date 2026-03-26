@@ -56,10 +56,10 @@ module.exports = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: '#10B981',
-  				hover: '#0EA572',
-  				active: '#0D9668',
-  				foreground: '#052e16',
+  				DEFAULT: '#00C0FF',
+  				hover: '#00A8D6',
+  				active: '#0090B8',
+  				foreground: '#04142F',
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
@@ -74,16 +74,16 @@ module.exports = {
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			subheading: {
-  				DEFAULT: '#A0B0C0',
-  				tertiary: '#7C8A99',
+  				DEFAULT: '#9CB2D8',
+  				tertiary: '#4678CD',
   			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
   			border: {
-  				DEFAULT: '#2A3A4F',
-  				subtle: '#1F2A3A',
+  				DEFAULT: '#162D5A',
+  				subtle: '#0F2248',
   			},
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -94,21 +94,21 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			// ── Design-system tokens (from theme PDF) ──────────────────────────
+  			// ── Design-system tokens (navy theme) ──────────────────────────
   			surface: {
-  				DEFAULT: '#1B2431',
-  				secondary: '#2E3F62',
-  				tertiary: '#243249',
+  				DEFAULT: '#0D295A',
+  				secondary: '#163272',
+  				tertiary: '#0D295A',
   			},
   			text: {
-  				DEFAULT: '#E6EDF3',
-  				muted: '#9AA7B2',
-  				subtle: '#6B7785',
+  				DEFAULT: '#E8F1FF',
+  				muted: '#9CB2D8',
+  				subtle: '#4678CD',
   			},
   			success: '#10B981',
   			warning: '#F59E0B',
   			danger: '#EF4444',
-  			info: '#3B82F6',
+  			info: '#00C0FF',
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',
