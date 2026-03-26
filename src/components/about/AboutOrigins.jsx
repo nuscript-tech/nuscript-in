@@ -10,7 +10,7 @@ const timeline = [
 
 export default function AboutOrigins() {
   return (
-    <section id="origins" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(96,165,250,0.1)" }}>
+    <section id="origins" className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(37,99,235,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
@@ -20,7 +20,7 @@ export default function AboutOrigins() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="text-xs font-medium tracking-widest uppercase mb-4"
-              style={{ color: "#60A5FA" }}
+              style={{ color: "#2563EB" }}
             >
               Our Origins
             </motion.p>
@@ -57,7 +57,7 @@ export default function AboutOrigins() {
 
           {/* Timeline */}
           <div className="relative">
-            <div className="absolute left-5 top-0 bottom-0 w-px" style={{ background: "rgba(96,165,250,0.2)" }} />
+            <div className="absolute left-5 top-0 bottom-0 w-px" style={{ background: "rgba(37,99,235,0.2)" }} />
             <div className="space-y-8">
               {timeline.map((item, i) => (
                 <motion.div
@@ -68,11 +68,11 @@ export default function AboutOrigins() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex gap-6 pl-12 relative"
                 >
-                  <div className="absolute left-0 top-1 w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(96,165,250,0.15)", border: "1px solid rgba(96,165,250,0.3)" }}>
-                    <item.icon className="w-4 h-4" style={{ color: "#60A5FA" }} />
+                  <div className="absolute left-0 top-1 w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(37,99,235,0.15)", border: "1px solid rgba(37,99,235,0.3)" }}>
+                    <item.icon className="w-4 h-4" style={{ color: "#2563EB" }} />
                   </div>
                   <div>
-                    <p className="font-unbounded font-bold text-sm mb-1" style={{ color: "#0BDA51" }}>{item.year} — {item.label}</p>
+                    <p className="font-unbounded font-bold text-sm mb-1" style={{ color: "#10B981" }}>{item.year} — {item.label}</p>
                     <p className="text-sm" style={{ color: "#94A3B8" }}>{item.detail}</p>
                   </div>
                 </motion.div>

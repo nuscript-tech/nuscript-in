@@ -10,7 +10,7 @@ export default function ContactFooterBar() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="border-t py-8"
-      style={{ borderColor: "rgba(96,165,250,0.1)" }}
+      style={{ borderColor: "rgba(37,99,235,0.1)" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-xs" style={{ color: "#7B8FA0" }}>
@@ -20,7 +20,7 @@ export default function ContactFooterBar() {
             target="_blank"
             rel="noopener noreferrer"
             className="transition-opacity hover:opacity-80"
-            style={{ color: "#60A5FA" }}
+            style={{ color: "#2563EB" }}
           >
             NuScript Health
           </a>.
@@ -33,7 +33,7 @@ export default function ContactFooterBar() {
             className="flex items-center gap-2 text-xs transition-opacity hover:opacity-80"
             style={{ color: "#7B8FA0" }}
           >
-            <Linkedin className="w-4 h-4" style={{ color: "#60A5FA" }} />
+            <Linkedin className="w-4 h-4" style={{ color: "#2563EB" }} />
             LinkedIn
           </a>
         </div>

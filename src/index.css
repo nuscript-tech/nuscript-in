@@ -44,7 +44,7 @@
     --foreground: 210 28% 93%;       /* #E6EDF3 */
 
     /* --- Brand & Action Colors --- */
-    --primary: 141 94% 42%;          /* #08CF65 - Brand Green */
+    --primary: 160 59% 39%;            /* #10B981 - Brand Emerald */
     --primary-foreground: 153 96% 7%;/* #052e16 - dark green for button text */
 
     --secondary: 222 37% 28%;        /* #2E3F62 */
@@ -70,10 +70,10 @@
     --destructive-foreground: 0 0% 98%;
     --border: 213 30% 24%;           /* #2A3A4F */
     --input: 213 30% 24%;
-    --ring: 142 93% 46%;             /* #0BDA51 */
+    --ring: 160 59% 39%;             /* #10B981 */
 
-    --chart-1: 142 93% 46%;
-    --chart-2: 217 91% 60%;
+    --chart-1: 160 59% 39%;
+    --chart-2: 224 76% 53%;
     --chart-3: 38 92% 50%;
     --chart-4: 43 74% 66%;
     --chart-5: 0 84% 60%;
@@ -81,12 +81,12 @@
 
     --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 210 28% 93%;
-    --sidebar-primary: 142 93% 46%;
+    --sidebar-primary: 160 59% 39%;
     --sidebar-primary-foreground: 153 96% 7%;
     --sidebar-accent: 218 27% 20%;
     --sidebar-accent-foreground: 210 28% 93%;
     --sidebar-border: 213 30% 24%;
-    --sidebar-ring: 142 93% 46%;
+    --sidebar-ring: 160 59% 39%;
   }
 }
 
@@ -159,7 +159,7 @@
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(90deg, #0BDA51 0%, #60A5FA 50%, #0BDA51 100%);
+    background: linear-gradient(90deg, #10B981 0%, #2563EB 50%, #10B981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

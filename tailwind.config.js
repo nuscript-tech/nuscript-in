@@ -56,9 +56,9 @@ module.exports = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: '#08CF65',
-  				hover: '#06C85B',
-  				active: '#05B551',
+  				DEFAULT: '#10B981',
+  				hover: '#0EA572',
+  				active: '#0D9668',
   				foreground: '#052e16',
   			},
   			secondary: {
@@ -105,10 +105,10 @@ module.exports = {
   				muted: '#9AA7B2',
   				subtle: '#6B7785',
   			},
-  			success: '#0BDA51',
+  			success: '#10B981',
   			warning: '#F59E0B',
   			danger: '#EF4444',
-  			info: '#3B82F6',
+  			info: '#2563EB',
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',

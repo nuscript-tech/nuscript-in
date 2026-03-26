@@ -22,7 +22,7 @@ const points = [
 
 export default function AboutCoimbatore() {
   return (
-    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(96,165,250,0.1)" }}>
+    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(37,99,235,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export default function AboutCoimbatore() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#60A5FA" }}
+          style={{ color: "#2563EB" }}
         >
           Why Coimbatore?
         </motion.p>
@@ -55,10 +55,10 @@ export default function AboutCoimbatore() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="rounded-xl p-7 border"
-              style={{ background: "rgba(96,165,250,0.05)", borderColor: "rgba(96,165,250,0.15)" }}
+              style={{ background: "rgba(37,99,235,0.05)", borderColor: "rgba(37,99,235,0.15)" }}
             >
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ background: "rgba(96,165,250,0.15)" }}>
-                <pt.icon className="w-5 h-5" style={{ color: "#0EA5E9" }} />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ background: "rgba(37,99,235,0.15)" }}>
+                <pt.icon className="w-5 h-5" style={{ color: "#3B82F6" }} />
               </div>
               <h3 className="font-unbounded font-bold text-base mb-3" style={{ color: "#F1F5F9" }}>{pt.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{pt.detail}</p>

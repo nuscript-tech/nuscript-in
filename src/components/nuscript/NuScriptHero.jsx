@@ -10,7 +10,7 @@ export default function NuScriptHero() {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(11,218,81,0.18) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.18) 0%, transparent 70%)" }}
           animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
           transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -23,7 +23,7 @@ export default function NuScriptHero() {
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0BDA51" strokeWidth="1"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10B981" strokeWidth="1"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -65,7 +65,7 @@ export default function NuScriptHero() {
               <a
                 href="#workflow"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300"
-                style={{ background: "#08CF65", color: "#0F172A" }}
+                style={{ background: "#10B981", color: "#0F172A" }}
               >
                 Automate Your Workflow
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -73,7 +73,7 @@ export default function NuScriptHero() {
               <a
                 href="#comparison"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 border"
-                style={{ borderColor: "rgba(37,99,235,0.4)", color: "#0BDA51", background: "transparent" }}
+                style={{ borderColor: "rgba(37,99,235,0.4)", color: "#10B981", background: "transparent" }}
               >
                 Scale Without Hiring
               </a>

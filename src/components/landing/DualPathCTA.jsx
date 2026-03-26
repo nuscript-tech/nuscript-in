@@ -10,9 +10,9 @@ const paths = [
     description: "AI-native transcription chassis that delivers 99%+ accuracy and instant TAT for US healthcare providers.",
     cta: "Scale My MTSO Operations",
     href: "/nuscriptai",
-    color: "#0BDA51",
-    bg: "rgba(11,218,81,0.07)",
-    border: "rgba(11,218,81,0.25)",
+    color: "#10B981",
+    bg: "rgba(16,185,129,0.07)",
+    border: "rgba(16,185,129,0.25)",
   },
   {
     label: "PharmaStockAI",
@@ -20,9 +20,9 @@ const paths = [
     description: "Predictive intelligence that eliminates expiry waste and stockouts — protecting margins at every shelf.",
     cta: "Optimize My Pharmacy Stock",
     href: "/pharmastockai",
-    color: "#60A5FA",
-    bg: "rgba(96,165,250,0.07)",
-    border: "rgba(96,165,250,0.25)",
+    color: "#2563EB",
+    bg: "rgba(37,99,235,0.07)",
+    border: "rgba(37,99,235,0.25)",
   },
 ];
 

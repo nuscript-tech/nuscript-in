@@ -27,7 +27,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.15]"
         style={{
-          backgroundImage: "radial-gradient(circle, #08CF65 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, #10B981 1px, transparent 1px)",
           backgroundSize: "36px 36px",
         }}
       />
@@ -43,13 +43,13 @@ export default function HeroSection() {
       {/* Ambient glow orbs */}
       <motion.div
         className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(8,207,101,0.12) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)" }}
         animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute bottom-1/4 right-0 w-[420px] h-[420px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(45,212,191,0.08) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)" }}
         animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
         transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
@@ -64,8 +64,8 @@ export default function HeroSection() {
             top: dot.y,
             width: dot.size,
             height: dot.size,
-            background: "#08CF65",
-            boxShadow: `0 0 ${dot.size * 3}px rgba(8,207,101,0.6)`,
+            background: "#10B981",
+            boxShadow: `0 0 ${dot.size * 3}px rgba(16,185,129,0.6)`,
           }}
           animate={{ y: [0, -14, 0], opacity: [0.3, 0.8, 0.3] }}
           transition={{ duration: dot.duration, delay: dot.delay, repeat: Infinity, ease: "easeInOut" }}
@@ -80,7 +80,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 text-xs font-medium"
-            style={{ borderColor: "rgba(8,207,101,0.3)", color: "#08CF65", background: "rgba(8,207,101,0.06)" }}
+            style={{ borderColor: "rgba(16,185,129,0.3)", color: "#10B981", background: "rgba(16,185,129,0.06)" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             AI-Native · Built in Coimbatore · Serving India

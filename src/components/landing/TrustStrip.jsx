@@ -19,7 +19,7 @@ export default function TrustStrip() {
           }}
         >
           {/* Ambient glow */}
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: "#08CF65" }} />
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: "#10B981" }} />
           
           <div className="relative px-8 lg:px-12 py-12 lg:py-16 text-center">
             <motion.h2

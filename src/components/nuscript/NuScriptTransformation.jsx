@@ -4,7 +4,7 @@ import { Quote } from "lucide-react";
 
 export default function NuScriptTransformation() {
   return (
-    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(11,218,81,0.1)" }}>
+    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(16,185,129,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -12,7 +12,7 @@ export default function NuScriptTransformation() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#0BDA51" }}
+          style={{ color: "#10B981" }}
         >
           MTSO Transformation
         </motion.p>
@@ -34,12 +34,12 @@ export default function NuScriptTransformation() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative rounded-2xl p-8 lg:p-12 border overflow-hidden"
-          style={{ background: "rgba(11,218,81,0.05)", borderColor: "rgba(11,218,81,0.2)" }}
+          style={{ background: "rgba(16,185,129,0.05)", borderColor: "rgba(16,185,129,0.2)" }}
         >
           {/* Top glow */}
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #0BDA51, transparent)" }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #10B981, transparent)" }} />
 
-          <Quote className="w-8 h-8 mb-6 opacity-40" style={{ color: "#0BDA51" }} />
+          <Quote className="w-8 h-8 mb-6 opacity-40" style={{ color: "#10B981" }} />
 
           <p className="text-lg lg:text-xl leading-relaxed font-medium" style={{ color: "#CBD5E1" }}>
             Traditional transcription is a race to the bottom on price.{" "}
@@ -55,8 +55,8 @@ export default function NuScriptTransformation() {
               { value: "Faster Delivery", desc: "Meet aggressive TAT requirements without more headcount" },
               { value: "Client Growth", desc: "Scale your client base without scaling your team" },
             ].map((item) => (
-              <div key={item.value} className="rounded-xl p-5 border" style={{ background: "rgba(6,13,26,0.6)", borderColor: "rgba(11,218,81,0.15)" }}>
-                <p className="font-unbounded font-bold text-base mb-2" style={{ color: "#0BDA51" }}>{item.value}</p>
+              <div key={item.value} className="rounded-xl p-5 border" style={{ background: "rgba(6,13,26,0.6)", borderColor: "rgba(16,185,129,0.15)" }}>
+                <p className="font-unbounded font-bold text-base mb-2" style={{ color: "#10B981" }}>{item.value}</p>
                 <p className="text-sm" style={{ color: "#D1D5DB" }}>{item.desc}</p>
               </div>
             ))}

@@ -8,7 +8,7 @@ const pillars = [
     label: "Pillar I",
     title: "The Global Standard",
     subtitle: "MedScribeAI — Built for US Healthcare",
-    color: "#08CF65",
+    color: "#10B981",
     body: "We understand the high-stakes world of US Healthcare. Our platform, MedScribeAI, is the culmination of years of managing complex transcription workflows. We moved from manual processing to complete automation because we believe technology should liberate human expertise, not burden it.",
     link: "/nuscriptai",
     linkLabel: "Explore MedScribeAI →",
@@ -18,7 +18,7 @@ const pillars = [
     label: "Pillar II",
     title: "The Local Mission",
     subtitle: "PharmaStockAI — Built for Indian Pharmacies",
-    color: "#60A5FA",
+    color: "#2563EB",
     body: "We saw a gap in the Indian pharmacy ecosystem: brilliant pharmacists held back by manual inventory and unpredictable supply chains. PharmaStockAI was created to give the \"Neighborhood Chemist\" and the \"Large Distributor\" the same predictive power used by global retail giants. We are here to ensure that no patient in India ever hears the words \"Out of Stock.\"",
     link: "/pharmastockai",
     linkLabel: "Explore PharmaStockAI →",
@@ -27,7 +27,7 @@ const pillars = [
 
 export default function AboutPillars() {
   return (
-    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(96,165,250,0.1)" }}>
+    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(37,99,235,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export default function AboutPillars() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#60A5FA" }}
+          style={{ color: "#2563EB" }}
         >
           Two Pillars of Innovation
         </motion.p>
@@ -60,10 +60,10 @@ export default function AboutPillars() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="rounded-2xl p-8 border relative overflow-hidden"
-              style={{ background: `rgba(${p.color === "#08CF65" ? "8,207,101" : "96,165,250"},0.05)`, borderColor: `rgba(${p.color === "#08CF65" ? "8,207,101" : "96,165,250"},0.2)` }}
+              style={{ background: `rgba(${p.color === "#10B981" ? "16,185,129" : "37,99,235"},0.05)`, borderColor: `rgba(${p.color === "#10B981" ? "16,185,129" : "37,99,235"},0.2)` }}
             >
               <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${p.color}, transparent)` }} />
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: `rgba(${p.color === "#08CF65" ? "8,207,101" : "96,165,250"},0.15)` }}>
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: `rgba(${p.color === "#10B981" ? "16,185,129" : "37,99,235"},0.15)` }}>
                 <p.icon className="w-5 h-5" style={{ color: p.color }} />
               </div>
               <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: p.color }}>{p.label}</p>

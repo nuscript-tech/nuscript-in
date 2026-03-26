@@ -26,7 +26,7 @@ const specs = [
 
 export default function PharmaTechSpecs() {
   return (
-    <section id="contact" className="py-24 lg:py-32" style={{ background: "rgba(11,218,81,0.03)" }}>
+    <section id="contact" className="py-24 lg:py-32" style={{ background: "rgba(16,185,129,0.03)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <motion.p
@@ -34,7 +34,7 @@ export default function PharmaTechSpecs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#0BDA51" }}
+            style={{ color: "#10B981" }}
           >
             For the IT Stakeholder
           </motion.p>
@@ -60,18 +60,18 @@ export default function PharmaTechSpecs() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="rounded-2xl p-8 border transition-all duration-500 group"
-              style={{ background: "rgba(11,218,81,0.04)", borderColor: "rgba(11,218,81,0.15)" }}
+              style={{ background: "rgba(16,185,129,0.04)", borderColor: "rgba(16,185,129,0.15)" }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(11,218,81,0.4)";
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(11,218,81,0.12)";
+                e.currentTarget.style.borderColor = "rgba(16,185,129,0.4)";
+                e.currentTarget.style.boxShadow = "0 0 30px rgba(16,185,129,0.12)";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(11,218,81,0.15)";
+                e.currentTarget.style.borderColor = "rgba(16,185,129,0.15)";
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(11,218,81,0.12)" }}>
-                <spec.icon className="w-5 h-5" style={{ color: "#0BDA51" }} />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(16,185,129,0.12)" }}>
+                <spec.icon className="w-5 h-5" style={{ color: "#10B981" }} />
               </div>
               <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#7B8FA0" }}>{spec.title}</p>
               <p className="font-unbounded text-base font-bold mb-3" style={{ color: "#E2E8F0" }}>{spec.value}</p>
@@ -90,13 +90,13 @@ export default function PharmaTechSpecs() {
           transition={{ duration: 0.6 }}
           className="relative rounded-2xl p-12 lg:p-16 text-center border overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(11,218,81,0.12) 0%, rgba(29,78,216,0.06) 100%)",
-            borderColor: "rgba(11,218,81,0.3)",
-            boxShadow: "0 0 80px rgba(11,218,81,0.12)"
+            background: "linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(29,78,216,0.06) 100%)",
+            borderColor: "rgba(16,185,129,0.3)",
+            boxShadow: "0 0 80px rgba(16,185,129,0.12)"
           }}
         >
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(11,218,81,0.6), transparent)" }} />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent)" }} />
           </div>
           <h3 className="font-unbounded text-2xl lg:text-3xl font-bold mb-4" style={{ color: "#F1F5F9" }}>
             Stop Losing Profit to Expiry & Stockouts.
@@ -108,7 +108,7 @@ export default function PharmaTechSpecs() {
             <a
               href="/contact"
               className="inline-flex items-center gap-2 font-semibold px-8 py-3.5 rounded-lg text-sm transition-all duration-300"
-              style={{ background: "#0BDA51", color: "#0F172A" }}
+              style={{ background: "#10B981", color: "#0F172A" }}
             >
               Schedule a Technical Demo
             </a>

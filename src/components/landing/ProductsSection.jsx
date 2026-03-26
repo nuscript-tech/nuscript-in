@@ -14,8 +14,8 @@ const products = [
       "Complete removal of manual transcription. Our platform transforms dictation into structured clinical reports with unbeatable speed and 99%+ accuracy.",
     cta: "Scale Your MTSO",
     href: "/nuscriptai",
-    accentColor: "#0BDA51",
-    dotColor: "#0BDA51",
+    accentColor: "#10B981",
+    dotColor: "#10B981",
   },
   {
     id: "pharma",
@@ -27,8 +27,8 @@ const products = [
       "An autonomous inventory engine that ends stockouts and eliminates expiry waste through predictive intelligence.",
     cta: "Optimize Your Pharmacy",
     href: "/pharmastockai",
-    accentColor: "#0BDA51",
-    dotColor: "#0BDA51",
+    accentColor: "#10B981",
+    dotColor: "#10B981",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#60A5FA" }}
+            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#2563EB" }}
           >
             Dual Engine Platform
           </motion.p>
