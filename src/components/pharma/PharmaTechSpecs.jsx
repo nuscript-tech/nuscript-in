@@ -26,7 +26,7 @@ const specs = [
 
 export default function PharmaTechSpecs() {
   return (
-    <section id="contact" className="py-24 lg:py-32" style={{ background: "rgba(0,192,255,0.03)" }}>
+    <section id="contact" className="py-24 lg:py-32" style={{ background: "rgba(16,185,129,0.03)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <motion.p
@@ -34,7 +34,7 @@ export default function PharmaTechSpecs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#00C0FF" }}
+            style={{ color: "#10B981" }}
           >
             For the IT Stakeholder
           </motion.p>
@@ -44,7 +44,7 @@ export default function PharmaTechSpecs() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="font-unbounded text-3xl lg:text-4xl font-bold"
-            style={{ color: "#E8F1FF" }}
+            style={{ color: "#F1F5F9" }}
           >
             Built to{" "}
             <span className="gradient-text">enterprise standard.</span>
@@ -60,22 +60,22 @@ export default function PharmaTechSpecs() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="rounded-2xl p-8 border transition-all duration-500 group"
-              style={{ background: "rgba(0,192,255,0.04)", borderColor: "rgba(0,192,255,0.15)" }}
+              style={{ background: "rgba(16,185,129,0.04)", borderColor: "rgba(16,185,129,0.15)" }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(0,192,255,0.4)";
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(0,192,255,0.12)";
+                e.currentTarget.style.borderColor = "rgba(16,185,129,0.4)";
+                e.currentTarget.style.boxShadow = "0 0 30px rgba(16,185,129,0.12)";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(0,192,255,0.15)";
+                e.currentTarget.style.borderColor = "rgba(16,185,129,0.15)";
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(0,192,255,0.12)" }}>
-                <spec.icon className="w-5 h-5" style={{ color: "#00C0FF" }} />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(16,185,129,0.12)" }}>
+                <spec.icon className="w-5 h-5" style={{ color: "#10B981" }} />
               </div>
-              <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#4678CD" }}>{spec.title}</p>
-              <p className="font-unbounded text-base font-bold mb-3" style={{ color: "#C8D8F0" }}>{spec.value}</p>
-              <p className="text-sm leading-relaxed" style={{ color: "#9CB2D8" }}>{spec.detail}</p>
+              <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#7B8FA0" }}>{spec.title}</p>
+              <p className="font-unbounded text-base font-bold mb-3" style={{ color: "#E2E8F0" }}>{spec.value}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>{spec.detail}</p>
             </motion.div>
           ))}
         </div>
@@ -90,25 +90,25 @@ export default function PharmaTechSpecs() {
           transition={{ duration: 0.6 }}
           className="relative rounded-2xl p-12 lg:p-16 text-center border overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(0,192,255,0.12) 0%, rgba(29,78,216,0.06) 100%)",
-            borderColor: "rgba(0,192,255,0.3)",
-            boxShadow: "0 0 80px rgba(0,192,255,0.12)"
+            background: "linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(29,78,216,0.06) 100%)",
+            borderColor: "rgba(16,185,129,0.3)",
+            boxShadow: "0 0 80px rgba(16,185,129,0.12)"
           }}
         >
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,192,255,0.6), transparent)" }} />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent)" }} />
           </div>
-          <h3 className="font-unbounded text-2xl lg:text-3xl font-bold mb-4" style={{ color: "#E8F1FF" }}>
+          <h3 className="font-unbounded text-2xl lg:text-3xl font-bold mb-4" style={{ color: "#F1F5F9" }}>
             Stop Losing Profit to Expiry & Stockouts.
           </h3>
-          <p className="text-base mb-10 max-w-xl mx-auto" style={{ color: "#9CB2D8" }}>
+          <p className="text-base mb-10 max-w-xl mx-auto" style={{ color: "#94A3B8" }}>
             Join the next generation of Indian pharmacies using predictive intelligence to protect margins and serve patients better.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <a
               href="/contact"
               className="inline-flex items-center gap-2 font-semibold px-8 py-3.5 rounded-lg text-sm transition-all duration-300"
-              style={{ background: "#00C0FF", color: "#04142F" }}
+              style={{ background: "#10B981", color: "#0F172A" }}
             >
               Schedule a Technical Demo
             </a>

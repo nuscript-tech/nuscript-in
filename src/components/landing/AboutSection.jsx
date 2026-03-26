@@ -42,7 +42,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00C0FF" }}>
+              <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00BFFF" }}>
                  Institutional Trust
                </p>
               <h2
@@ -51,7 +51,7 @@ export default function AboutSection() {
               >
                 25 Years of Domain Mastery. Formed for the Future.
               </h2>
-              <p className="font-jakarta" style={{ lineHeight: "1.7", color: "#9CB2D8" }}>
+              <p className="font-jakarta" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
                 While NuScript Technologies was founded in 2026 to lead India's autonomous revolution, our DNA spans over two decades. Our founding vision began in Health Information Management in 2000, building a legacy of 8 startups and 4 successful exits. We aren't just a new company; we are the culmination of a quarter-century of global healthcare expertise.
               </p>
             </motion.div>
@@ -92,7 +92,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5 }}
             className="max-w-xl mb-14"
           >
-            <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00C0FF" }}>
+            <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00BFFF" }}>
               Why NuScript Technologies?
             </p>
             <h2
@@ -122,7 +122,7 @@ export default function AboutSection() {
                 >
                   {pillar.title}
                 </h3>
-                <p className="text-sm font-jakarta" style={{ lineHeight: "1.7", color: "#9CB2D8" }}>
+                <p className="text-sm font-jakarta" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
                   {pillar.description}
                 </p>
               </motion.div>

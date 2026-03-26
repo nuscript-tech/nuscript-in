@@ -10,17 +10,17 @@ export default function ContactFooterBar() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="border-t py-8"
-      style={{ borderColor: "rgba(0,192,255,0.1)" }}
+      style={{ borderColor: "rgba(0,191,255,0.1)" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-xs" style={{ color: "#4678CD" }}>
+        <div className="text-xs" style={{ color: "#7B8FA0" }}>
           Looking for our US Operations? Visit{" "}
           <a
             href="https://nuscripthealth.com"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-opacity hover:opacity-80"
-            style={{ color: "#00C0FF" }}
+            style={{ color: "#00BFFF" }}
           >
             NuScript Health
           </a>.
@@ -31,9 +31,9 @@ export default function ContactFooterBar() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs transition-opacity hover:opacity-80"
-            style={{ color: "#4678CD" }}
+            style={{ color: "#7B8FA0" }}
           >
-            <Linkedin className="w-4 h-4" style={{ color: "#00C0FF" }} />
+            <Linkedin className="w-4 h-4" style={{ color: "#00BFFF" }} />
             LinkedIn
           </a>
         </div>

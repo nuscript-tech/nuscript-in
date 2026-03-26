@@ -49,7 +49,7 @@ export default function TermsOfUse() {
       <main className="pt-28 pb-24 max-w-3xl mx-auto px-6 lg:px-8">
         <p className="text-xs font-medium tracking-widest uppercase mb-4 text-primary">Legal</p>
         <h1 className="font-heading text-4xl font-bold mb-2">Terms of Use</h1>
-        <p className="text-sm text-muted-foreground mb-12">Effective Date: March 25, 2026</p>
+        <p className="text-sm text-muted-foreground mb-12">Effective Date: March 19, 2026</p>
 
         <div className="space-y-10">
           {sections.map((s) => (

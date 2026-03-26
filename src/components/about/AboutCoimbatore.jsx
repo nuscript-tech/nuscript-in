@@ -22,7 +22,7 @@ const points = [
 
 export default function AboutCoimbatore() {
   return (
-    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(0,192,255,0.1)" }}>
+    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(0,191,255,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export default function AboutCoimbatore() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#00C0FF" }}
+          style={{ color: "#00BFFF" }}
         >
           Why Coimbatore?
         </motion.p>
@@ -40,7 +40,7 @@ export default function AboutCoimbatore() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-unbounded text-3xl lg:text-4xl font-bold leading-tight mb-12"
-          style={{ color: "#E8F1FF" }}
+          style={{ color: "#F1F5F9" }}
         >
           India's quietly rising{" "}
            <span className="gradient-text">deep-tech hub.</span>
@@ -55,13 +55,13 @@ export default function AboutCoimbatore() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="rounded-xl p-7 border"
-              style={{ background: "rgba(0,192,255,0.05)", borderColor: "rgba(0,192,255,0.15)" }}
+              style={{ background: "rgba(0,191,255,0.05)", borderColor: "rgba(0,191,255,0.15)" }}
             >
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ background: "rgba(0,192,255,0.15)" }}>
-                <pt.icon className="w-5 h-5" style={{ color: "#00C0FF" }} />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ background: "rgba(0,191,255,0.15)" }}>
+                <pt.icon className="w-5 h-5" style={{ color: "#00BFFF" }} />
               </div>
-              <h3 className="font-unbounded font-bold text-base mb-3" style={{ color: "#E8F1FF" }}>{pt.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#9CB2D8" }}>{pt.detail}</p>
+              <h3 className="font-unbounded font-bold text-base mb-3" style={{ color: "#F1F5F9" }}>{pt.title}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{pt.detail}</p>
             </motion.div>
           ))}
         </div>

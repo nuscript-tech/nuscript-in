@@ -11,7 +11,7 @@ import Footer from "@/components/landing/Footer";
 export default function MedScribeAI() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
-    <div className="min-h-screen" style={{ background: "#04142F", color: "#C8D8F0", fontFamily: "var(--font-jakarta)" }}>
+    <div className="min-h-screen" style={{ background: "#060D1A", color: "#E2E8F0", fontFamily: "var(--font-jakarta)" }}>
       <PageMeta
         title="MedScribeAI | Autonomous Transcription & Scribing for Indian MTSOs"
         description="Eliminate manual transcription. MedScribeAI provides 99%+ accurate, high-speed dictation-to-report automation for Indian MTSOs serving the US healthcare market. Scale without hiring."

@@ -51,7 +51,7 @@ export default function PharmaPillars() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#00C0FF" }}
+            style={{ color: "#00BFFF" }}
           >
             Strategic Outcomes
           </motion.p>
@@ -61,7 +61,7 @@ export default function PharmaPillars() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="font-unbounded text-3xl lg:text-4xl font-bold leading-tight"
-            style={{ color: "#E8F1FF" }}
+            style={{ color: "#F1F5F9" }}
           >
             Three pillars.{" "}
             <span className="gradient-text">One platform.</span>
@@ -78,44 +78,44 @@ export default function PharmaPillars() {
               transition={{ duration: 0.5, delay: index * 0.12 }}
               className="group relative rounded-2xl p-8 border transition-all duration-500"
               style={{
-                background: "rgba(0,192,255,0.04)",
-                borderColor: "rgba(0,192,255,0.15)",
+                background: "rgba(16,185,129,0.04)",
+                borderColor: "rgba(16,185,129,0.15)",
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(0,192,255,0.5)";
-                e.currentTarget.style.boxShadow = "0 0 40px rgba(0,192,255,0.15), inset 0 0 40px rgba(0,192,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(16,185,129,0.5)";
+                e.currentTarget.style.boxShadow = "0 0 40px rgba(16,185,129,0.15), inset 0 0 40px rgba(16,185,129,0.04)";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(0,192,255,0.15)";
+                e.currentTarget.style.borderColor = "rgba(16,185,129,0.15)";
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
               {/* Glow orb */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" style={{ background: "#00C0FF" }} />
+              <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none" style={{ background: "#10B981" }} />
 
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(0,192,255,0.12)" }}>
-                  <pillar.icon className="w-5 h-5" style={{ color: "#00C0FF" }} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(16,185,129,0.12)" }}>
+                  <pillar.icon className="w-5 h-5" style={{ color: "#10B981" }} />
                 </div>
                 <div>
-                  <h3 className="font-unbounded font-bold text-base leading-snug" style={{ color: "#E8F1FF" }}>
+                  <h3 className="font-unbounded font-bold text-base leading-snug" style={{ color: "#F1F5F9" }}>
                     {pillar.title}
                   </h3>
                 </div>
               </div>
 
-              <p className="text-sm leading-relaxed mb-6" style={{ color: "#9CB2D8" }}>
-                <span style={{ color: "#9CB2D8" }}>{pillar.subtitle}</span>{" "}
+              <p className="text-sm leading-relaxed mb-6" style={{ color: "#D1D5DB" }}>
+                <span style={{ color: "#D1D5DB" }}>{pillar.subtitle}</span>{" "}
                 {pillar.description}
               </p>
 
               <ul className="space-y-4">
                 {pillar.features.map((f) => (
                   <li key={f.name} className="flex gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: "#00C0FF" }} />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: "#10B981" }} />
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: "#9CB2D8" }}>{f.name}</p>
-                      <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "#4678CD" }}>{f.detail}</p>
+                      <p className="text-sm font-semibold" style={{ color: "#CBD5E1" }}>{f.name}</p>
+                      <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "#7B8FA0" }}>{f.detail}</p>
                     </div>
                   </li>
                 ))}

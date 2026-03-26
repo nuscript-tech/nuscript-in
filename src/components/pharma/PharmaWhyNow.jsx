@@ -11,7 +11,7 @@ export default function PharmaWhyNow() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#00C0FF" }}
+            style={{ color: "#00BFFF" }}
         >
           The Indian Context
         </motion.p>
@@ -21,7 +21,7 @@ export default function PharmaWhyNow() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
           className="font-unbounded text-3xl lg:text-4xl font-bold mb-12"
-          style={{ color: "#E8F1FF" }}
+          style={{ color: "#F1F5F9" }}
         >
           Why Now?
         </motion.h2>
@@ -33,16 +33,16 @@ export default function PharmaWhyNow() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative rounded-2xl p-10 lg:p-14 border text-left"
           style={{
-           background: "rgba(0,192,255,0.05)",
-           borderColor: "rgba(0,192,255,0.2)",
-           boxShadow: "0 0 80px rgba(0,192,255,0.1)"
+           background: "rgba(0,191,255,0.05)",
+           borderColor: "rgba(0,191,255,0.2)",
+           boxShadow: "0 0 80px rgba(0,191,255,0.1)"
           }}
         >
           {/* Ambient glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px" style={{ background: "linear-gradient(90deg, transparent, #00C0FF, transparent)" }} />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px" style={{ background: "linear-gradient(90deg, transparent, #00BFFF, transparent)" }} />
 
-          <Quote className="w-8 h-8 mb-6 opacity-30" style={{ color: "#00C0FF" }} />
-          <p className="text-lg lg:text-xl leading-relaxed font-medium" style={{ color: "#9CB2D8" }}>
+          <Quote className="w-8 h-8 mb-6 opacity-30" style={{ color: "#00BFFF" }} />
+          <p className="text-lg lg:text-xl leading-relaxed font-medium" style={{ color: "#CBD5E1" }}>
             "The Indian Pharmacy market is evolving. As consumers demand more reliability and faster
             service, your back-end operations can no longer be manual. PharmaStockAI provides the
             tech-equity you need to{" "}

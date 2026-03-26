@@ -20,23 +20,15 @@ module.exports = {
   			body: '0.01em',
   		},
   		fontSize: {
-  			// ── Tailwind default overrides (SaaS-scale) ──
-  			'xs':   ['0.8125rem', { lineHeight: '1.4' }],
-  			'sm':   ['1rem', { lineHeight: '1.5' }],
-  			'base': ['1.125rem', { lineHeight: '1.6' }],
-  			'lg':   ['1.25rem', { lineHeight: '1.55' }],
-  			'xl':   ['1.375rem', { lineHeight: '1.4' }],
-  			'2xl':  ['1.625rem', { lineHeight: '1.35' }],
-  			// ── Design-system tokens ──
-  			'heading-1': ['3.25rem', { lineHeight: '1.15' }],
-  			'heading-2': ['2.5rem', { lineHeight: '1.2' }],
-  			'heading-3': ['1.875rem', { lineHeight: '1.25' }],
-  			'heading-4': ['1.5rem', { lineHeight: '1.3' }],
-  			'heading-5': ['1.3rem', { lineHeight: '1.35' }],
-  			'heading-6': ['1.15rem', { lineHeight: '1.35' }],
-  			'body-base': ['1.125rem', { lineHeight: '1.6' }],
-  			'body-sm': ['1rem', { lineHeight: '1.5' }],
-  			'body-xs': ['0.8125rem', { lineHeight: '1.4' }],
+  			'heading-1': ['2.75rem', { lineHeight: '1.2' }],
+  			'heading-2': ['2rem', { lineHeight: '1.25' }],
+  			'heading-3': ['1.625rem', { lineHeight: '1.3' }],
+  			'heading-4': ['1.375rem', { lineHeight: '1.3' }],
+  			'heading-5': ['1.25rem', { lineHeight: '1.35' }],
+  			'heading-6': ['1.125rem', { lineHeight: '1.35' }],
+  			'body-base': ['1rem', { lineHeight: '1.5' }],
+  			'body-sm': ['0.875rem', { lineHeight: '1.4' }],
+  			'body-xs': ['0.75rem', { lineHeight: '1.35' }],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -56,10 +48,10 @@ module.exports = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: '#00C0FF',
-  				hover: '#00A8D6',
-  				active: '#0090B8',
-  				foreground: '#04142F',
+  				DEFAULT: '#10B981',
+  				hover: '#0EA572',
+  				active: '#0D9668',
+  				foreground: '#052e16',
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
@@ -74,16 +66,16 @@ module.exports = {
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			subheading: {
-  				DEFAULT: '#9CB2D8',
-  				tertiary: '#4678CD',
+  				DEFAULT: '#A0B0C0',
+  				tertiary: '#7C8A99',
   			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
   			border: {
-  				DEFAULT: '#162D5A',
-  				subtle: '#0F2248',
+  				DEFAULT: '#2A3A4F',
+  				subtle: '#1F2A3A',
   			},
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -94,21 +86,21 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			// ── Design-system tokens (navy theme) ──────────────────────────
+  			// ── Design-system tokens (from theme PDF) ──────────────────────────
   			surface: {
-  				DEFAULT: '#0D295A',
-  				secondary: '#163272',
-  				tertiary: '#0D295A',
+  				DEFAULT: '#1B2431',
+  				secondary: '#2E3F62',
+  				tertiary: '#243249',
   			},
   			text: {
-  				DEFAULT: '#E8F1FF',
-  				muted: '#9CB2D8',
-  				subtle: '#4678CD',
+  				DEFAULT: '#E6EDF3',
+  				muted: '#9AA7B2',
+  				subtle: '#6B7785',
   			},
   			success: '#10B981',
   			warning: '#F59E0B',
   			danger: '#EF4444',
-  			info: '#00C0FF',
+  			info: '#00BFFF',
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',

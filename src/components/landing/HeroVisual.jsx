@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const NODES = [
-  { id: "core", x: 50, y: 50, r: 22, label: "AI Core", color: "#00C0FF", pulse: true },
-  { id: "n1", x: 18, y: 22, r: 12, label: "NuScriptAI", color: "#00C0FF" },
-  { id: "n2", x: 82, y: 22, r: 12, label: "PharmaStockAI", color: "#00C0FF" },
+  { id: "core", x: 50, y: 50, r: 22, label: "AI Core", color: "#10B981", pulse: true },
+  { id: "n1", x: 18, y: 22, r: 12, label: "NuScriptAI", color: "#10B981" },
+  { id: "n2", x: 82, y: 22, r: 12, label: "PharmaStockAI", color: "#10B981" },
   { id: "n3", x: 15, y: 72, r: 10, label: "Voice Engine", color: "#6EE7B7" },
   { id: "n4", x: 85, y: 72, r: 10, label: "Demand AI", color: "#34D399" },
-  { id: "n5", x: 50, y: 88, r: 9, label: "Analytics", color: "#00C0FF" },
+  { id: "n5", x: 50, y: 88, r: 9, label: "Analytics", color: "#10B981" },
   { id: "n6", x: 50, y: 12, r: 9, label: "Data Layer", color: "#A3E635" },
 ];
 
@@ -38,17 +38,17 @@ export default function HeroVisual() {
       {/* Ambient glow */}
       <div
         className="absolute inset-0 rounded-3xl blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(circle at 50% 50%, rgba(0,192,255,0.5) 0%, rgba(0,192,255,0.2) 50%, transparent 80%)" }}
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(16,185,129,0.5) 0%, rgba(16,185,129,0.2) 50%, transparent 80%)" }}
       />
 
       <div
         className="relative rounded-2xl border overflow-hidden"
-        style={{ background: "rgba(10,20,35,0.85)", borderColor: "rgba(0,192,255,0.2)", backdropFilter: "blur(12px)" }}
+        style={{ background: "rgba(10,20,35,0.85)", borderColor: "rgba(16,185,129,0.2)", backdropFilter: "blur(12px)" }}
       >
         {/* Header */}
         <div
           className="flex items-center justify-between px-5 py-3 border-b"
-          style={{ borderColor: "rgba(0,192,255,0.15)", background: "rgba(0,0,0,0.3)" }}
+          style={{ borderColor: "rgba(16,185,129,0.15)", background: "rgba(0,0,0,0.3)" }}
         >
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
@@ -74,7 +74,7 @@ export default function HeroVisual() {
           >
             <defs>
               <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#00C0FF" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#10B981" stopOpacity="0.9" />
                 <stop offset="100%" stopColor="#05A050" stopOpacity="0.6" />
               </radialGradient>
               <filter id="glow">
@@ -91,7 +91,7 @@ export default function HeroVisual() {
                 <line
                   key={i}
                   x1={a.x} y1={a.y} x2={b.x} y2={b.y}
-                  stroke="rgba(0,192,255,0.18)"
+                  stroke="rgba(16,185,129,0.18)"
                   strokeWidth="0.5"
                   strokeDasharray="2 2"
                 />
@@ -106,7 +106,7 @@ export default function HeroVisual() {
                 <motion.circle
                   key={i}
                   r="1"
-                  fill="#00C0FF"
+                  fill="#10B981"
                   filter="url(#glow)"
                   initial={{ cx: a.x, cy: a.y, opacity: 0 }}
                   animate={{
@@ -132,7 +132,7 @@ export default function HeroVisual() {
                   <motion.circle
                     cx={node.x} cy={node.y} r={node.r + 4}
                     fill="none"
-                    stroke="#00C0FF"
+                    stroke="#10B981"
                     strokeWidth="0.5"
                     initial={{ opacity: 0.6, r: node.r + 2 }}
                     animate={{ opacity: 0, r: node.r + 10 }}
@@ -151,7 +151,7 @@ export default function HeroVisual() {
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fontSize={node.id === "core" ? "4.5" : "3.2"}
-                  fill={node.id === "core" ? "#04142F" : node.color}
+                  fill={node.id === "core" ? "#0F172A" : node.color}
                   fontWeight={node.id === "core" ? "700" : "600"}
                   fontFamily="monospace"
                 >
@@ -165,14 +165,14 @@ export default function HeroVisual() {
         {/* Bottom stats bar */}
         <div
           className="grid grid-cols-3 divide-x border-t"
-          style={{ borderColor: "rgba(0,192,255,0.15)", divideColor: "rgba(0,192,255,0.1)" }}
+          style={{ borderColor: "rgba(16,185,129,0.15)", divideColor: "rgba(16,185,129,0.1)" }}
         >
           {[
-            { label: "Accuracy", value: "99.4%", color: "#00C0FF" },
-            { label: "Uptime", value: "99.99%", color: "#00C0FF" },
+            { label: "Accuracy", value: "99.4%", color: "#10B981" },
+            { label: "Uptime", value: "99.99%", color: "#10B981" },
             { label: "TAT", value: "< 2 min", color: "#6EE7B7" },
           ].map((s) => (
-            <div key={s.label} className="px-4 py-3 text-center" style={{ borderColor: "rgba(0,192,255,0.12)" }}>
+            <div key={s.label} className="px-4 py-3 text-center" style={{ borderColor: "rgba(16,185,129,0.12)" }}>
               <p className="text-xs font-bold font-mono" style={{ color: s.color }}>{s.value}</p>
               <p className="text-xs mt-0.5" style={{ color: "#4A6A6A" }}>{s.label}</p>
             </div>

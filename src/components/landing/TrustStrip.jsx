@@ -19,7 +19,7 @@ export default function TrustStrip() {
           }}
         >
           {/* Ambient glow */}
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: "#00C0FF" }} />
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: "#10B981" }} />
           
           <div className="relative px-8 lg:px-12 py-12 lg:py-16 text-center">
             <motion.h2
@@ -51,7 +51,7 @@ export default function TrustStrip() {
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 bg-primary px-8 py-4 rounded-lg text-sm font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                style={{ color: "#04142F" }}
+                style={{ color: "#0F172A" }}
               >
                 Contact Our Experts
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

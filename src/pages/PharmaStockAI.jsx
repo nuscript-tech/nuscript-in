@@ -12,7 +12,7 @@ import Footer from "@/components/landing/Footer";
 export default function PharmaStockAI() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
-    <div className="min-h-screen" style={{ background: "#04142F", color: "#C8D8F0", fontFamily: "var(--font-jakarta)" }}>
+    <div className="min-h-screen" style={{ background: "#050A14", color: "#E2E8F0", fontFamily: "var(--font-jakarta)" }}>
       <PageMeta
         title="PharmaStockAI | Predictive Inventory for Indian Pharmacies"
         description="The intelligent inventory engine for Indian retail and distribution. End stockouts, eliminate expiry waste, and automate procurement with PharmaStockAI. Engineered for the Indian market."
