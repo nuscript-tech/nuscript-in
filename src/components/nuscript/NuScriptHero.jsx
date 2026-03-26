@@ -73,7 +73,7 @@ export default function NuScriptHero() {
               <a
                 href="#comparison"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 border"
-                style={{ borderColor: "rgba(37,99,235,0.4)", color: "#10B981", background: "transparent" }}
+                style={{ borderColor: "rgba(59,130,246,0.4)", color: "#10B981", background: "transparent" }}
               >
                 Scale Without Hiring
               </a>

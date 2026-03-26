@@ -49,9 +49,9 @@ function ProductCard({ product, index }) {
           className="relative rounded-2xl overflow-hidden border border-border bg-card cursor-pointer transition-all duration-500 h-full"
           style={{
             boxShadow: hovered
-              ? `0 0 40px 0 rgba(37,99,235,0.18), 0 0 0 1px rgba(37,99,235,0.25)`
+              ? `0 0 40px 0 rgba(59,130,246,0.18), 0 0 0 1px rgba(59,130,246,0.25)`
               : "none",
-            borderColor: hovered ? "rgba(37,99,235,0.3)" : undefined,
+            borderColor: hovered ? "rgba(59,130,246,0.3)" : undefined,
           }}
         >
           {/* Top accent bar */}
@@ -126,7 +126,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#2563EB" }}
+            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#3B82F6" }}
           >
             Dual Engine Platform
           </motion.p>

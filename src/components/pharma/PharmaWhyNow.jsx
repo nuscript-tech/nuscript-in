@@ -11,7 +11,7 @@ export default function PharmaWhyNow() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#2563EB" }}
+            style={{ color: "#3B82F6" }}
         >
           The Indian Context
         </motion.p>
@@ -33,15 +33,15 @@ export default function PharmaWhyNow() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative rounded-2xl p-10 lg:p-14 border text-left"
           style={{
-           background: "rgba(37,99,235,0.05)",
-           borderColor: "rgba(37,99,235,0.2)",
-           boxShadow: "0 0 80px rgba(37,99,235,0.1)"
+           background: "rgba(59,130,246,0.05)",
+           borderColor: "rgba(59,130,246,0.2)",
+           boxShadow: "0 0 80px rgba(59,130,246,0.1)"
           }}
         >
           {/* Ambient glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px" style={{ background: "linear-gradient(90deg, transparent, #2563EB, transparent)" }} />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px" style={{ background: "linear-gradient(90deg, transparent, #3B82F6, transparent)" }} />
 
-          <Quote className="w-8 h-8 mb-6 opacity-30" style={{ color: "#2563EB" }} />
+          <Quote className="w-8 h-8 mb-6 opacity-30" style={{ color: "#3B82F6" }} />
           <p className="text-lg lg:text-xl leading-relaxed font-medium" style={{ color: "#CBD5E1" }}>
             "The Indian Pharmacy market is evolving. As consumers demand more reliability and faster
             service, your back-end operations can no longer be manual. PharmaStockAI provides the

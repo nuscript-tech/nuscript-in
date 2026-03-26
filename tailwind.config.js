@@ -108,7 +108,7 @@ module.exports = {
   			success: '#10B981',
   			warning: '#F59E0B',
   			danger: '#EF4444',
-  			info: '#2563EB',
+  			info: '#3B82F6',
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',

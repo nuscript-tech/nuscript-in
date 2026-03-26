@@ -73,7 +73,7 @@
     --ring: 160 59% 39%;             /* #10B981 */
 
     --chart-1: 160 59% 39%;
-    --chart-2: 224 76% 53%;
+    --chart-2: 217 91% 60%;
     --chart-3: 38 92% 50%;
     --chart-4: 43 74% 66%;
     --chart-5: 0 84% 60%;
@@ -159,7 +159,7 @@
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(90deg, #10B981 0%, #2563EB 50%, #10B981 100%);
+    background: linear-gradient(90deg, #10B981 0%, #3B82F6 50%, #10B981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

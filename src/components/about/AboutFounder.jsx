@@ -4,7 +4,7 @@ import { Quote } from "lucide-react";
 
 export default function AboutFounder() {
   return (
-    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(37,99,235,0.1)" }}>
+    <section className="py-24 lg:py-32 border-t" style={{ borderColor: "rgba(59,130,246,0.1)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -12,7 +12,7 @@ export default function AboutFounder() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#2563EB" }}
+          style={{ color: "#3B82F6" }}
         >
           Founder's Vision
         </motion.p>
@@ -23,9 +23,9 @@ export default function AboutFounder() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="rounded-2xl p-8 lg:p-12 border relative overflow-hidden"
-          style={{ background: "#1E293B", borderColor: "rgba(37,99,235,0.2)" }}
+          style={{ background: "#1E293B", borderColor: "rgba(59,130,246,0.2)" }}
         >
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #2563EB, transparent)" }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #3B82F6, transparent)" }} />
 
           <div className="grid lg:grid-cols-3 gap-10 items-center">
             <div className="lg:col-span-2">
@@ -49,7 +49,7 @@ export default function AboutFounder() {
                 { value: "25+", label: "Years in HealthTech" },
                 { value: "2", label: "AI Platforms Built" },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-xl p-4 border text-center" style={{ background: "rgba(37,99,235,0.05)", borderColor: "rgba(37,99,235,0.15)" }}>
+                <div key={stat.label} className="rounded-xl p-4 border text-center" style={{ background: "rgba(59,130,246,0.05)", borderColor: "rgba(59,130,246,0.15)" }}>
                   <p className="font-unbounded font-bold text-xl" style={{ color: "#3B82F6" }}>{stat.value}</p>
                   <p className="text-xs mt-1" style={{ color: "#7B8FA0" }}>{stat.label}</p>
                 </div>

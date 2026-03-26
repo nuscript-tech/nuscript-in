@@ -51,7 +51,7 @@ export default function PharmaPillars() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: "#2563EB" }}
+            style={{ color: "#3B82F6" }}
           >
             Strategic Outcomes
           </motion.p>
