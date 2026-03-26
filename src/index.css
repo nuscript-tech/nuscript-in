@@ -1,34 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
-/* Metropolis — self-hosted (SIL Open Font License) */
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,8 +6,8 @@
 
 @layer base {
   :root {
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'Metropolis', 'Space Grotesk', sans-serif;
+    --font-heading: 'Host Grotesk', sans-serif;
+    --font-body: 'Instrument Sans', sans-serif;
 
     /* --- Background & Core Surfaces --- */
     --background: 222 47% 11%;       /* #0F172A */
