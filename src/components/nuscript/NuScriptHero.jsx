@@ -43,7 +43,7 @@ export default function NuScriptHero() {
               style={{ color: "#F1F5F9" }}
             >
               The End of Manual<br />
-              <span style={{ color: "#0BDA51" }}>Transcription</span> for MTSOs.
+              <span className="gradient-text">Transcription</span> for MTSOs.
             </motion.h1>
 
             <motion.p

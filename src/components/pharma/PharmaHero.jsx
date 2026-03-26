@@ -41,7 +41,7 @@ export default function PharmaHero() {
             >
               The Autonomous Engine{" "}
               for{" "}
-              <span style={{ color: "#0BDA51" }}>Indian Pharmacy.</span>
+              <span className="gradient-text">Indian Pharmacy.</span>
             </motion.h1>
 
             <motion.p

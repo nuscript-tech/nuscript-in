@@ -33,7 +33,7 @@ export default function AboutOrigins() {
               style={{ color: "#F1F5F9" }}
             >
               25 Years of{" "}
-              <span style={{ color: "#0BDA51" }}>Domain Mastery.</span>
+              <span className="gradient-text">Domain Mastery.</span>
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

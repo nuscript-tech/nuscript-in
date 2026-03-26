@@ -27,7 +27,7 @@ export default function ContactHero() {
             style={{ color: "#F1F5F9" }}
           >
             Let's Build the Future of India's{" "}
-            <span style={{ color: "#0BDA51" }}>Infrastructure.</span>
+            <span className="gradient-text">Infrastructure.</span>
           </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}

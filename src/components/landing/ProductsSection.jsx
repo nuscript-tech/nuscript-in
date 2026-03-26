@@ -139,7 +139,7 @@ export default function ProductsSection() {
             style={{ letterSpacing: "-0.02em" }}
           >
             Two markets. Two purpose-built{" "}
-            <span className="text-primary">AI platforms.</span>
+            <span className="gradient-text">AI platforms.</span>
           </motion.h2>
         </div>
 

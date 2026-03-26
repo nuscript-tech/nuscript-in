@@ -34,7 +34,7 @@ export default function PharmaBeforeAfter() {
             style={{ color: "#F1F5F9" }}
           >
             Before vs.{" "}
-            <span style={{ color: "#0BDA51" }}>After.</span>
+            <span className="gradient-text">After.</span>
           </motion.h2>
         </div>
 

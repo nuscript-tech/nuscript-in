@@ -47,7 +47,7 @@ export default function PharmaTechSpecs() {
             style={{ color: "#F1F5F9" }}
           >
             Built to{" "}
-            <span style={{ color: "#0BDA51" }}>enterprise standard.</span>
+            <span className="gradient-text">enterprise standard.</span>
           </motion.h2>
         </div>
 

@@ -35,7 +35,7 @@ export default function NuScriptComparison() {
           style={{ color: "#F1F5F9" }}
         >
           The Old Way vs.{" "}
-          <span style={{ color: "#0BDA51" }}>The MedScribeAI Way.</span>
+          <span className="gradient-text">The MedScribeAI Way.</span>
         </motion.h2>
 
         <motion.div

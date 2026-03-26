@@ -94,7 +94,7 @@ export default function HeroSection() {
             style={{ letterSpacing: "-0.02em" }}
           >
             Intelligence for the{" "}
-            <span className="text-primary">Foundations of India.</span>
+            <span className="gradient-text">Foundations of India.</span>
           </motion.h1>
 
           <motion.p

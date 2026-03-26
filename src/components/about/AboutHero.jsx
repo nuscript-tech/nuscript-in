@@ -28,7 +28,7 @@ export default function AboutHero() {
             style={{ color: "#F1F5F9" }}
           >
             Engineering Precision for<br />
-            India's <span style={{ color: "#60A5FA" }}>Essential Sectors.</span>
+            India's <span className="gradient-text">Essential Sectors.</span>
           </motion.h1>
 
           <motion.p

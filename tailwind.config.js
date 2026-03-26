@@ -7,7 +7,7 @@ module.exports = {
   		fontFamily: {
   			heading: ['var(--font-heading)', 'sans-serif'],
   			body: ['var(--font-body)', 'sans-serif'],
-  			// legacy aliases — all resolve to Space Grotesk now
+  			// legacy aliases
   			unbounded: ['var(--font-heading)', 'sans-serif'],
   			jakarta: ['var(--font-body)', 'sans-serif'],
   		},

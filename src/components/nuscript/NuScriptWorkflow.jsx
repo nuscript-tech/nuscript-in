@@ -71,7 +71,7 @@ export default function NuScriptWorkflow() {
           style={{ color: "#F1F5F9" }}
         >
           Three pillars of{" "}
-          <span style={{ color: "#0BDA51" }}>zero-touch documentation.</span>
+          <span className="gradient-text">zero-touch documentation.</span>
         </motion.h2>
 
         {/* Tab switcher */}

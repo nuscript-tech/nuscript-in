@@ -46,7 +46,7 @@ export default function PharmaWhyNow() {
             "The Indian Pharmacy market is evolving. As consumers demand more reliability and faster
             service, your back-end operations can no longer be manual. PharmaStockAI provides the
             tech-equity you need to{" "}
-            <span style={{ color: "#60A5FA" }}>compete with organized giants</span>{" "}
+            <span className="gradient-text">compete with organized giants</span>{" "}
             while maintaining your local edge."
           </p>
         </motion.div>

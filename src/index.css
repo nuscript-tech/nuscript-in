@@ -1,3 +1,33 @@
+/* Metropolis — self-hosted (SIL Open Font License) */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -7,7 +37,7 @@
 @layer base {
   :root {
     --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-body: 'Metropolis', 'Space Grotesk', sans-serif;
 
     /* --- Background & Core Surfaces --- */
     --background: 222 47% 11%;       /* #0F172A */
@@ -124,5 +154,14 @@
 
   .font-unbounded, .font-heading {
     font-weight: 600 !important;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(90deg, #0BDA51 0%, #60A5FA 50%, #0BDA51 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
