@@ -42,8 +42,7 @@ export default function NuScriptHero() {
               className="font-unbounded text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6"
               style={{ color: "#F1F5F9" }}
             >
-              The End of Manual<br />
-              <span className="gradient-text">Transcription</span> for MTSOs.
+              The End of <span className="gradient-text">Manual<br />Transcription</span> for MTSOs.
             </motion.h1>
 
             <motion.p
