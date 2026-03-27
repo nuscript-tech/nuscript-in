@@ -25,7 +25,7 @@ export default function NuScriptTransformation() {
           style={{ color: "#F1F5F9" }}
         >
           From cost centre to{" "}
-          <span className="gradient-text">technology powerhouse.</span>
+          <span style={{ color: "#10B981" }}>technology powerhouse.</span>
         </motion.h2>
 
         <motion.div
@@ -45,7 +45,7 @@ export default function NuScriptTransformation() {
             Traditional transcription is a race to the bottom on price.{" "}
             <span style={{ color: "#F1F5F9" }}>MedScribeAI turns your MTSO into a technology-led documentation powerhouse.</span>{" "}
             By removing manual typing, we allow you to focus on{" "}
-            <span className="gradient-text">Quality Assurance and Client Growth</span>,
+            <span style={{ color: "#10B981" }}>Quality Assurance and Client Growth</span>,
             driving higher margins and faster delivery.
           </p>
 

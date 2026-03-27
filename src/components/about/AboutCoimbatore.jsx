@@ -43,7 +43,7 @@ export default function AboutCoimbatore() {
           style={{ color: "#F1F5F9" }}
         >
           India's quietly rising{" "}
-           <span className="gradient-text">deep-tech hub.</span>
+           <span style={{ color: "#00BFFF" }}>deep-tech hub.</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-3 gap-6">

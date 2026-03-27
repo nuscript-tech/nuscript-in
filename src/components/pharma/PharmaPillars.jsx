@@ -64,7 +64,7 @@ export default function PharmaPillars() {
             style={{ color: "#F1F5F9" }}
           >
             Three pillars.{" "}
-            <span className="gradient-text">One platform.</span>
+            <span style={{ color: "#10B981" }}>One platform.</span>
           </motion.h2>
         </div>
 

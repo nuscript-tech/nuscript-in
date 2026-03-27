@@ -34,7 +34,7 @@ export default function AboutFounder() {
                 "As a founder with eight startups and four successful exits in HealthTech, my goal for NuScript Technologies is simple: to build the most reliable technology{" "}
                 <span style={{ color: "#F1F5F9" }}>'chassis'</span>{" "}
                 for India's healthcare and financial infrastructure. We aren't just building apps; we are building the{" "}
-                <span className="gradient-text">connective tissue for modern Indian enterprises.</span>"
+                <span style={{ color: "#00BFFF" }}>connective tissue for modern Indian enterprises.</span>"
               </p>
               <div>
                 <p className="font-unbounded font-bold text-base" style={{ color: "#F1F5F9" }}>Arvind Manohar</p>

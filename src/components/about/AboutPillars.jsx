@@ -48,7 +48,7 @@ export default function AboutPillars() {
           style={{ color: "#F1F5F9" }}
         >
           One mission. Two{" "}
-           <span className="gradient-text">market-defining products.</span>
+           <span style={{ color: "#00BFFF" }}>market-defining products.</span>
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-8">

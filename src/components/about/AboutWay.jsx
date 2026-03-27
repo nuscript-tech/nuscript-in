@@ -43,7 +43,7 @@ export default function AboutWay() {
           style={{ color: "#F1F5F9" }}
         >
           Three principles. Zero{" "}
-           <span className="gradient-text">compromise.</span>
+           <span style={{ color: "#00BFFF" }}>compromise.</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-3 gap-6 mb-16">

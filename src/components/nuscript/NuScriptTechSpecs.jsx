@@ -33,7 +33,7 @@ export default function NuScriptTechSpecs() {
           style={{ color: "#F1F5F9" }}
         >
           Enterprise-grade infrastructure,{" "}
-          <span className="gradient-text">built for scale.</span>
+          <span style={{ color: "#10B981" }}>built for scale.</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
