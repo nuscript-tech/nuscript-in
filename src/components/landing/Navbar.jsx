@@ -36,7 +36,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
             <img
-              src="/nuscript-logo-white.png"
+              src="/nuscript-logo.png"
               alt="NuScript Technologies"
               className="h-8 w-auto"
             />

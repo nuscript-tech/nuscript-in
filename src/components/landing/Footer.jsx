@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="mb-6">
               <Link to="/" onClick={() => window.scrollTo(0, 0)} className="inline-block">
                 <img
-                  src="/nuscript-logo-white.png"
+                  src="/nuscript-logo.png"
                   alt="NuScript Technologies"
                   className="h-8 w-auto"
                 />
