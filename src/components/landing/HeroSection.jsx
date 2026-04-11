@@ -72,7 +72,7 @@ export default function HeroSection() {
         />
       ))}
 
-      {/* Content */}
+      {/* Content — left aligned */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full pt-36 pb-16 lg:pt-0 lg:pb-0">
         <div className="max-w-2xl">
           <motion.div
@@ -130,24 +130,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Neural network visual */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-        className="absolute top-0 right-0 w-1/2 h-full hidden lg:flex items-center justify-end pointer-events-none overflow-hidden"
-      >
-        <img
-          src="/ns2.jpg"
-          alt="AI neural network"
-          className="w-full max-h-[80%] object-contain object-right"
-          style={{
-            maskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
-          }}
-        />
-      </motion.div>
     </section>
   );
 }
