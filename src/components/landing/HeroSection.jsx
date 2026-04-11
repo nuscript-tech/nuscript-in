@@ -72,10 +72,9 @@ export default function HeroSection() {
         />
       ))}
 
-      {/* Content — two column */}
+      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full pt-36 pb-16 lg:pt-0 lg:pb-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="max-w-2xl">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,46 +128,26 @@ export default function HeroSection() {
               Our Coimbatore Hub
             </a>
           </motion.div>
-          </div>
-
-          {/* Dashboard screenshot */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.5 }}
-            className="relative hidden lg:block"
-          >
-            <div className="relative" style={{ perspective: "1200px" }}>
-              {/* Glow underneath */}
-              <div className="absolute -inset-4 rounded-2xl opacity-40" style={{ background: "radial-gradient(ellipse at center, rgba(16,185,129,0.2) 0%, transparent 70%)" }} />
-              
-              {/* Browser frame */}
-              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl" style={{ transform: "rotateY(-3deg) rotateX(2deg)" }}>
-                {/* Browser bar */}
-                <div className="flex items-center gap-2 px-4 py-2.5" style={{ background: "#1E293B" }}>
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                  </div>
-                  <div className="flex-1 ml-3">
-                    <div className="px-3 py-1 rounded-md text-xs" style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.4)" }}>
-                      app.nuscript.net
-                    </div>
-                  </div>
-                </div>
-                {/* Screenshot */}
-                <img
-                  src="/dashboard.jpg"
-                  alt="NuScript AI Dashboard — System Command Center"
-                  className="w-full object-cover object-top"
-                  style={{ maxHeight: "420px" }}
-                />
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
+
+      {/* Neural network visual */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.5 }}
+        className="absolute top-0 right-0 w-1/2 h-full hidden lg:block pointer-events-none"
+      >
+        <img
+          src="/ns2.jpg"
+          alt="AI neural network"
+          className="w-full h-full object-cover"
+          style={{
+            maskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
+          }}
+        />
+      </motion.div>
     </section>
   );
 }
