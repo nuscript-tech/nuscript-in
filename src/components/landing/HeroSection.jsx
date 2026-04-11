@@ -136,12 +136,12 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.5 }}
-        className="absolute top-0 right-0 w-1/2 h-full hidden lg:block pointer-events-none"
+        className="absolute top-0 right-0 w-1/2 h-full hidden lg:flex items-center justify-end pointer-events-none overflow-hidden"
       >
         <img
           src="/ns2.jpg"
           alt="AI neural network"
-          className="w-full h-full object-cover"
+          className="w-full max-h-[80%] object-contain object-right"
           style={{
             maskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
