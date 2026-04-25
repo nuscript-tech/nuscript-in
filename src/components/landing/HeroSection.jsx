@@ -101,7 +101,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="text-base lg:text-lg text-muted-foreground font-jakarta mb-10"
+            className="text-base lg:text-lg text-muted-foreground mb-10"
             style={{ lineHeight: "1.75" }}
           >
             From automating global clinical documentation for MTSOs to powering autonomous inventory for domestic pharmacies — we build the technology that runs the backbone of Indian enterprise.

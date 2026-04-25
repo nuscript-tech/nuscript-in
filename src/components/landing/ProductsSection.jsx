@@ -92,7 +92,7 @@ function ProductCard({ product, index }) {
             </p>
 
             {/* Description */}
-            <p className="text-sm font-jakarta mb-10" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
+            <p className="text-sm mb-10" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
               {product.description}
             </p>
 

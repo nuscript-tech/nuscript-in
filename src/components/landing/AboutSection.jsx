@@ -51,7 +51,7 @@ export default function AboutSection() {
               >
                 25 Years of Domain Mastery. Formed for the Future.
               </h2>
-              <p className="font-jakarta" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
+              <p className="" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
                 While NuScript Technologies was founded in 2026 to lead India's autonomous revolution, our DNA spans over two decades. Our founding vision began in Health Information Management in 2000, building a legacy of 8 startups and 4 successful exits. We aren't just a new company; we are the culmination of a quarter-century of global healthcare expertise.
               </p>
             </motion.div>
@@ -72,7 +72,7 @@ export default function AboutSection() {
                   >
                     {m.value}
                   </p>
-                  <p className="text-xs text-muted-foreground font-jakarta leading-snug">
+                  <p className="text-xs text-muted-foreground leading-snug">
                     {m.label}
                   </p>
                 </motion.div>
@@ -122,7 +122,7 @@ export default function AboutSection() {
                 >
                   {pillar.title}
                 </h3>
-                <p className="text-sm font-jakarta" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
+                <p className="text-sm" style={{ lineHeight: "1.7", color: "#D1D5DB" }}>
                   {pillar.description}
                 </p>
               </motion.div>

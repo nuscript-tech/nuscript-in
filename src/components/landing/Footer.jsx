@@ -18,7 +18,7 @@ export default function Footer() {
                 />
               </Link>
             </div>
-            <p className="text-slate-400 text-sm font-jakarta mb-6" style={{ lineHeight: "1.7" }}>
+            <p className="text-slate-400 text-sm mb-6" style={{ lineHeight: "1.7" }}>
               Building intelligent systems for India's healthcare and pharmaceutical sectors.
             </p>
             <div className="space-y-3">
@@ -82,10 +82,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs font-jakarta font-normal">
+          <p className="text-slate-500 text-xs font-normal">
             © {new Date().getFullYear()} NuScript Technologies Private Limited. All rights reserved.
           </p>
-          <span className="flex items-center gap-2 text-slate-500 text-xs font-jakarta font-normal">
+          <span className="flex items-center gap-2 text-slate-500 text-xs font-normal">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"></span>
             Made with Precision in Coimbatore, India
           </span>

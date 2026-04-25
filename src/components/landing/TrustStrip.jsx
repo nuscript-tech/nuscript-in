@@ -37,7 +37,7 @@ export default function TrustStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-muted-foreground font-jakarta mb-10 text-base lg:text-lg max-w-2xl mx-auto"
+              className="text-muted-foreground mb-10 text-base lg:text-lg max-w-2xl mx-auto"
               style={{ lineHeight: "1.7" }}
             >
               Join the leaders in the MTSO and Pharma sectors who are moving from manual to autonomous.
