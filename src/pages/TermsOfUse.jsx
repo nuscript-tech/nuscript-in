@@ -45,7 +45,7 @@ const sections = [
   },
   {
     title: "8. Contact Us",
-    content: "For legal inquiries, please reach out to legal@nuscript.in.",
+    content: "For legal inquiries, please reach out to",
     email: "legal@nuscript.in",
   },
 ];
@@ -75,9 +75,7 @@ export default function TermsOfUse() {
                 <h2 className="text-xl font-extrabold text-heading mb-3">{s.title}</h2>
                 {s.content && (
                   <p className="text-base text-muted-foreground leading-relaxed">
-                    {s.email
-                      ? s.content.replace(s.email, "").trim()
-                      : s.content}
+                    {s.content}
                     {s.email && (
                       <> <a href={`mailto:${s.email}`} className="text-primary font-semibold hover:underline">{s.email}</a>.</>
                     )}

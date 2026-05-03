@@ -53,7 +53,7 @@ const sections = [
   },
   {
     title: "7. Grievances",
-    content: `If you have questions or grievances regarding your data, please contact us at legal@nuscript.in.`,
+    content: "If you have questions or grievances regarding your data, please contact us at",
     email: "legal@nuscript.in",
   },
 ];
@@ -83,9 +83,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-xl font-extrabold text-heading mb-3">{s.title}</h2>
                 {s.content && (
                   <p className="text-base text-muted-foreground leading-relaxed">
-                    {s.email
-                      ? s.content.replace(s.email, "").trim().replace(/at$/, "at ")
-                      : s.content}
+                    {s.content}
                     {s.email && (
                       <> <a href={`mailto:${s.email}`} className="text-primary font-semibold hover:underline">{s.email}</a>.</>
                     )}
