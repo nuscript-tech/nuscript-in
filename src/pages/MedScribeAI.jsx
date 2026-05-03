@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap, BarChart3, Shield, Monitor, Cpu, Users, Globe, ShieldCheck } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 import ScrollToTopButton from "@/components/website/ScrollToTopButton";
@@ -66,6 +67,7 @@ const techSpecs = [
 export default function MedScribeAI() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO page="medscribeai" />
       <ScrollProgressBar />
       <Navbar />
 

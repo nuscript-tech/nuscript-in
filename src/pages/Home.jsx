@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Hero from "@/components/website/Hero";
 import Products from "@/components/website/Products";
@@ -11,6 +12,7 @@ import ScrollProgressBar from "@/components/website/ScrollProgressBar";
 export default function Home() {
   return (
     <div className="font-jakarta bg-background text-foreground min-h-screen">
+      <SEO page="home" />
       <ScrollProgressBar />
       <Navbar />
       <Hero />

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck, BarChart3, RefreshCw, Store, Layers, Bell } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 import ScrollToTopButton from "@/components/website/ScrollToTopButton";
@@ -65,6 +66,7 @@ const techSpecs = [
 export default function PharmaStockAI() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO page="pharmastockai" />
       <ScrollProgressBar />
       <Navbar />
 

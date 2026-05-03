@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Clock, Mail, Phone, Linkedin, ExternalLink } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 import ScrollToTopButton from "@/components/website/ScrollToTopButton";
@@ -31,6 +32,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO page="contact" />
       <ScrollProgressBar />
       <Navbar />
 

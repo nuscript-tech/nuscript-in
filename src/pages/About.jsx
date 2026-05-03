@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Zap, ShieldCheck, MapPin, Globe, Layers, Lightbulb, TrendingUp, Rocket } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 import ScrollToTopButton from "@/components/website/ScrollToTopButton";
@@ -40,6 +41,7 @@ const principles = [
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO page="about" />
       <ScrollProgressBar />
       <Navbar />
 

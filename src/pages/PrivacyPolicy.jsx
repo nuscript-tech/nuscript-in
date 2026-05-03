@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 
@@ -61,6 +62,7 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO page="privacy" />
       <Navbar />
 
       <section className="pt-32 pb-16">
