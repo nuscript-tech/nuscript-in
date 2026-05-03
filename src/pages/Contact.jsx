@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Clock, Mail, Phone, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Mail, Phone, Linkedin, ExternalLink, Loader2 } from "lucide-react";
 import SEO from "@/components/SEO";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 import ScrollToTopButton from "@/components/website/ScrollToTopButton";
 import ScrollProgressBar from "@/components/website/ScrollProgressBar";
+
+// Formspree endpoint — replace YOUR_FORM_ID with your actual form ID
+// Get it from https://formspree.io after creating a new form
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzlzbvq";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -23,11 +27,47 @@ const interests = [
 export default function Contact() {
   const [selected, setSelected] = useState(null);
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const interestLabel = interests.find((i) => i.id === selected)?.label || "Not specified";
+      const payload = {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        interest: interestLabel,
+        _subject: `New inquiry from ${form.name || "website"} — ${interestLabel}`,
+      };
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data?.error || "Submission failed");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError("Something went wrong. Please email hello@nuscript.in directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -218,11 +258,27 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"
                 />
+
+                {error && (
+                  <div className="px-4 py-3 rounded-xl border border-destructive/30 bg-destructive/5 text-sm text-destructive">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors"
+                  disabled={submitting}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Inquiry <ArrowRight className="w-4 h-4" />
+                  {submitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" /> Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Inquiry <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}

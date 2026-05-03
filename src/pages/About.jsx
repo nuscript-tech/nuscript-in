@@ -243,7 +243,7 @@ export default function About() {
             <p className="text-base text-muted-foreground mb-6 max-w-xl mx-auto">
               We're always looking for engineers, domain experts, and partners who believe in building technology that matters.
             </p>
-            <a href="mailto:info@nuscript.in" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors">
+            <a href="mailto:hello@nuscript.in" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors">
               Join the Mission <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
