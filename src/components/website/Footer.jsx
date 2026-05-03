@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { MapPin, Mail, Linkedin, Twitter } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: "instant" });
 
 export default function Footer() {
+  const { isDark } = useTheme();
+
   return (
     <footer className="bg-muted/50 text-foreground relative">
       {/* Gradient top border */}
@@ -14,7 +17,7 @@ export default function Footer() {
         <div className="flex flex-col gap-5">
           <Link to="/" onClick={scrollToTop} className="flex items-center gap-2">
             <img
-              src="/nuscript-logo.png"
+              src={isDark ? "/nuscript-logo-white.png" : "/nuscript-logo.png"}
               alt="NuScript Technologies"
               className="h-8 w-auto object-contain"
             />

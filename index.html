@@ -7,6 +7,15 @@
     <title>NuScript Technologies — AI-Native Systems for India</title>
     <meta name="description" content="NuScript Technologies builds intelligent systems for India's healthcare and pharmaceutical sectors. MedScribeAI and PharmaStockAI." />
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" />
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        var theme = localStorage.getItem('nuscript-theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
