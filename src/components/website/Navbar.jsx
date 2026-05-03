@@ -33,7 +33,7 @@ export default function Navbar() {
             <Link
               key={l.label}
               to={l.href}
-              className={`text-sm font-semibold transition-colors relative pb-0.5 ${
+              className={`text-base font-semibold transition-colors relative pb-0.5 ${
                 pathname === l.href
                   ? "text-foreground after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full"
                   : "text-muted-foreground hover:text-foreground"
@@ -56,7 +56,7 @@ export default function Navbar() {
 
           <Link
             to="/contact"
-            className="inline-flex items-center px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center px-4 py-2 rounded-lg bg-primary text-primary-foreground text-base font-bold hover:bg-primary/90 transition-colors"
           >
             Get in Touch
           </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-bold" onClick={() => setOpen(false)}>
+            <Link to="/contact" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-primary-foreground text-base font-bold" onClick={() => setOpen(false)}>
               Get in Touch
             </Link>
           </motion.div>
