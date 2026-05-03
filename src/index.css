@@ -64,9 +64,9 @@
     @apply border-border outline-ring/50;
   }
   html {
-    /* Scale all rem-based sizes down by ~6% to compensate for Sora's
-       larger x-height vs Satoshi. 16px × 0.9375 = 15px base. */
-    font-size: 93.75%;
+    /* Scale all rem-based sizes down by 10% to compensate for Sora's
+       larger x-height vs Satoshi. 16px × 0.90 = 14.4px base. */
+    font-size: 90%;
   }
   body {
     @apply bg-background text-foreground;
