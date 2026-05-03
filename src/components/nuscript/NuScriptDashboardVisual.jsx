@@ -12,7 +12,7 @@ const jobs = [
 export default function NuScriptDashboardVisual() {
   return (
     <div className="relative w-full max-w-lg ml-auto">
-      <div className="absolute -inset-4 rounded-3xl opacity-15 blur-2xl" style={{ background: "linear-gradient(135deg, #10B981, #00BFFF)" }} />
+      <div className="absolute -inset-4 rounded-3xl opacity-15 blur-2xl" style={{ background: "linear-gradient(135deg, #10B981, #0099CC)" }} />
 
       <div className="relative rounded-2xl overflow-hidden border" style={{ background: "#0A1628", borderColor: "rgba(16,185,129,0.25)" }}>
         {/* Header */}
@@ -34,7 +34,7 @@ export default function NuScriptDashboardVisual() {
           <div className="grid grid-cols-3 gap-2 mb-4">
             {[
               { label: "Processed Today", value: "2,847", color: "#10B981" },
-              { label: "Avg. Turnaround", value: "0.4s", color: "#00BFFF" },
+              { label: "Avg. Turnaround", value: "0.4s", color: "#0099CC" },
               { label: "Accuracy Rate", value: "99.4%", color: "#8B5CF6" },
             ].map((s) => (
               <div key={s.label} className="rounded-lg p-3 border text-center" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(255,255,255,0.06)" }}>
@@ -57,14 +57,14 @@ export default function NuScriptDashboardVisual() {
               {job.status === "complete"
                 ? <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#10B981" }} />
                 : <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}>
-                    <Zap className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00BFFF" }} />
+                    <Zap className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#0099CC" }} />
                   </motion.div>
               }
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-mono" style={{ color: "#64748B" }}>{job.id}</p>
                 <p className="text-[10px]" style={{ color: "#64748B" }}>{job.provider} · {job.specialty}</p>
               </div>
-              <span className="text-xs font-mono" style={{ color: job.status === "complete" ? "#10B981" : "#00BFFF" }}>{job.time}</span>
+              <span className="text-xs font-mono" style={{ color: job.status === "complete" ? "#10B981" : "#0099CC" }}>{job.time}</span>
             </motion.div>
           ))}
 

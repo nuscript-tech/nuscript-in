@@ -126,7 +126,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00BFFF" }}
+            className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#0099CC" }}
           >
             Dual Engine Platform
           </motion.p>

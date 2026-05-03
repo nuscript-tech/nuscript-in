@@ -35,7 +35,7 @@ export default function ContactMain() {
           >
             <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#10B981" }}>Our Base</p>
             <h2 className="font-unbounded text-2xl lg:text-3xl font-bold mb-8" style={{ color: "#F1F5F9" }}>
-             Coimbatore <span style={{ color: "#00BFFF" }}>HQ</span>
+             Coimbatore <span style={{ color: "#0099CC" }}>HQ</span>
             </h2>
 
             {/* Dark Map Placeholder */}
@@ -111,7 +111,7 @@ export default function ContactMain() {
           >
             <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "#10B981" }}>Inquiry</p>
             <h2 className="font-unbounded text-2xl lg:text-3xl font-bold mb-8" style={{ color: "#F1F5F9" }}>
-             Choose Your <span style={{ color: "#00BFFF" }}>Path</span>
+             Choose Your <span style={{ color: "#0099CC" }}>Path</span>
             </h2>
 
             {submitted ? (

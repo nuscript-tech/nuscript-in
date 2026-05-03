@@ -18,7 +18,7 @@ const pillars = [
     label: "Pillar II",
     title: "The Local Mission",
     subtitle: "PharmaStockAI — Built for Indian Pharmacies",
-    color: "#00BFFF",
+    color: "#0099CC",
     body: "We saw a gap in the Indian pharmacy ecosystem: brilliant pharmacists held back by manual inventory and unpredictable supply chains. PharmaStockAI was created to give the \"Neighborhood Chemist\" and the \"Large Distributor\" the same predictive power used by global retail giants. We are here to ensure that no patient in India ever hears the words \"Out of Stock.\"",
     link: "/pharmastockai",
     linkLabel: "Explore PharmaStockAI →",
@@ -35,7 +35,7 @@ export default function AboutPillars() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#00BFFF" }}
+          style={{ color: "#0099CC" }}
         >
           Two Pillars of Innovation
         </motion.p>
@@ -48,7 +48,7 @@ export default function AboutPillars() {
           style={{ color: "#F1F5F9" }}
         >
           One mission. Two{" "}
-           <span style={{ color: "#00BFFF" }}>market-defining products.</span>
+           <span style={{ color: "#0099CC" }}>market-defining products.</span>
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-8">

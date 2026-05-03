@@ -12,7 +12,7 @@ export default function AboutFounder() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#00BFFF" }}
+          style={{ color: "#0099CC" }}
         >
           Founder's Vision
         </motion.p>
@@ -25,16 +25,16 @@ export default function AboutFounder() {
           className="rounded-2xl p-8 lg:p-12 border relative overflow-hidden"
           style={{ background: "#1E293B", borderColor: "rgba(0,191,255,0.2)" }}
         >
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #00BFFF, transparent)" }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #0099CC, transparent)" }} />
 
           <div className="grid lg:grid-cols-3 gap-10 items-center">
             <div className="lg:col-span-2">
-              <Quote className="w-8 h-8 mb-6 opacity-40" style={{ color: "#00BFFF" }} />
+              <Quote className="w-8 h-8 mb-6 opacity-40" style={{ color: "#0099CC" }} />
               <p className="text-lg lg:text-xl leading-relaxed font-medium mb-8" style={{ color: "#CBD5E1" }}>
                 "As a founder with eight startups and four successful exits in HealthTech, my goal for NuScript Technologies is simple: to build the most reliable technology{" "}
                 <span style={{ color: "#F1F5F9" }}>'chassis'</span>{" "}
                 for India's healthcare and financial infrastructure. We aren't just building apps; we are building the{" "}
-                <span style={{ color: "#00BFFF" }}>connective tissue for modern Indian enterprises.</span>"
+                <span style={{ color: "#0099CC" }}>connective tissue for modern Indian enterprises.</span>"
               </p>
               <div>
                 <p className="font-unbounded font-bold text-base" style={{ color: "#F1F5F9" }}>Arvind Manohar</p>
@@ -50,7 +50,7 @@ export default function AboutFounder() {
                 { value: "2", label: "AI Platforms Built" },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl p-4 border text-center" style={{ background: "rgba(0,191,255,0.05)", borderColor: "rgba(0,191,255,0.15)" }}>
-                  <p className="font-unbounded font-bold text-xl" style={{ color: "#00BFFF" }}>{stat.value}</p>
+                  <p className="font-unbounded font-bold text-xl" style={{ color: "#0099CC" }}>{stat.value}</p>
                   <p className="text-xs mt-1" style={{ color: "#7B8FA0" }}>{stat.label}</p>
                 </div>
               ))}

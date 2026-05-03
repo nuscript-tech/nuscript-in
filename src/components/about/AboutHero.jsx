@@ -6,12 +6,12 @@ export default function AboutHero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{ background: "#00BFFF" }} />
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{ background: "#0099CC" }} />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full opacity-8 blur-3xl" style={{ background: "#0D9488" }} />
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="agrid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00BFFF" strokeWidth="1"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0099CC" strokeWidth="1"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#agrid)" />
@@ -50,7 +50,7 @@ export default function AboutHero() {
             <a
               href="#origins"
               className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300"
-              style={{ background: "#00BFFF", color: "#0F172A" }}
+              style={{ background: "#0099CC", color: "#0F172A" }}
             >
               Our Journey
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -58,7 +58,7 @@ export default function AboutHero() {
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 border"
-              style={{ borderColor: "rgba(0,191,255,0.4)", color: "#00BFFF" }}
+              style={{ borderColor: "rgba(0,191,255,0.4)", color: "#0099CC" }}
             >
               Join the Mission
             </a>

@@ -30,7 +30,7 @@ export default function AboutWay() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#00BFFF" }}
+          style={{ color: "#0099CC" }}
         >
           The NuScript Way
         </motion.p>
@@ -43,7 +43,7 @@ export default function AboutWay() {
           style={{ color: "#F1F5F9" }}
         >
           Three principles. Zero{" "}
-           <span style={{ color: "#00BFFF" }}>compromise.</span>
+           <span style={{ color: "#0099CC" }}>compromise.</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-3 gap-6 mb-16">
@@ -58,7 +58,7 @@ export default function AboutWay() {
               style={{ background: "rgba(0,191,255,0.05)", borderColor: "rgba(0,191,255,0.2)" }}
             >
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style={{ background: "rgba(0,191,255,0.15)" }}>
-                <v.icon className="w-6 h-6" style={{ color: "#00BFFF" }} />
+                <v.icon className="w-6 h-6" style={{ color: "#0099CC" }} />
               </div>
               <h3 className="font-unbounded font-bold text-lg mb-3" style={{ color: "#F1F5F9" }}>{v.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>{v.detail}</p>
@@ -75,7 +75,7 @@ export default function AboutWay() {
           className="rounded-2xl p-10 text-center border relative overflow-hidden"
           style={{ background: "rgba(0,191,255,0.06)", borderColor: "rgba(0,191,255,0.2)" }}
         >
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #00BFFF, transparent)" }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #0099CC, transparent)" }} />
           <h3 className="font-unbounded text-2xl font-bold mb-3" style={{ color: "#F1F5F9" }}>
             Want to be part of the mission?
           </h3>
@@ -85,7 +85,7 @@ export default function AboutWay() {
           <a
             href="mailto:info@nuscript.in"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300"
-            style={{ background: "#00BFFF", color: "#0F172A" }}
+            style={{ background: "#0099CC", color: "#0F172A" }}
           >
             Join the Mission →
           </a>

@@ -42,7 +42,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00BFFF" }}>
+              <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#0099CC" }}>
                  Institutional Trust
                </p>
               <h2
@@ -92,7 +92,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5 }}
             className="max-w-xl mb-14"
           >
-            <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#00BFFF" }}>
+            <p className="text-xs font-medium tracking-widest uppercase mb-4" style={{ color: "#0099CC" }}>
               Why NuScript Technologies?
             </p>
             <h2

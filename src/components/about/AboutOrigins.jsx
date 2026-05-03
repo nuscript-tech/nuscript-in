@@ -20,7 +20,7 @@ export default function AboutOrigins() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="text-xs font-medium tracking-widest uppercase mb-4"
-              style={{ color: "#00BFFF" }}
+              style={{ color: "#0099CC" }}
             >
               Our Origins
             </motion.p>
@@ -69,7 +69,7 @@ export default function AboutOrigins() {
                   className="flex gap-6 pl-12 relative"
                 >
                   <div className="absolute left-0 top-1 w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(0,191,255,0.15)", border: "1px solid rgba(0,191,255,0.3)" }}>
-                    <item.icon className="w-4 h-4" style={{ color: "#00BFFF" }} />
+                    <item.icon className="w-4 h-4" style={{ color: "#0099CC" }} />
                   </div>
                   <div>
                     <p className="font-unbounded font-bold text-sm mb-1" style={{ color: "#10B981" }}>{item.year} — {item.label}</p>

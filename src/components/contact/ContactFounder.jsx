@@ -14,11 +14,11 @@ export default function ContactFounder() {
           className="rounded-2xl p-8 lg:p-12 border relative overflow-hidden"
           style={{ background: "rgba(0,191,255,0.05)", borderColor: "rgba(0,191,255,0.2)" }}
         >
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #00BFFF, transparent)" }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #0099CC, transparent)" }} />
 
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-xs font-medium tracking-widest uppercase mb-3" style={{ color: "#00BFFF" }}>
+              <p className="text-xs font-medium tracking-widest uppercase mb-3" style={{ color: "#0099CC" }}>
                 Founder's Direct
               </p>
               <h3 className="font-unbounded text-xl lg:text-2xl font-bold mb-4" style={{ color: "#F1F5F9" }}>
@@ -35,10 +35,10 @@ export default function ContactFounder() {
                 style={{ background: "#0C1829", borderColor: "rgba(0,191,255,0.25)" }}
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,191,255,0.15)" }}>
-                  <Mail className="w-5 h-5" style={{ color: "#00BFFF" }} />
+                  <Mail className="w-5 h-5" style={{ color: "#0099CC" }} />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: "#00BFFF" }}>Founder's Office</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: "#0099CC" }}>Founder's Office</p>
                   <p className="text-sm font-medium" style={{ color: "#E2E8F0" }}>arvind.manohar@nuscript.in</p>
                   <p className="text-xs mt-0.5" style={{ color: "#7B8FA0" }}>Enterprise & strategic discussions only</p>
                 </div>
@@ -51,7 +51,7 @@ export default function ContactFounder() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-opacity hover:opacity-80"
-                    style={{ color: "#00BFFF" }}
+                    style={{ color: "#0099CC" }}
                   >
                     NuScript Health
                   </a>.

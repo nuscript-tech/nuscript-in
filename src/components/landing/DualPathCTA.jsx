@@ -20,7 +20,7 @@ const paths = [
     description: "Predictive intelligence that eliminates expiry waste and stockouts — protecting margins at every shelf.",
     cta: "Optimize My Pharmacy Stock",
     href: "/pharmastockai",
-    color: "#00BFFF",
+    color: "#0099CC",
     bg: "rgba(0,191,255,0.07)",
     border: "rgba(0,191,255,0.25)",
   },

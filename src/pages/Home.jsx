@@ -1,26 +1,25 @@
-import React from "react";
-import PageMeta from "../components/PageMeta";
-import Navbar from "../components/landing/Navbar";
-import HeroSection from "../components/landing/HeroSection";
-import ProductsSection from "../components/landing/ProductsSection";
-import AboutSection from "../components/landing/AboutSection";
-import TrustStrip from "../components/landing/TrustStrip";
-import DualPathCTA from "../components/landing/DualPathCTA";
-import Footer from "../components/landing/Footer";
+import Navbar from "@/components/website/Navbar";
+import Hero from "@/components/website/Hero";
+import Products from "@/components/website/Products";
+import About from "@/components/website/About";
+import WhyUs from "@/components/website/WhyUs";
+import CTA from "@/components/website/CTA";
+import Footer from "@/components/website/Footer";
+import ScrollToTopButton from "@/components/website/ScrollToTopButton";
+import ScrollProgressBar from "@/components/website/ScrollProgressBar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-grotesk">
-      <PageMeta
-        title="NuScript Technologies | Intelligence for the Foundations of India"
-        description="The autonomous intelligence layer for India's essential sectors. Powering high-performance MTSO documentation and predictive pharmacy inventory from our Coimbatore engineering hub."
-      />
+    <div className="font-jakarta bg-background text-foreground min-h-screen">
+      <ScrollProgressBar />
       <Navbar />
-      <HeroSection />
-      <ProductsSection />
-      <AboutSection />
-      <DualPathCTA />
+      <Hero />
+      <Products />
+      <About />
+      <WhyUs />
+      <CTA />
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }

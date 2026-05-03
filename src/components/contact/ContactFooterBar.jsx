@@ -20,7 +20,7 @@ export default function ContactFooterBar() {
             target="_blank"
             rel="noopener noreferrer"
             className="transition-opacity hover:opacity-80"
-            style={{ color: "#00BFFF" }}
+            style={{ color: "#0099CC" }}
           >
             NuScript Health
           </a>.
@@ -33,7 +33,7 @@ export default function ContactFooterBar() {
             className="flex items-center gap-2 text-xs transition-opacity hover:opacity-80"
             style={{ color: "#7B8FA0" }}
           >
-            <Linkedin className="w-4 h-4" style={{ color: "#00BFFF" }} />
+            <Linkedin className="w-4 h-4" style={{ color: "#0099CC" }} />
             LinkedIn
           </a>
         </div>

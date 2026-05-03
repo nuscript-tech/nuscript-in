@@ -30,7 +30,7 @@ export default function AboutCoimbatore() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: "#00BFFF" }}
+          style={{ color: "#0099CC" }}
         >
           Why Coimbatore?
         </motion.p>
@@ -43,7 +43,7 @@ export default function AboutCoimbatore() {
           style={{ color: "#F1F5F9" }}
         >
           India's quietly rising{" "}
-           <span style={{ color: "#00BFFF" }}>deep-tech hub.</span>
+           <span style={{ color: "#0099CC" }}>deep-tech hub.</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-3 gap-6">
@@ -58,7 +58,7 @@ export default function AboutCoimbatore() {
               style={{ background: "rgba(0,191,255,0.05)", borderColor: "rgba(0,191,255,0.15)" }}
             >
               <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ background: "rgba(0,191,255,0.15)" }}>
-                <pt.icon className="w-5 h-5" style={{ color: "#00BFFF" }} />
+                <pt.icon className="w-5 h-5" style={{ color: "#0099CC" }} />
               </div>
               <h3 className="font-unbounded font-bold text-base mb-3" style={{ color: "#F1F5F9" }}>{pt.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{pt.detail}</p>

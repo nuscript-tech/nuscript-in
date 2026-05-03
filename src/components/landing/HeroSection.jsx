@@ -68,17 +68,17 @@ function NeuralNetworkViz() {
             <stop offset="100%" stopColor="#10B981" stopOpacity="0.15" />
           </linearGradient>
           <linearGradient id="cyanLine" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#00BFFF" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="#00BFFF" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#00BFFF" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#0099CC" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#0099CC" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#0099CC" stopOpacity="0.15" />
           </linearGradient>
           <radialGradient id="nodeGlow">
             <stop offset="0%" stopColor="#10B981" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="nodeGlowCyan">
-            <stop offset="0%" stopColor="#00BFFF" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#00BFFF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#0099CC" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#0099CC" stopOpacity="0" />
           </radialGradient>
         </defs>
 
@@ -98,7 +98,7 @@ function NeuralNetworkViz() {
               />
               <motion.circle
                 r={2}
-                fill={useCyan ? "#00BFFF" : "#10B981"}
+                fill={useCyan ? "#0099CC" : "#10B981"}
                 initial={{ opacity: 0 }}
                 animate={{
                   cx: [from.x, to.x],
@@ -119,7 +119,7 @@ function NeuralNetworkViz() {
 
         {NODES.map((node, i) => {
           const isCyan = node.layer === "output" || node.layer === "hidden2";
-          const color = isCyan ? "#00BFFF" : "#10B981";
+          const color = isCyan ? "#0099CC" : "#10B981";
           const glowId = isCyan ? "nodeGlowCyan" : "nodeGlow";
           return (
             <g key={`node-${node.id}`}>

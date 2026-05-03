@@ -26,8 +26,8 @@ export default function PharmaDashboardVisual() {
           </div>
           <span className="text-xs font-mono" style={{ color: "#64748B" }}>pharmastockai — inventory ops</span>
           <div className="flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#00BFFF" }} />
-            <span className="text-xs" style={{ color: "#00BFFF" }}>Live</span>
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#0099CC" }} />
+            <span className="text-xs" style={{ color: "#0099CC" }}>Live</span>
           </div>
         </div>
 
@@ -36,7 +36,7 @@ export default function PharmaDashboardVisual() {
           <div className="rounded-xl p-3.5 border" style={{ background: "rgba(0,0,0,0.2)", borderColor: "rgba(0,191,255,0.15)" }}>
             <div className="flex items-center justify-between mb-2.5">
               <span className="text-xs font-semibold" style={{ color: "#7B8FA0" }}>Demand Forecast — Next 30d</span>
-              <div className="flex items-center gap-1 text-xs" style={{ color: "#00BFFF" }}>
+              <div className="flex items-center gap-1 text-xs" style={{ color: "#0099CC" }}>
                 <TrendingDown className="w-3 h-3" />
                 Waste ↓ 6.2%
               </div>
@@ -49,7 +49,7 @@ export default function PharmaDashboardVisual() {
                   animate={{ height: `${h}%` }}
                   transition={{ duration: 0.5, delay: i * 0.04 }}
                   className="flex-1 rounded-sm"
-                   style={{ background: i > 8 ? "#00BFFF" : "rgba(0,191,255,0.3)" }}
+                   style={{ background: i > 8 ? "#0099CC" : "rgba(0,191,255,0.3)" }}
                 />
               ))}
             </div>
@@ -68,7 +68,7 @@ export default function PharmaDashboardVisual() {
               {a.level === "warn"
                 ? <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#F59E0B" }} />
                 : a.level === "info"
-                ? <Package className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#00BFFF" }} />
+                ? <Package className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#0099CC" }} />
                 : <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#10B981" }} />
               }
               <div className="flex-1 min-w-0">

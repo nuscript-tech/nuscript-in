@@ -1,63 +1,60 @@
-
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --font-heading: 'Satoshi', sans-serif;
-    --font-body: 'Satoshi', sans-serif;
-
-    /* --- Background & Core Surfaces --- */
-    --background: 222 47% 11%;       /* #0F172A */
-    --foreground: 210 28% 93%;       /* #E6EDF3 */
-
-    /* --- Brand & Action Colors --- */
-    --primary: 160 59% 39%;            /* #10B981 - Brand Emerald */
-    --primary-foreground: 153 96% 7%;/* #052e16 - dark green for button text */
-
-    --secondary: 222 37% 28%;        /* #2E3F62 */
-    --secondary-foreground: 210 28% 93%;
-
-    /* --- Components (Cards & Surfaces) --- */
-    --card: 213 39% 15%;             /* #112836 */
-    --card-foreground: 210 28% 93%;
-    --popover: 213 39% 15%;
-    --popover-foreground: 210 28% 93%;
-
-    /* --- Muted Elements & Borders --- */
-    --muted: 218 27% 20%;            /* #243249 tertiary */
-    --muted-foreground: 210 11% 57%; /* #9AA7B2 */
-    
-    /* --- New Subheading Colors --- */
-    --subheading: 211 18% 58%;       /* #A0B0C0 */
-    --subheading-tertiary: 208 16% 42%; /* #7C8A99 */
-    --accent: 218 27% 20%;
-    --accent-foreground: 210 28% 93%;
-
-    --destructive: 0 62.8% 50%;
+    --font-jakarta: 'Satoshi', sans-serif;
+    --background: 0 0% 97%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --brand-cyan: 199 100% 40%;
+    --brand-green: 160 84% 39%;
+    --brand-zera: 221 91% 60%;
+    --secondary: 210 20% 93%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 20% 93%;
+    --muted-foreground: 220 15% 46%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 213 30% 24%;           /* #2A3A4F */
-    --input: 213 30% 24%;
-    --ring: 160 59% 39%;               /* #10B981 */
-
-    --chart-1: 160 59% 39%;
-    --chart-2: 217 91% 60%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 0 84% 60%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 160 70% 32%;
+    --heading: 215 28% 17%;
     --radius: 0.75rem;
+  }
 
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 210 28% 93%;
-    --sidebar-primary: 160 59% 39%;
-    --sidebar-primary-foreground: 153 96% 7%;
-    --sidebar-accent: 218 27% 20%;
-    --sidebar-accent-foreground: 210 28% 93%;
-    --sidebar-border: 213 30% 24%;
-    --sidebar-ring: 160 59% 39%;
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 96%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 47% 15%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 222 47% 11%;
+    --brand-cyan: 195 100% 50%;
+    --brand-green: 160 84% 39%;
+    --brand-zera: 221 91% 60%;
+    --secondary: 215 25% 22%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 160 84% 39%;
+    --radius: 0.75rem;
   }
 }
 
@@ -65,101 +62,8 @@
   * {
     @apply border-border outline-ring/50;
   }
-
   body {
-    @apply bg-background text-text;
-    font-family: var(--font-body);
-    font-weight: 450;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-  }
-
-  h1 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 3.25rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-
-  h2 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-  }
-
-  h3 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.875rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-  }
-
-  h4 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
-  }
-
-  h5 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.3rem;
-    line-height: 1.35;
-    letter-spacing: 0em;
-  }
-
-  h6 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.15rem;
-    line-height: 1.35;
-    letter-spacing: 0em;
-  }
-
-  .font-unbounded, .font-heading {
-    font-weight: 600 !important;
-  }
-}
-@layer utilities {
-  .gradient-text {
-    background: linear-gradient(90deg, #00BFFF 0%, #10B981 40%, #00BFFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
-
-/* ── Satoshi size adjustments ── */
-@layer base {
-  /* Bump small text sizes for Satoshi readability */
-  .text-xs {
-    font-size: 0.8125rem !important;  /* 13px instead of 12px */
-    line-height: 1.4;
-  }
-  .text-sm {
-    font-size: 0.9375rem !important;  /* 15px instead of 14px */
-    line-height: 1.5;
-  }
-  .text-base {
-    font-size: 1.0625rem !important;  /* 17px instead of 16px */
-    line-height: 1.6;
-  }
-
-  /* Navbar links */
-  nav a, nav button, nav span {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  /* Footer readability */
-  footer, footer p, footer a, footer span {
-    font-size: 0.9375rem;
+    @apply bg-background text-foreground;
+    font-family: var(--font-jakarta);
   }
 }
