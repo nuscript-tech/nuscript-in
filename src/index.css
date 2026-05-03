@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --font-jakarta: 'Sora', sans-serif;
+    --font-jakarta: 'Geist', sans-serif;
     --background: 0 0% 97%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
@@ -62,11 +62,6 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
-  html {
-    /* Scale all rem-based sizes down by 10% to compensate for Sora's
-       larger x-height vs Satoshi. 16px × 0.90 = 14.4px base. */
-    font-size: 90%;
   }
   body {
     @apply bg-background text-foreground;
