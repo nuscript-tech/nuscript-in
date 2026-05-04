@@ -73,4 +73,13 @@
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }
+  /* Conservative weight overrides — softer than font-extrabold (800) so
+     headings breathe and SUSE's character shows through. !important is
+     needed because Tailwind's font-extrabold utility otherwise wins. */
+  h1, h2 {
+    font-weight: 700 !important;
+  }
+  h3, h4, h5, h6 {
+    font-weight: 600 !important;
+  }
 }
