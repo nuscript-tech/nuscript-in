@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --font-jakarta: 'Satoshi', sans-serif;
-    --font-display: 'SUSE', sans-serif;
+    --font-display: 'Clash Display', sans-serif;
     --background: 0 0% 97%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
@@ -68,14 +68,13 @@
     @apply bg-background text-foreground;
     font-family: var(--font-jakarta);
   }
-  /* Display font for all headings — SUSE */
+  /* Display font for all headings — Clash Display */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }
   /* Conservative weight overrides — softer than font-extrabold (800) so
-     headings breathe and SUSE's character shows through. !important is
-     needed because Tailwind's font-extrabold utility otherwise wins. */
+     headings breathe and the display font's character shows through. */
   h1, h2 {
     font-weight: 700 !important;
   }
