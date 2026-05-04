@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --font-jakarta: 'Satoshi', sans-serif;
+    --font-display: 'SUSE', sans-serif;
     --background: 0 0% 97%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
@@ -66,5 +67,10 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-jakarta);
+  }
+  /* Display font for all headings — SUSE */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }
