@@ -27,13 +27,13 @@ module.exports = {
         // CSS vars hold raw HSL components (e.g. "195 100% 40%") so that
         // Tailwind's slash-opacity syntax works: bg-cyan/10, border-emerald/20, etc.
         cyan: {
-          DEFAULT: 'hsl(var(--cyan))',          // #0099CC — primary on light surfaces
+          DEFAULT: 'hsl(var(--cyan))',          // #0E7490 — primary on light surfaces
           bright:  'hsl(var(--cyan-bright))',   // #00BFFF — primary on dark surfaces (hero)
           tint:    '#E5F4FA',                   // very light cyan background
           'tint-2':'#CCE9F5',                   // hover background
         },
         emerald: {
-          DEFAULT: 'hsl(var(--emerald))',       // #10B981 — secondary brand
+          DEFAULT: 'hsl(var(--emerald))',       // #1a8c5a — secondary brand
           tint:    '#D1FAE5',                   // very light emerald background
         },
         slate: {

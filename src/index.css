@@ -24,9 +24,9 @@
 @layer base {
   :root {
     /* ─── Deck core tokens (HSL components only) ──────────────────────── */
-    --cyan:         195 100% 40%;   /* #0099CC */
-    --cyan-bright:  195 100% 50%;   /* #00BFFF */
-    --emerald:      160 84%  39%;   /* #10B981 */
+    --cyan:         192 82%  31%;   /* #0E7490 — Tailwind cyan-700, deeper teal-cyan */
+    --cyan-bright:  195 100% 50%;   /* #00BFFF — on-dark variant, used in hero only */
+    --emerald:      154 69%  33%;   /* #1a8c5a — grounded forest-green */
     --slate:        222 47%  11%;   /* #0F172A */
     --slate-2:      217 33%  17%;   /* #1E293B */
     --slate-3:      215 25%  27%;   /* #334155 */
