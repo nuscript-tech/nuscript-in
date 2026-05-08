@@ -1,35 +1,113 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Clock, Mail, Phone, Linkedin, ExternalLink, Loader2 } from "lucide-react";
-import SEO from "@/components/SEO";
-import Navbar from "@/components/website/Navbar";
-import Footer from "@/components/website/Footer";
-import ScrollToTopButton from "@/components/website/ScrollToTopButton";
-import ScrollProgressBar from "@/components/website/ScrollProgressBar";
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowRight, MapPin, Clock, Mail, Phone, Linkedin, Loader2, ExternalLink, Check } from 'lucide-react';
 
-// Formspree endpoint — replace YOUR_FORM_ID with your actual form ID
-// Get it from https://formspree.io after creating a new form
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzlzbvq";
+import SEO from '@/components/SEO';
+import Navbar from '@/components/website/Navbar';
+import Footer from '@/components/website/Footer';
+import ScrollToTopButton from '@/components/website/ScrollToTopButton';
+import ScrollProgressBar from '@/components/website/ScrollProgressBar';
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { delay, duration: 0.55, ease: "easeOut" },
-});
+import SectionHead from '@/components/website/_primitives/SectionHead';
+import Eyebrow from '@/components/website/_primitives/Eyebrow';
+import FormField from '@/components/website/_primitives/FormField';
 
-const interests = [
-  { id: "medscribe", label: "MedScribeAI for MTSOs", sub: "Automating manual transcription workflows" },
-  { id: "pharma", label: "PharmaStockAI for Retail/Distribution", sub: "Predictive inventory management" },
-  { id: "partnership", label: "Strategic Partnerships / Fintech", sub: "Exploring future collaborations" },
+/*
+ * Contact page — rebuild on the Sprint2Frontier design system.
+ *
+ * Three sections: header, inquiry (HQ info + form), enterprise/founder-direct.
+ * No dark hero on internal pages — the navbar stays opaque from page load.
+ *
+ * The form pre-selects an interest based on the `?product=` query param,
+ * which matches the route format used by the home page CTAs:
+ *   /contact?product=medscribeai     → MTSO interest pre-selected
+ *   /contact?product=pharmastockai   → Pharmacy interest pre-selected
+ *   /contact                          → no pre-selection
+ *
+ * Submission goes to the existing Formspree endpoint preserved from the
+ * previous Contact build. On success, the form is replaced with a success
+ * card. On error, the field-level error region surfaces a fallback email.
+ */
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzlzbvq';
+
+const INTERESTS = [
+  {
+    id:    'medscribeai',
+    label: 'MedScribeAI for MTSOs',
+    sub:   'Automating manual transcription workflows',
+    accent:'emerald',
+  },
+  {
+    id:    'pharmastockai',
+    label: 'PharmaStockAI for Pharmacies & Distributors',
+    sub:   'Predictive inventory and expiry intelligence',
+    accent:'cyan',
+  },
+  {
+    id:    'partnership',
+    label: 'Strategic Partnerships',
+    sub:   'Channels, integrations, or strategic conversations',
+    accent:'slate',
+  },
 ];
 
+const HQ = {
+  legalName: 'NuScript Technologies Private Limited',
+  addressLines: [
+    '657 Tristar Towers, East Wing',
+    '3rd Floor, Avinashi Road',
+    'Coimbatore, Tamil Nadu 641037, India',
+  ],
+  mapsHref: 'https://maps.google.com/?q=Tristar+Towers,+Avinashi+Road,+Coimbatore',
+  hours:    'Monday – Friday · 9:00 AM – 6:00 PM IST',
+  email:    'hello@nuscript.in',
+  phone:    '+91 93637 24729',
+  phoneHref:'tel:+919363724729',
+  linkedinHandle: 'linkedin.com/company/nuscript-technologies',
+  linkedinHref:   'https://linkedin.com/company/nuscript-technologies',
+};
+
+const FOUNDER = {
+  quote: 'We value deep partnerships over vendor contracts.',
+  body:
+    'If you are a large-scale distributor, MTSO processing over a million lines monthly, or an enterprise prospect with a custom integration in mind, reach out to me directly.',
+  email: 'arvind.manohar@nuscript.in',
+  emailHref: 'mailto:arvind.manohar@nuscript.in',
+  role:  "Founder's Office · Enterprise & strategic discussions",
+  usReference: {
+    label: 'Looking for our US operations?',
+    name:  'NuScript Health',
+    href:  'https://nuscripthealth.com',
+  },
+};
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 18 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { delay, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+});
+
 export default function Contact() {
+  const { search } = useLocation();
   const [selected, setSelected] = useState(null);
-  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(null);
+
+  // Read `?product=` on mount (and when the query string changes) and
+  // pre-select the matching interest. Unknown values get ignored silently
+  // rather than blowing up the UI — the user can still pick manually.
+  useEffect(() => {
+    const params = new URLSearchParams(search);
+    const product = params.get('product');
+    if (product && INTERESTS.find((i) => i.id === product)) {
+      setSelected(product);
+    }
+  }, [search]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,293 +115,423 @@ export default function Contact() {
     setError(null);
 
     try {
-      const interestLabel = interests.find((i) => i.id === selected)?.label || "Not specified";
+      const interest = INTERESTS.find((i) => i.id === selected);
+      const interestLabel = interest?.label ?? 'Not specified';
+
       const payload = {
-        name: form.name,
+        name:    form.name,
         company: form.company,
-        email: form.email,
-        phone: form.phone,
+        email:   form.email,
+        phone:   form.phone,
         message: form.message,
         interest: interestLabel,
-        _subject: `New inquiry from ${form.name || "website"} — ${interestLabel}`,
+        _subject: `New inquiry from ${form.name || 'website'} — ${interestLabel}`,
       };
 
       const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         const data = await response.json().catch(() => ({}));
-        throw new Error(data?.error || "Submission failed");
+        throw new Error(data?.error || 'Submission failed');
       }
 
       setSubmitted(true);
     } catch (err) {
-      setError("Something went wrong. Please email hello@nuscript.in directly.");
+      setError(`Something went wrong sending your inquiry. Please email ${HQ.email} directly and we'll respond within one business day.`);
     } finally {
       setSubmitting(false);
     }
   };
 
+  const setField = (key) => (e) => setForm((prev) => ({ ...prev, [key]: e.target.value }));
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper text-ink antialiased">
       <SEO page="contact" />
       <ScrollProgressBar />
       <Navbar />
 
-      {/* Hero */}
-      <section className="min-h-[80vh] flex items-center pt-16 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-brand-cyan/5 blur-3xl" />
-        </div>
-        <div className="max-w-6xl mx-auto px-6 py-20 w-full relative z-10">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-8">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Coimbatore-Based · Globally Delivered</span>
-          </motion.div>
-          <motion.h1 {...fadeUp(0.18)} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] mb-6 text-heading max-w-4xl">
-            Let's Build the Future of India's{" "}
-            <span className="bg-gradient-to-r from-brand-cyan to-primary bg-clip-text text-transparent">Infrastructure.</span>
-          </motion.h1>
-          <motion.p {...fadeUp(0.26)} className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
-            Whether you are looking to automate your MTSO workflow or optimize your Pharmacy operations, our Coimbatore-based engineering team is ready to help you scale.
-          </motion.p>
-          <motion.div {...fadeUp(0.34)}>
-            <a
-              href="#inquiry"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors"
-            >
-              Schedule a Discovery Call <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <main>
+        {/* ─── Header section ────────────────────────────────────────── */}
+        <section className="relative bg-paper pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-44 lg:pb-20">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow="GET IN TOUCH"
+              eyebrowColor="cyan"
+              headline="Talk to us about MedScribeAI, PharmaStockAI, or partnerships."
+              lede="One-business-day response. Coimbatore-based engineering team. Whether you operate an MTSO serving US healthcare, run a pharmacy chain, or are exploring a strategic conversation — we're listening."
+            />
+          </div>
+        </section>
 
-      {/* HQ + Inquiry */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+        {/* ─── Inquiry section: HQ info + form ──────────────────────── */}
+        <section id="inquiry" className="relative bg-paper-2 py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:gap-10">
 
-          {/* Left: HQ Info */}
-          <motion.div {...fadeUp()}>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Our Base</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-heading mb-8">Coimbatore HQ</h2>
+              {/* Left column — HQ info card (5/12 on desktop) */}
+              <motion.aside {...fadeUp(0)} className="lg:col-span-5">
+                <HqCard />
+              </motion.aside>
 
-            <div className="bg-card border border-border rounded-2xl p-7 space-y-5">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="font-extrabold text-heading mb-1">NuScript Technologies Private Limited</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    657 Tristar Towers, East Wing<br />
-                    3rd Floor, Avinashi Road<br />
-                    Coimbatore, Tamil Nadu 641037, India
-                  </p>
-                  <a
-                    href="https://maps.google.com/?q=Tristar+Towers,+Avinashi+Road,+Coimbatore"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-primary mt-2 hover:underline"
-                  >
-                    Open in Google Maps <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Clock className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Monday – Friday: 9:00 AM – 6:00 PM IST</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <a href="mailto:hello@nuscript.in" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">hello@nuscript.in</a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <a href="tel:+919363724729" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">+91 93637 24729</a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Linkedin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <a href="https://linkedin.com/company/nuscript-technologies" target="_blank" rel="noreferrer" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
-                    linkedin.com/company/nuscript-technologies
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right: Inquiry Form */}
-          <motion.div {...fadeUp(0.1)} id="inquiry">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Inquiry</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-heading mb-8">Choose Your Path</h2>
-
-            {submitted ? (
-              <div className="bg-primary/5 border border-primary/20 rounded-2xl p-10 text-center">
-                <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <ArrowRight className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-extrabold text-heading mb-2">Inquiry Sent!</h3>
-                <p className="text-muted-foreground text-sm">We'll get back to you within one business day.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Interest selector */}
-                <div>
-                  <p className="text-sm font-bold text-heading mb-3">I am interested in:</p>
-                  <div className="space-y-3">
-                    {interests.map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setSelected(opt.id)}
-                        className={`w-full text-left px-4 py-3 rounded-xl border transition-all ${
-                          selected === opt.id
-                            ? "border-primary bg-primary/5"
-                            : "border-border bg-card hover:border-primary/50"
-                        }`}
-                      >
-                        <p className="text-sm font-bold text-heading">{opt.label}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{opt.sub}</p>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    required
-                    placeholder="Name & Designation"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+              {/* Right column — inquiry form (7/12 on desktop) */}
+              <motion.div {...fadeUp(0.08)} className="lg:col-span-7">
+                {submitted ? (
+                  <SuccessCard />
+                ) : (
+                  <FormCard
+                    selected={selected}
+                    setSelected={setSelected}
+                    form={form}
+                    setField={setField}
+                    submitting={submitting}
+                    error={error}
+                    onSubmit={handleSubmit}
                   />
-                  <input
-                    required
-                    placeholder="Company Name"
-                    value={form.company}
-                    onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                  />
-                  <input
-                    required
-                    type="email"
-                    placeholder="Work Email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                  />
-                  <input
-                    placeholder="Phone Number"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                  />
-                </div>
-                <textarea
-                  required
-                  rows={4}
-                  placeholder="How can we help your business scale?"
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"
-                />
-
-                {error && (
-                  <div className="px-4 py-3 rounded-xl border border-destructive/30 bg-destructive/5 text-sm text-destructive">
-                    {error}
-                  </div>
                 )}
-
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {submitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" /> Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Inquiry <ArrowRight className="w-4 h-4" />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Founder's Direct */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="bg-card border border-border rounded-2xl p-8 sm:p-12">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Founder's Direct</span>
+              </motion.div>
             </div>
-            <blockquote className="text-xl sm:text-2xl font-semibold text-foreground leading-relaxed mb-6 max-w-3xl">
-              "We value deep partnerships over vendor contracts."
-            </blockquote>
-            <p className="text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              If you are a large-scale distributor or an MTSO processing over <strong className="text-foreground">1 million lines monthly</strong>, reach out directly to discuss enterprise-grade integration and custom workflows.
-            </p>
-            <a
-              href="mailto:arvind.manohar@nuscript.in"
-              className="inline-flex flex-col sm:flex-row sm:items-center gap-3 px-6 py-4 rounded-xl border border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors group"
-            >
-              <div>
-                <p className="text-sm font-extrabold text-heading">Founder's Office</p>
-                <p className="text-sm text-primary">arvind.manohar@nuscript.in</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Enterprise & strategic discussions only</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-primary sm:ml-auto group-hover:translate-x-1 transition-transform" />
-            </a>
+          </div>
+        </section>
 
-            <p className="mt-8 text-sm text-muted-foreground">
-              Looking for our US Operations? Visit{" "}
-              <a href="https://nuscripthealth.com" target="_blank" rel="noreferrer" className="text-primary font-semibold hover:underline">
-                NuScript Health
-              </a>.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+        {/* ─── Founder's Direct ─────────────────────────────────────── */}
+        <section className="relative bg-paper py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <FounderDirectCard />
+          </div>
+        </section>
+      </main>
 
       <Footer />
       <ScrollToTopButton />
     </div>
+  );
+}
+
+/* ─── HQ info card ────────────────────────────────────────────────────────
+ * Left column of the inquiry section. Rendered as a TopAccentCard-style
+ * surface with a slate top edge (operator restraint — not cyan / emerald
+ * because this card isn't selling either product, it's anchoring the
+ * physical context). Five info rows: legal entity, hours, email, phone,
+ * LinkedIn. Each row is icon + content, consistent with deck pattern. */
+function HqCard() {
+  return (
+    <div className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-7 sm:p-8">
+      <div aria-hidden="true" className="absolute left-0 top-0 h-[3px] w-full bg-slate" />
+
+      <Eyebrow color="muted" className="mb-3 block">COIMBATORE HQ</Eyebrow>
+      <h3 className="font-sora text-[22px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[24px]">
+        {HQ.legalName}
+      </h3>
+
+      <ul className="mt-6 space-y-5">
+        <InfoRow icon={MapPin}>
+          <div className="space-y-1">
+            {HQ.addressLines.map((line) => (
+              <p key={line} className="text-[14px] leading-[1.55] text-ink-2">{line}</p>
+            ))}
+            <a
+              href={HQ.mapsHref}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 inline-flex items-center gap-1 text-[12px] font-bold uppercase tracking-[0.06em] text-cyan transition-opacity hover:opacity-80"
+            >
+              Open in Google Maps
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
+            </a>
+          </div>
+        </InfoRow>
+
+        <InfoRow icon={Clock}>
+          <p className="text-[14px] leading-[1.55] text-ink-2">{HQ.hours}</p>
+        </InfoRow>
+
+        <InfoRow icon={Mail}>
+          <a
+            href={`mailto:${HQ.email}`}
+            className="text-[14px] font-semibold text-ink transition-colors hover:text-cyan"
+          >
+            {HQ.email}
+          </a>
+        </InfoRow>
+
+        <InfoRow icon={Phone}>
+          <a
+            href={HQ.phoneHref}
+            className="text-[14px] font-semibold text-ink transition-colors hover:text-cyan"
+          >
+            {HQ.phone}
+          </a>
+        </InfoRow>
+
+        <InfoRow icon={Linkedin}>
+          <a
+            href={HQ.linkedinHref}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-[14px] font-semibold text-ink transition-colors hover:text-cyan"
+          >
+            View on LinkedIn
+            <ExternalLink className="h-3 w-3" aria-hidden="true" />
+          </a>
+        </InfoRow>
+      </ul>
+    </div>
+  );
+}
+
+function InfoRow({ icon: Icon, children }) {
+  return (
+    <li className="flex items-start gap-3">
+      <span
+        aria-hidden="true"
+        className="mt-0.5 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md border border-rule bg-paper"
+      >
+        <Icon className="h-4 w-4 text-cyan" />
+      </span>
+      <div className="flex-1 pt-1">{children}</div>
+    </li>
+  );
+}
+
+/* ─── Form card ──────────────────────────────────────────────────────────
+ * Right column. Audience selector at top (three radio-style buttons,
+ * pre-selected via ?product= query param), then a two-column field grid
+ * (name + company, email + phone), then a full-width message textarea,
+ * then submit. Error region only renders when there's an error. */
+function FormCard({ selected, setSelected, form, setField, submitting, error, onSubmit }) {
+  return (
+    <div className="rounded-lg border border-rule bg-paper-2 p-7 sm:p-9">
+      <Eyebrow color="cyan" className="mb-3 block">INQUIRY</Eyebrow>
+      <h3 className="font-sora text-[24px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[26px]">
+        Tell us what you're working on.
+      </h3>
+      <p className="mt-2 text-[14px] leading-[1.55] text-ink-2 sm:text-[15px]">
+        We respond within one business day. All fields except phone are required.
+      </p>
+
+      <form onSubmit={onSubmit} className="mt-7 space-y-5">
+        {/* Audience selector */}
+        <div>
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.08em] text-ink-3">
+            I am interested in
+          </p>
+          <div className="space-y-2.5">
+            {INTERESTS.map((opt) => {
+              const isActive = selected === opt.id;
+              const ringColor =
+                opt.accent === 'emerald' ? 'border-emerald bg-emerald/[0.04]'
+                : opt.accent === 'cyan'  ? 'border-cyan bg-cyan/[0.04]'
+                : 'border-slate bg-slate/[0.04]';
+              const dot =
+                opt.accent === 'emerald' ? 'bg-emerald'
+                : opt.accent === 'cyan'  ? 'bg-cyan'
+                : 'bg-slate';
+              return (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => setSelected(opt.id)}
+                  className={`
+                    group relative w-full rounded-md border px-4 py-3 text-left transition-colors duration-150
+                    ${isActive
+                      ? ringColor
+                      : 'border-rule bg-paper-2 hover:border-rule-2'}
+                  `}
+                  aria-pressed={isActive}
+                >
+                  <span className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      className={`
+                        mt-1 inline-flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-full border
+                        ${isActive ? `${dot} border-transparent` : 'border-rule-2 bg-paper-2'}
+                      `}
+                    >
+                      {isActive && <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} aria-hidden="true" />}
+                    </span>
+                    <span className="flex-1">
+                      <p className="text-[14px] font-bold text-slate">{opt.label}</p>
+                      <p className="mt-0.5 text-[12px] text-ink-3">{opt.sub}</p>
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Field grid */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <FormField
+            id="name"
+            label="Name & Designation"
+            required
+            value={form.name}
+            onChange={setField('name')}
+            placeholder="e.g. Priya R., COO"
+            autoComplete="name"
+          />
+          <FormField
+            id="company"
+            label="Company"
+            required
+            value={form.company}
+            onChange={setField('company')}
+            placeholder="Your company name"
+            autoComplete="organization"
+          />
+          <FormField
+            id="email"
+            label="Work Email"
+            type="email"
+            required
+            value={form.email}
+            onChange={setField('email')}
+            placeholder="you@company.com"
+            autoComplete="email"
+          />
+          <FormField
+            id="phone"
+            label="Phone"
+            type="tel"
+            value={form.phone}
+            onChange={setField('phone')}
+            placeholder="+91 …  (optional)"
+            autoComplete="tel"
+          />
+        </div>
+
+        <FormField
+          id="message"
+          label="What you're trying to accomplish"
+          required
+          value={form.message}
+          onChange={setField('message')}
+          placeholder="A few sentences about your operation, your scale, and what success looks like."
+          rows={5}
+        />
+
+        {error && (
+          <div
+            role="alert"
+            className="rounded-md border border-destructive/30 bg-destructive/5 px-4 py-3 text-[13px] leading-[1.55] text-destructive"
+          >
+            {error}
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="
+            inline-flex items-center gap-2 rounded-md bg-cyan px-5 py-3
+            text-[14px] font-bold text-white tracking-[-0.005em]
+            transition-colors duration-150
+            hover:bg-cyan/90
+            disabled:cursor-not-allowed disabled:opacity-60
+          "
+        >
+          {submitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+              Sending…
+            </>
+          ) : (
+            <>
+              Send inquiry
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </>
+          )}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+/* ─── Success card ───────────────────────────────────────────────────────
+ * Replaces the form on successful submission. Maintains the same card
+ * footprint so the layout doesn't reflow. */
+function SuccessCard() {
+  return (
+    <div className="rounded-lg border border-emerald/30 bg-emerald/[0.04] p-9 sm:p-12">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald/15">
+        <Check className="h-6 w-6 text-emerald" strokeWidth={2.5} aria-hidden="true" />
+      </div>
+      <h3 className="mt-5 font-sora text-[26px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[28px]">
+        Inquiry received.
+      </h3>
+      <p className="mt-3 max-w-md text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+        We'll respond within one business day. If you don't see a reply in your inbox by then, check spam or write to {HQ.email} directly.
+      </p>
+    </div>
+  );
+}
+
+/* ─── Founder's Direct card ───────────────────────────────────────────────
+ * Full-width quieter card. Quote, body, then a two-line email block with
+ * arrow-suffixed link styling. Bottom rule + reference to the US ops site.
+ * Uses cyan top-accent — this is a "tier 2" path, not the primary form,
+ * so visual weight is dialed down accordingly. */
+function FounderDirectCard() {
+  return (
+    <motion.div
+      {...fadeUp()}
+      className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-8 sm:p-12"
+    >
+      <div aria-hidden="true" className="absolute left-0 top-0 h-[3px] w-full bg-cyan" />
+
+      <Eyebrow color="cyan">FOUNDER'S DIRECT</Eyebrow>
+
+      <blockquote className="mt-4 max-w-3xl font-sora text-[22px] font-semibold leading-[1.30] tracking-[-0.018em] text-slate sm:text-[26px]">
+        “{FOUNDER.quote}”
+      </blockquote>
+
+      <p className="mt-5 max-w-2xl text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+        {FOUNDER.body}
+      </p>
+
+      <a
+        href={FOUNDER.emailHref}
+        className="
+          group mt-7 inline-flex items-center gap-4 rounded-md
+          border border-cyan/25 bg-cyan/5 px-5 py-4
+          transition-colors duration-150 hover:border-cyan/45 hover:bg-cyan/10
+        "
+      >
+        <Mail className="h-5 w-5 flex-shrink-0 text-cyan" aria-hidden="true" />
+        <span>
+          <span className="block font-sora text-[15px] font-bold text-slate">
+            {FOUNDER.email}
+          </span>
+          <span className="mt-0.5 block text-[12px] text-ink-3">
+            {FOUNDER.role}
+          </span>
+        </span>
+        <ArrowRight
+          className="ml-auto h-4 w-4 text-cyan transition-transform group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
+      </a>
+
+      <div className="mt-8 border-t border-rule pt-6">
+        <p className="text-[13px] text-ink-3 sm:text-[14px]">
+          {FOUNDER.usReference.label}{' '}
+          <a
+            href={FOUNDER.usReference.href}
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-cyan transition-opacity hover:opacity-80"
+          >
+            {FOUNDER.usReference.name}
+          </a>
+          .
+        </p>
+      </div>
+    </motion.div>
   );
 }
