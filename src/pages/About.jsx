@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink, MapPin, Globe2, Layers } from 'lucide-react';
+import { ArrowRight, MapPin, Globe2, Layers } from 'lucide-react';
 
 import SEO from '@/components/SEO';
 import Navbar from '@/components/website/Navbar';
@@ -16,30 +16,16 @@ import Timeline from '@/components/website/_primitives/Timeline';
 /*
  * /about — company page for NuScript Technologies.
  *
- * Buyer-facing throughout. The founder narrative is reduced to a single
- * restrained "Founded by" card late in the page, demoted from being the
- * page's anchor.
+ * Buyer-facing throughout. No standalone founder section — founder
+ * narrative is implicit in the origins/timeline section, where the
+ * company's domain depth is referenced in the operating-history context.
  *
- * Section flow (six):
+ * Section flow (five):
  *   1. Hero — what NuScript is, who it serves
  *   2. Origins — timeline (3 entries) + lede paragraph
  *   3. Two products — brief portfolio recap with links to product pages
  *   4. Why Coimbatore — three structural reasons
- *   5. Founded by — single card, restrained credentials
- *   6. CTA — get-in-touch banner
- *
- * What was deliberately removed from the previous version of this page:
- *   - "8 Startups Founded · 4 Successful Exits" stats block (investor flex)
- *   - Founder quote that begins "As a founder with eight startups..."
- *   - "venture-backed innovation hub" hero framing
- *   - "Three Principles" virtue-card section (Precision/Automation/Integrity —
- *     reads as values-page filler that says nothing concrete)
- *
- * What was kept and rewritten:
- *   - Coimbatore positioning (pulled out of values-soup, made concrete)
- *   - Timeline structure (rewritten to anchor on the company's birth and
- *     what it does, not the founder's earlier ventures)
- *   - Two-product portfolio recap (lifted with light edits)
+ *   5. CTA — get-in-touch banner
  */
 
 const HERO = {
@@ -130,15 +116,6 @@ const COIMBATORE_REASONS = [
       'No services arm pulling attention away from product work. The company exists to ship and operate two products; everything is structured around that focus.',
   },
 ];
-
-const FOUNDER = {
-  name:    'Arvind Manohar',
-  role:    'FOUNDED BY',
-  bio:
-    "Founder & CEO of NuScript Technologies. Operates NuScript Systems Inc. (US), a profitable healthcare services business, in parallel — the operating knowledge from running it informs every product decision NuScript Technologies makes. Engineering background, two decades inside US healthcare documentation operations, MBA from Madurai Kamaraj University, B.S. Physics from Bharathiar University.",
-  linkedin: { label: 'LinkedIn', href: 'https://linkedin.com/in/arvindmanohar' },
-  contact:  { label: 'Direct contact', href: 'mailto:arvind.manohar@nuscript.in' },
-};
 
 const CTA_BLOCK = {
   eyebrow:  'GET IN TOUCH',
@@ -298,47 +275,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ─── 5. Founded by ──────────────────────────────────────────────── */}
-        <section className="relative bg-paper py-20 sm:py-24 lg:py-28">
-          <div className="mx-auto max-w-3xl px-6 sm:px-8">
-            <motion.div
-              {...fadeUp(0)}
-              className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-7 sm:p-9"
-            >
-              <div
-                aria-hidden="true"
-                className="absolute left-0 top-0 h-[3px] w-full bg-cyan"
-              />
-
-              <Eyebrow color="cyan" className="mb-3 block">{FOUNDER.role}</Eyebrow>
-              <h3 className="font-sora text-[24px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[28px]">
-                {FOUNDER.name}
-              </h3>
-              <p className="mt-4 text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
-                {FOUNDER.bio}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px]">
-                <a
-                  href={FOUNDER.linkedin.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 font-semibold text-cyan transition-opacity hover:opacity-80"
-                >
-                  {FOUNDER.linkedin.label}
-                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                </a>
-                <a
-                  href={FOUNDER.contact.href}
-                  className="font-semibold text-cyan transition-opacity hover:opacity-80"
-                >
-                  {FOUNDER.contact.label}
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ─── 6. CTA banner ──────────────────────────────────────────────── */}
+        {/* ─── 5. CTA banner ──────────────────────────────────────────────── */}
         <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
           <div className="mx-auto max-w-6xl px-6 sm:px-8">
             <motion.div

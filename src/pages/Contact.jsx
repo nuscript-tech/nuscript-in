@@ -54,11 +54,11 @@ const INTERESTS = [
 ];
 
 const HQ = {
-  legalName: 'NuScript Technologies Private Limited',
+  legalName: 'NuScript Technologies Pvt Ltd',
   addressLines: [
     '657 Tristar Towers, East Wing',
     '3rd Floor, Avinashi Road',
-    'Coimbatore, Tamil Nadu 641037, India',
+    'Coimbatore 641037, India',
   ],
   mapsHref: 'https://maps.google.com/?q=Tristar+Towers,+Avinashi+Road,+Coimbatore',
   hours:    'Monday – Friday · 9:00 AM – 6:00 PM IST',
