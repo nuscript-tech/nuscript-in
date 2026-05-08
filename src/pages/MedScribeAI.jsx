@@ -1,245 +1,393 @@
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Zap, BarChart3, Shield, Monitor, Cpu, Users, Globe, ShieldCheck } from "lucide-react";
-import SEO from "@/components/SEO";
-import Navbar from "@/components/website/Navbar";
-import Footer from "@/components/website/Footer";
-import ScrollToTopButton from "@/components/website/ScrollToTopButton";
-import ScrollProgressBar from "@/components/website/ScrollProgressBar";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink, ShieldCheck, Layers, Zap } from 'lucide-react';
+
+import SEO from '@/components/SEO';
+import Navbar from '@/components/website/Navbar';
+import Footer from '@/components/website/Footer';
+import ScrollToTopButton from '@/components/website/ScrollToTopButton';
+import ScrollProgressBar from '@/components/website/ScrollProgressBar';
+
+import SectionHead from '@/components/website/_primitives/SectionHead';
+import TopAccentCard from '@/components/website/_primitives/TopAccentCard';
+import Eyebrow from '@/components/website/_primitives/Eyebrow';
+import ComparisonTable from '@/components/website/_primitives/ComparisonTable';
+
+/*
+ * /medscribeai — product page for MedScribeAI.
+ *
+ * Light-surface hero → capabilities → comparison table → compliance &
+ * architecture → CTA banner → footer. Emerald is the dominant product
+ * color throughout; cyan stays as the site-wide section eyebrow color.
+ *
+ * Voice rules carried over from the home page rewrite:
+ *   - No specific accuracy percentages in the marketing copy. The product
+ *     itself can publish numbers; this page leaves them to the demo.
+ *   - No multipliers ("10x volume", "4x productivity") without sourced data.
+ *   - Every claim should survive a buyer asking "where does that number
+ *     come from?"
+ *
+ * All copy lives in the constants at the top of this file.
+ */
+
+const HERO = {
+  eyebrow: 'LIVE · MULTI-TENANT SAAS',
+  headline: 'Documentation infrastructure for MTSOs serving global healthcare.',
+  lede:
+    'A multi-tenant transcription chassis built for medical transcription operators serving US, UK, and Australian clients. Production today, with HIPAA-aligned infrastructure and an editor-productivity multiplier purpose-built into the workflow.',
+  primaryCta:   { label: 'Schedule a demo',    href: '/contact?product=medscribeai' },
+  secondaryCta: { label: 'Visit live product', href: 'https://medscribeai.in/' },
+};
+
+const CAPABILITIES_SECTION = {
+  eyebrow:  'WHAT IT DOES',
+  headline: 'Three capabilities. One unified chassis.',
+  lede:
+    'A purpose-built platform — not a general-purpose ambient-AI tool retro-fitted to healthcare.',
+};
+
+const CAPABILITIES = [
+  {
+    accent:  'emerald',
+    eyebrow: '01 · CAPTURE',
+    icon:    Zap,
+    title:   'Voice-to-structured-report.',
+    body:
+      "Not ambient. Not approximate. Captures the physician's intent and transforms it into a formatted, peer-review-ready report. Optimized for diverse clinical accents and complex medical terminology.",
+  },
+  {
+    accent:  'cyan',
+    eyebrow: '02 · OPERATE',
+    icon:    Layers,
+    title:   'Multi-tenant by design.',
+    body:
+      'Org-isolated workspaces. RBAC. SLA tracking. A centralized command center for managing multiple US provider feeds — one MTSO, multiple clients, one chassis.',
+  },
+  {
+    accent:  'slate',
+    eyebrow: '03 · SCALE',
+    icon:    ShieldCheck,
+    title:   'Editor productivity, multiplied.',
+    body:
+      'The chassis is engineered around editor workflow — shorter cycles, fewer manual touches, throughput that grows without headcount. The exact multiplier depends on your current operation; we calibrate during the pilot.',
+  },
+];
+
+const COMPARISON_SECTION = {
+  eyebrow:  'THE DIFFERENCE',
+  headline: 'How MTSOs change once MedScribeAI is in the chassis.',
+  lede:
+    'Six structural shifts buyers see across the first 30–60 days of operation.',
+};
+
+const COMPARISON_ROWS = [
+  {
+    metric: 'Turnaround',
+    old:    'Hours to days',
+    new:    'Minutes from dictation to draft',
+  },
+  {
+    metric: 'Cost structure',
+    old:    'Headcount-bound, per-transcriptionist',
+    new:    'Volume-priced, per-line',
+  },
+  {
+    metric: 'Error pattern',
+    old:    'Human error scales with volume',
+    new:    'Validated AI, edge cases escalate to editor',
+  },
+  {
+    metric: 'Scaling new clients',
+    old:    'More clients require more hires',
+    new:    'More clients, same chassis',
+  },
+  {
+    metric: 'Compliance',
+    old:    'Per-staff training and audit cycles',
+    new:    'Built into infrastructure, audit-logged',
+  },
+  {
+    metric: 'EMR integration',
+    old:    'Out-of-band re-entry into EHR',
+    new:    'Direct push via HL7, XML, PDF',
+  },
+];
+
+const COMPLIANCE_SECTION = {
+  eyebrow:  'BUILT TO AUDIT',
+  headline: "The infrastructure your buyer's compliance team will actually approve.",
+};
+
+const COMPLIANCE_CARDS = [
+  {
+    accent:  'emerald',
+    eyebrow: 'COMPLIANCE & TRUST',
+    title:   'HIPAA-aligned by default.',
+    bullets: [
+      'BAA-ready · audit logs · RBAC',
+      'US East infrastructure',
+      'Org-isolated tenant data',
+      "Built on 25 years of HIM/RCM operating depth",
+    ],
+  },
+  {
+    accent:  'cyan',
+    eyebrow: 'ARCHITECTURE',
+    title:   'Cloud-native, integration-ready.',
+    bullets: [
+      'Multi-device capture: mobile, digital recorder, web',
+      'HL7 · XML · PDF · direct EMR injection',
+      'High-availability, scalable across tenants',
+      'Coimbatore engineering team — direct access',
+    ],
+  },
+];
+
+const CTA_BLOCK = {
+  eyebrow:  'TALK TO US',
+  headline: 'Built for MTSOs. Pilot it before you commit.',
+  body:
+    '14-day pilot, no commitment. We respond within one business day.',
+  primaryCta:   { label: 'Schedule a technical demo', href: '/contact?product=medscribeai' },
+  secondaryCta: { label: 'Visit live product',        href: 'https://medscribeai.in/'        },
+};
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { delay, duration: 0.55, ease: "easeOut" },
+  viewport: { once: true, margin: '-60px' },
+  transition: { delay, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
 });
-
-const stats = [
-  { value: "99.4%", label: "Accuracy Rate" },
-  { value: "0.4s", label: "Avg. Turnaround" },
-  { value: "4x", label: "Volume Capacity" },
-  { value: "24/7", label: "Uptime SLA" },
-];
-
-const pillars = [
-  {
-    icon: Cpu,
-    title: "Voice-to-Structured-Report",
-    desc: "Not ambient. Not approximate. Exact. MedScribeAI captures the physician's intent and transforms it into a formatted, peer-review-ready medical report instantly — optimized for diverse accents and complex medical terminology.",
-    bullets: ["High-Fidelity Capture", "SOAP / H&P / Consultation output", "Format tailored to US clinic standards"],
-  },
-  {
-    icon: BarChart3,
-    title: "Unbeatable Accuracy",
-    desc: "Neural voice capture engineered to handle diverse clinical accents and complex medical terminology with 99.9% accuracy — validated at every step.",
-    bullets: ["100% precision with validation", "Zero manual review required", "Enterprise-grade always enforced"],
-  },
-  {
-    icon: Users,
-    title: "Built for MTSOs",
-    desc: "A centralized command center to manage multiple US provider feeds, track SLAs, and monitor real-time throughput — turning your MTSO into a technology-led documentation powerhouse.",
-    bullets: ["MTSO Multi-Tenant Dashboard", "Client growth without scaling headcount", "Unified SLA management"],
-  },
-];
-
-const comparison = [
-  { metric: "Turnaround Time", old: "Hours to days", new: "Minutes (instant)" },
-  { metric: "Labor Cost", old: "High — per-transcriptionist", new: "Zero manual processing cost" },
-  { metric: "Error Rate", old: "Human error inevitable", new: "100% precision with validation" },
-  { metric: "Scalability", old: "More volume = more hires", new: "Same team, 10x volume" },
-  { metric: "HIPAA Compliance", old: "Dependent on individual staff", new: "Enterprise-grade, always enforced" },
-  { metric: "EMR Integration", old: "Manual re-entry", new: "Direct push to EHR/EMR" },
-];
-
-const features = [
-  { icon: Cpu, title: "Neural Voice Capture", desc: "High-fidelity processing for diverse clinical accents and complex medical terminology with 99.9% accuracy." },
-  { icon: Zap, title: "Structured Intelligence", desc: "Beyond simple text — AI maps dictations directly into SOAP notes, H&P reports, and consultation summaries." },
-  { icon: Monitor, title: "MTSO Multi-Tenant Dashboard", desc: "Centralized command center to manage multiple US provider feeds, track SLAs, and monitor real-time throughput." },
-  { icon: Globe, title: "EMR-Ready Integration", desc: "Finalized reports formatted for instant injection into major US Electronic Health Record systems via HL7 or secure XML." },
-];
-
-const techSpecs = [
-  { label: "Platform", value: "Cloud-Native, Secure, High-Availability" },
-  { label: "Input", value: "Multi-device — Mobile, Digital Recorder, Web" },
-  { label: "Output", value: "HL7, XML, PDF, Direct EMR Injection" },
-  { label: "Support", value: "Direct access to our Coimbatore engineering team" },
-];
 
 export default function MedScribeAI() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper text-ink antialiased">
       <SEO page="medscribeai" />
       <ScrollProgressBar />
       <Navbar />
 
-      {/* Hero */}
-      <section className="min-h-[80vh] flex items-center pt-16 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-brand-cyan/5 blur-3xl" />
-          <div className="absolute bottom-0 -right-40 w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl" />
-        </div>
-        <div className="max-w-6xl mx-auto px-6 py-20 w-full relative z-10">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-cyan/30 bg-brand-cyan/5 mb-8">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-cyan">Live · MedScribeAI · Built for MTSOs</span>
-          </motion.div>
-          <motion.h1 {...fadeUp(0.18)} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] mb-6 text-heading max-w-4xl">
-            The End of Manual Transcription <span className="bg-gradient-to-r from-brand-cyan to-primary bg-clip-text text-transparent">for MTSOs.</span>
-          </motion.h1>
-          <motion.p {...fadeUp(0.26)} className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            Stop managing headcounts and start managing outcomes. MedScribeAI is the high-performance dictation-to-report platform built exclusively for Indian MTSOs to serve the US healthcare market with <strong className="text-foreground">99%+ accuracy</strong> and <strong className="text-foreground">zero manual processing.</strong>
-          </motion.p>
-          <motion.div {...fadeUp(0.34)} className="flex flex-wrap gap-4">
-            <a href="https://medscribeai.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-cyan text-white font-bold text-base hover:opacity-90 transition-all">
-              View Live Demo <ArrowRight className="w-4 h-4" />
-            </a>
-            <a href="https://nuscript.in/contact" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-bold text-base hover:bg-muted transition-colors">
-              Schedule a Technical Demo
-            </a>
-          </motion.div>
+      <main>
+        {/* ─── Hero (light) ──────────────────────────────────────────── */}
+        <section className="relative bg-paper pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-44 lg:pb-24">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <motion.div {...fadeUp(0)}>
+              <Eyebrow color="emerald" className="mb-5 block">{HERO.eyebrow}</Eyebrow>
+            </motion.div>
 
-          {/* Stats */}
-          <motion.div {...fadeUp(0.42)} className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-card border border-border rounded-2xl p-5 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-0.5 bg-brand-cyan/60" />
-                <div className="text-3xl font-extrabold text-brand-cyan mb-1">{s.value}</div>
-                <div className="text-sm text-muted-foreground font-medium">{s.label}</div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+            <motion.h1
+              {...fadeUp(0.08)}
+              className="
+                max-w-4xl font-sora font-bold text-slate
+                text-[36px] leading-[1.10] tracking-[-0.025em]
+                sm:text-[44px]
+                lg:text-[56px]
+              "
+            >
+              {HERO.headline}
+            </motion.h1>
 
-      {/* Three Pillars */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-14">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-brand-cyan" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-cyan">Autonomous Workflow</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight max-w-2xl">
-              Three pillars of zero-touch documentation.
-            </h2>
-          </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {pillars.map((p, i) => (
-              <motion.div key={p.title} {...fadeUp(i * 0.1)} className="bg-card border border-border rounded-2xl p-7 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-brand-cyan/50 rounded-l-2xl" />
-                <div className="pl-3">
-                  <div className="w-11 h-11 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center mb-5">
-                    <p.icon className="w-5 h-5 text-brand-cyan" />
-                  </div>
-                  <h3 className="text-xl font-extrabold text-heading mb-3">{p.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
-                  <ul className="space-y-2">
-                    {p.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-brand-cyan flex-shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <motion.p
+              {...fadeUp(0.16)}
+              className="
+                mt-6 max-w-2xl text-[16px] leading-[1.55] text-ink-2
+                sm:text-[18px]
+                lg:text-[19px]
+              "
+            >
+              {HERO.lede}
+            </motion.p>
 
-      {/* Comparison Table */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-14 text-center">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-brand-cyan" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-cyan">The MedScribeAI Difference</span>
-              <div className="w-10 h-px bg-brand-cyan" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight">The Old Way vs. The MedScribeAI Way.</h2>
-          </motion.div>
-          <motion.div {...fadeUp(0.1)} className="rounded-2xl border border-border overflow-hidden">
-            <div className="grid grid-cols-3 bg-muted/60 px-6 py-3 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-              <span>Metric</span>
-              <span>The Old Way</span>
-              <span className="text-brand-cyan">The MedScribeAI Way</span>
-            </div>
-            {comparison.map((row, i) => (
-              <div key={row.metric} className={`grid grid-cols-3 px-6 py-4 gap-4 border-t border-border ${i % 2 === 0 ? "bg-card" : "bg-background"}`}>
-                <span className="text-sm font-semibold text-foreground">{row.metric}</span>
-                <span className="text-sm text-muted-foreground">{row.old}</span>
-                <span className="text-sm font-semibold text-brand-cyan">{row.new}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-14 text-center">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-brand-cyan" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-cyan">Feature Summary</span>
-              <div className="w-10 h-px bg-brand-cyan" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight">The Architecture of Autonomous Documentation.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {features.map((f, i) => (
-              <motion.div key={f.title} {...fadeUp(i * 0.08)} className="bg-card border border-border rounded-2xl p-7">
-                <div className="w-11 h-11 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center mb-4">
-                  <f.icon className="w-5 h-5 text-brand-cyan" />
-                </div>
-                <h3 className="text-lg font-extrabold text-heading mb-2">{f.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Specs */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-brand-cyan" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-cyan">Technical Pillar</span>
-            </div>
-            <h2 className="text-4xl font-extrabold text-heading">Enterprise-grade infrastructure, built for scale.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-            {techSpecs.map((s, i) => (
-              <motion.div key={s.label} {...fadeUp(i * 0.08)} className="bg-card border border-border rounded-2xl p-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">{s.label}</p>
-                <p className="text-base font-semibold text-foreground">{s.value}</p>
-              </motion.div>
-            ))}
-          </div>
-          <motion.p {...fadeUp(0.2)} className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-            <ShieldCheck className="w-4 h-4 text-brand-cyan flex-shrink-0" />
-            Built on 25 years of HIM/RCM expertise. Engineered in Coimbatore for 2026 standards.
-          </motion.p>
-
-          {/* CTA Banner */}
-          <motion.div {...fadeUp(0.28)} className="bg-brand-cyan/5 border border-brand-cyan/20 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-extrabold text-heading mb-3">Ready to Eliminate the Manual Bottleneck?</h3>
-            <p className="text-base text-muted-foreground mb-6 max-w-xl mx-auto">
-              Don't let staffing shortages cap your growth. See how our AI-native chassis delivers 99%+ accuracy and instant TAT for US healthcare providers.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="https://nuscript.in/contact" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-cyan text-white font-bold hover:opacity-90 transition-all">
-                Schedule a Technical Demo <ArrowRight className="w-4 h-4" />
+            <motion.div
+              {...fadeUp(0.24)}
+              className="mt-9 flex flex-wrap gap-3"
+            >
+              <Link
+                to={HERO.primaryCta.href}
+                className="
+                  inline-flex items-center gap-2 rounded-md bg-emerald
+                  px-5 py-3 text-[14px] font-bold text-white tracking-[-0.005em]
+                  transition-colors duration-200 hover:bg-emerald/90
+                "
+              >
+                {HERO.primaryCta.label}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <a
+                href={HERO.secondaryCta.href}
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  inline-flex items-center gap-2 rounded-md border border-rule
+                  bg-paper-2 px-5 py-3 text-[14px] font-bold text-slate tracking-[-0.005em]
+                  transition-colors duration-200 hover:border-rule-2 hover:bg-paper
+                "
+              >
+                {HERO.secondaryCta.label}
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
-              <a href="https://medscribeai.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-bold hover:bg-muted transition-colors">
-                View Technical Specs & Live Demo
-              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ─── Section 2: Capabilities ─────────────────────────────────── */}
+        <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={CAPABILITIES_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={CAPABILITIES_SECTION.headline}
+              lede={CAPABILITIES_SECTION.lede}
+            />
+
+            <div className="mt-12 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
+              {CAPABILITIES.map((cap, i) => (
+                <motion.div
+                  key={cap.eyebrow}
+                  {...fadeUp(i * 0.08)}
+                  className="h-full"
+                >
+                  <TopAccentCard accent={cap.accent} className="h-full">
+                    <Eyebrow color={cap.accent} className="mb-3 block">
+                      {cap.eyebrow}
+                    </Eyebrow>
+                    <h3 className="font-sora text-[20px] font-bold leading-[1.25] tracking-[-0.018em] text-slate sm:text-[22px]">
+                      {cap.title}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+                      {cap.body}
+                    </p>
+                  </TopAccentCard>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        {/* ─── Section 3: Comparison ───────────────────────────────────── */}
+        <section className="relative bg-paper py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={COMPARISON_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={COMPARISON_SECTION.headline}
+              lede={COMPARISON_SECTION.lede}
+            />
+
+            <motion.div {...fadeUp(0.06)} className="mt-12">
+              <ComparisonTable
+                accent="emerald"
+                headerLeft="Dimension"
+                headerOld="Without MedScribeAI"
+                headerNew="With MedScribeAI"
+                rows={COMPARISON_ROWS}
+              />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ─── Section 4: Compliance & Architecture ───────────────────── */}
+        <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={COMPLIANCE_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={COMPLIANCE_SECTION.headline}
+            />
+
+            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-7">
+              {COMPLIANCE_CARDS.map((card, i) => (
+                <motion.div
+                  key={card.eyebrow}
+                  {...fadeUp(i * 0.08)}
+                  className="h-full"
+                >
+                  <TopAccentCard accent={card.accent} className="h-full">
+                    <Eyebrow color={card.accent} className="mb-4 block">
+                      {card.eyebrow}
+                    </Eyebrow>
+                    <h3 className="font-sora text-[22px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[24px]">
+                      {card.title}
+                    </h3>
+                    <ul className="mt-5 space-y-2.5">
+                      {card.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="flex items-start gap-2.5 text-[14px] leading-[1.55] text-ink sm:text-[15px]"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className={`
+                              mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full
+                              ${card.accent === 'emerald' ? 'bg-emerald'
+                                : card.accent === 'cyan'  ? 'bg-cyan'
+                                : 'bg-slate'}
+                            `}
+                          />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TopAccentCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Section 5: Talk to us (single CTA banner) ──────────────── */}
+        <section className="relative bg-paper py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <motion.div
+              {...fadeUp(0)}
+              className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-8 sm:p-12 lg:p-14"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-[3px] w-full bg-emerald"
+              />
+
+              <Eyebrow color="emerald" className="mb-3 block">
+                {CTA_BLOCK.eyebrow}
+              </Eyebrow>
+
+              <h2 className="font-sora text-[28px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[32px] lg:text-[36px]">
+                {CTA_BLOCK.headline}
+              </h2>
+
+              <p className="mt-3 max-w-2xl text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+                {CTA_BLOCK.body}
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  to={CTA_BLOCK.primaryCta.href}
+                  className="
+                    inline-flex items-center gap-2 rounded-md bg-emerald
+                    px-5 py-3 text-[14px] font-bold text-white tracking-[-0.005em]
+                    transition-colors duration-200 hover:bg-emerald/90
+                  "
+                >
+                  {CTA_BLOCK.primaryCta.label}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <a
+                  href={CTA_BLOCK.secondaryCta.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="
+                    inline-flex items-center gap-2 rounded-md border border-rule
+                    bg-paper-2 px-5 py-3 text-[14px] font-bold text-slate tracking-[-0.005em]
+                    transition-colors duration-200 hover:border-rule-2 hover:bg-paper
+                  "
+                >
+                  {CTA_BLOCK.secondaryCta.label}
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
       <ScrollToTopButton />
