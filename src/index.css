@@ -2,60 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * NuScript Technologies — global styles
+ *
+ * Single-theme (light page surfaces, deck-aligned). The hero block is
+ * permanently dark via the `bg-hero-gradient` utility, not via a theme class.
+ *
+ * Token values match the design system spec at /docs/NuScript_Design_System.md.
+ * Stored as raw HSL components (no hsl() wrapper) so Tailwind slash-opacity
+ * works on every token: bg-cyan/10, border-emerald/20, text-ink-2/80, etc.
+ *
+ * Font strategy:
+ *   - Sora is the primary font for everything (weights 400–800).
+ *   - Inter is loaded as the second item in the font-family stack, which
+ *     means the browser falls back to Inter for any glyph Sora lacks —
+ *     critically including ₹ (U+20B9). Self-hosting Inter with a precise
+ *     `unicode-range` rule is a Phase 2 cleanup; the chained-fallback
+ *     approach is robust enough for production today.
+ */
+
 @layer base {
   :root {
-    --font-jakarta: 'Satoshi', sans-serif;
-    --background: 0 0% 97%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 100%;
-    --brand-cyan: 199 100% 40%;
-    --brand-green: 160 84% 39%;
-    --brand-zera: 221 91% 60%;
-    --secondary: 210 20% 93%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 20% 93%;
-    --muted-foreground: 220 15% 46%;
-    --accent: 195 100% 50%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 160 70% 32%;
-    --heading: 215 28% 17%;
-    --radius: 0.75rem;
-  }
+    /* ─── Deck core tokens (HSL components only) ──────────────────────── */
+    --cyan:         195 100% 40%;   /* #0099CC */
+    --cyan-bright:  195 100% 50%;   /* #00BFFF */
+    --emerald:      160 84%  39%;   /* #10B981 */
+    --slate:        222 47%  11%;   /* #0F172A */
+    --slate-2:      217 33%  17%;   /* #1E293B */
+    --slate-3:      215 25%  27%;   /* #334155 */
+    --paper:        213 27%  97%;   /* #F7F9FB */
+    --paper-2:      0   0%   100%;  /* #FFFFFF */
+    --ink:          222 47%  11%;   /* #0F172A */
+    --ink-2:        223 19%  35%;   /* #475069 */
+    --ink-3:        225 16%  50%;   /* #6B7494 */
+    --ink-4:        214 20%  65%;   /* #94A3B8 */
+    --rule:         220 21%  91%;   /* #E2E6EF */
+    --rule-2:       220 19%  83%;   /* #C8CFDD */
+    --offwhite:     220 100% 96%;   /* #EBF1FF */
 
-  .dark {
-    --background: 222 47% 11%;
-    --foreground: 213 27% 88%;
-    --card: 222 47% 15%;
-    --card-foreground: 213 27% 88%;
-    --popover: 222 47% 15%;
-    --popover-foreground: 213 27% 88%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 222 47% 11%;
-    --brand-cyan: 195 100% 50%;
-    --brand-green: 160 84% 39%;
-    --brand-zera: 221 91% 60%;
-    --secondary: 215 25% 22%;
-    --secondary-foreground: 213 27% 88%;
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 195 100% 50%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 215 25% 22%;
-    --input: 215 25% 22%;
-    --ring: 160 84% 39%;
-    --heading: 213 27% 92%;
-    --radius: 0.75rem;
+    /* ─── shadcn/ui semantic tokens — wired to deck values ─────────────── */
+    --background:           var(--paper);
+    --foreground:           var(--ink);
+    --heading:              var(--slate);
+    --card:                 var(--paper-2);
+    --card-foreground:      var(--ink);
+    --popover:              var(--paper-2);
+    --popover-foreground:   var(--ink);
+    --primary:              var(--cyan);
+    --primary-foreground:   0 0% 100%;
+    --secondary:            220 20% 94%;       /* slightly tinted from paper */
+    --secondary-foreground: var(--ink);
+    --muted:                213 27% 95%;       /* gentle section variant */
+    --muted-foreground:     var(--ink-2);
+    --accent:               var(--emerald);
+    --accent-foreground:    0 0% 100%;
+    --destructive:          0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border:               var(--rule);
+    --input:                var(--rule);
+    --ring:                 var(--cyan);
+
+    /* Legacy aliases — preserved for non-breaking compatibility.
+       Values now match the deck spec exactly. */
+    --brand-cyan:    var(--cyan);
+    --brand-green:   var(--emerald);
+    --brand-zera:    221 91% 60%;   /* used only on internal pages, not public site */
+
+    --radius: 0.625rem;             /* 10px — deck card default */
+
+    /* Font stacks. Sora first, Inter as glyph-fallback (especially ₹). */
+    --font-sans:    'Sora', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-jakarta: var(--font-sans);
   }
 }
 
@@ -63,16 +80,48 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-jakarta);
+    font-family: var(--font-sans);
   }
-  /* Conservative heading weight overrides — softer than font-extrabold (800)
-     so headings breathe and read as confident rather than shouty. */
+
+  /* Heading tracking — Sora reads better with negative tracking at display sizes. */
   h1, h2 {
-    font-weight: 700 !important;
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    color: hsl(var(--heading));
   }
   h3, h4, h5, h6 {
-    font-weight: 600 !important;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    color: hsl(var(--heading));
+  }
+
+  /* Tabular figures — deck convention for all stat cards, prices, tables. */
+  .numeric, .tabular-nums {
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum', 'lnum';
+  }
+
+  /* Eyebrow / micro-label utility — deck-standard small-uppercase pattern. */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* Selection styling — picks up brand color so it never reads default-blue. */
+  ::selection {
+    background-color: hsl(var(--cyan) / 0.20);
+    color: hsl(var(--ink));
   }
 }
