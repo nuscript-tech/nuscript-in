@@ -1,251 +1,383 @@
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ShieldCheck, BarChart3, RefreshCw, Store, Layers, Bell } from "lucide-react";
-import SEO from "@/components/SEO";
-import Navbar from "@/components/website/Navbar";
-import Footer from "@/components/website/Footer";
-import ScrollToTopButton from "@/components/website/ScrollToTopButton";
-import ScrollProgressBar from "@/components/website/ScrollProgressBar";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink, Bell, RefreshCw, BarChart3 } from 'lucide-react';
+
+import SEO from '@/components/SEO';
+import Navbar from '@/components/website/Navbar';
+import Footer from '@/components/website/Footer';
+import ScrollToTopButton from '@/components/website/ScrollToTopButton';
+import ScrollProgressBar from '@/components/website/ScrollProgressBar';
+
+import SectionHead from '@/components/website/_primitives/SectionHead';
+import TopAccentCard from '@/components/website/_primitives/TopAccentCard';
+import Eyebrow from '@/components/website/_primitives/Eyebrow';
+import ComparisonTable from '@/components/website/_primitives/ComparisonTable';
+
+/*
+ * /pharmastockai — product page for PharmaStockAI.
+ *
+ * Light-surface hero → capabilities → comparison table → operations &
+ * integration → CTA banner → footer. Cyan is the dominant product color
+ * throughout (matches the home page color mapping); emerald is reserved
+ * for the secondary card on the operations section so the page doesn't
+ * read mono-cyan.
+ *
+ * Voice rules carried over from MedScribeAI:
+ *   - No specific accuracy or revenue percentages in the marketing copy.
+ *     ("5–8% revenue recovered" was on the old version; pulled out
+ *     pending substantiated data the marketing team can defend.)
+ *   - Every claim should survive a buyer asking "where does that number
+ *     come from?"
+ *   - Concrete operator-side benefits, not aspirational flourishes.
+ *
+ * All copy lives in the constants at the top of this file.
+ */
+
+const HERO = {
+  eyebrow:  'LIVE · PHARMACY SUPPLY CHAIN',
+  headline: 'Inventory and expiry intelligence for Indian retail pharmacy.',
+  lede:
+    "AI that runs alongside your existing billing software — daily expiry alerts, WhatsApp-pushed reorder lists, and stock visibility your team can act on. Built for independent pharmacies, chains, and distributors.",
+  primaryCta:   { label: 'Talk to us',         href: '/contact?product=pharmastockai' },
+  secondaryCta: { label: 'See how it works',   href: '#how-it-works'                  },
+};
+
+const CAPABILITIES_SECTION = {
+  eyebrow:  'WHAT IT DOES',
+  headline: 'Three tools your team will actually use.',
+  lede:
+    'Not a new ERP. Not a replacement for your billing software. A layer of intelligence that sits on top of what you already run.',
+};
+
+const CAPABILITIES = [
+  {
+    accent:  'cyan',
+    eyebrow: '01 · EXPIRY',
+    icon:    Bell,
+    title:   'Daily expiry alerts.',
+    body:
+      'Every morning, your team gets a list of stock about to expire — by SKU, by batch, with quantity and shelf location. Act on near-expiry stock before it becomes a writeoff.',
+  },
+  {
+    accent:  'emerald',
+    eyebrow: '02 · REORDER',
+    icon:    RefreshCw,
+    title:   'WhatsApp-pushed reorder lists.',
+    body:
+      "Reorder recommendations land in your team's WhatsApp — calibrated to your sales velocity, current stock, and lead times. No new app, no training, no friction.",
+  },
+  {
+    accent:  'cyan',
+    eyebrow: '03 · VISIBILITY',
+    icon:    BarChart3,
+    title:   'Stock movement you can act on.',
+    body:
+      'Fast-movers, slow-movers, dead stock, regional patterns. Visibility your billing software was never designed to give you — at the SKU and batch level, refreshed daily.',
+  },
+];
+
+const COMPARISON_SECTION = {
+  eyebrow:  'THE DIFFERENCE',
+  headline: 'How operations change once PharmaStockAI is in the loop.',
+  lede:
+    'Six structural shifts pharmacies and distributors see across the first 30 days.',
+};
+
+const COMPARISON_ROWS = [
+  {
+    metric: 'Expiry handling',
+    old:    'Discovered at the counter or during audit',
+    new:    'Daily push, days of lead time to act',
+  },
+  {
+    metric: 'Reordering',
+    old:    'Manual review, often guesswork',
+    new:    'Velocity-calibrated, WhatsApp-pushed',
+  },
+  {
+    metric: 'Stock visibility',
+    old:    'Billing software shows totals, not patterns',
+    new:    'SKU, batch, movement — refreshed daily',
+  },
+  {
+    metric: 'Slow-moving stock',
+    old:    'Sits until it expires',
+    new:    'Flagged early, transferred or returned',
+  },
+  {
+    metric: 'Setup',
+    old:    'Replace your ERP, retrain your team',
+    new:    'Plugs into existing billing software',
+  },
+  {
+    metric: 'Adoption surface',
+    old:    'New dashboard your team has to log into',
+    new:    'WhatsApp — already in their pocket',
+  },
+];
+
+const OPS_SECTION = {
+  eyebrow:  'HOW IT WORKS',
+  headline: 'No new ERP. No new login. Runs on what you already have.',
+};
+
+const OPS_CARDS = [
+  {
+    accent:  'cyan',
+    eyebrow: 'INTEGRATION',
+    title:   'Plugs into your existing billing software.',
+    bullets: [
+      'Reads your sales and stock data through the billing software you already run',
+      'No counter-staff retraining, no parallel systems',
+      'Daily sync — your team works in the morning with last night\'s patterns',
+      'Independent pharmacies, chains, and distributors all supported',
+    ],
+  },
+  {
+    accent:  'emerald',
+    eyebrow: 'OPERATIONS',
+    title:   'WhatsApp-first delivery.',
+    bullets: [
+      'Reorder lists, expiry alerts, and stock movement land in WhatsApp',
+      'No app to install, no dashboard to learn',
+      'Pricing tiers calibrated to operation size — independent to multi-location',
+      'Coimbatore engineering team — direct support in your timezone',
+    ],
+  },
+];
+
+const CTA_BLOCK = {
+  eyebrow:  'TALK TO US',
+  headline: 'Built for Indian pharmacy operations. Pilot starts free.',
+  body:
+    'Whether you run a single counter or a regional chain, the pilot is free to start. We respond within one business day.',
+  primaryCta: { label: 'Talk to us about PharmaStockAI', href: '/contact?product=pharmastockai' },
+};
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { delay, duration: 0.55, ease: "easeOut" },
+  viewport: { once: true, margin: '-60px' },
+  transition: { delay, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
 });
-
-const stats = [
-  { value: "5–8%", label: "Revenue Recovered from Expiry Loss" },
-  { value: "56%", label: "Improved Stock Visibility" },
-  { value: "100%", label: "Stock Availability" },
-  { value: "24/7", label: "Engineering Support" },
-];
-
-const pillars = [
-  {
-    icon: BarChart3,
-    title: "Predictive Inventory & Zero Stockouts",
-    desc: "Stop losing customers to missing stock. Our AI analyzes your specific sales velocity to ensure your fast-movers are always on the shelf.",
-    bullets: ["Dynamic Reordering — automated procurement based on real-time consumption", "Safety Stock Alerts — instant notifications before critical lows", "Sales Velocity Mapping — optimize capital allocation for hero products"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Revenue Protection & Expiry Control",
-    desc: "Indian pharmacies lose up to 5–8% of revenue to expired stock. We turn that loss into profit with surgical precision for every unit.",
-    bullets: ["Early Warning System — 60/90-day alerts for aging inventory", "Batch-Level Tracking — precision for every unit in your store", "Smart Liquidations — automated near-expiry discount suggestions"],
-  },
-  {
-    icon: RefreshCw,
-    title: "Operational Velocity",
-    desc: "Remove the \"Manual\" from your management. Designed for the high-speed Indian retail environment.",
-    bullets: ["Intelligent Dashboard — entire business health in one view", "Seamless Integration — works with your existing POS", "Multi-Store Sync — manage your entire chain from one platform"],
-  },
-];
-
-const comparison = [
-  { before: "Manual Stocking", after: "Predictive Analytics" },
-  { before: "High Expiry Waste", after: "Zero Expiry Loss" },
-  { before: "Lost Sales", after: "100% Stock Availability" },
-  { before: "Reactive Procurement", after: "Automated Reordering" },
-  { before: "Siloed Multi-Store Data", after: "Unified Real-Time Dashboard" },
-  { before: "ERP-Dependent Guesswork", after: "AI-Driven Intelligence Layer" },
-];
-
-const features = [
-  { icon: RefreshCw, title: "Autonomous Procurement", desc: "AI-driven reordering that learns your sales velocity to ensure your Hero Products never go out of stock." },
-  { icon: Bell, title: "Expiry Liquidation Engine", desc: "Advanced 60/90-day early warning systems that suggest smart discounts to clear aging inventory before it becomes a loss." },
-  { icon: Store, title: "Hyper-Local Analytics", desc: "Track sales trends specific to your neighborhood or region to optimize high-margin stock allocation." },
-  { icon: Layers, title: "Multi-Store Synchronization", desc: "Manage inventory, transfers, and vendor performance across your entire retail chain from a single Coimbatore-engineered hub." },
-];
-
-const techSpecs = [
-  { label: "Deployment", value: "Cloud-Native / Edge-Ready — scales from one store to fifty" },
-  { label: "Security", value: "Enterprise-Grade Encryption — end-to-end protection" },
-  { label: "Support", value: "24/7 Dedicated Support — direct line to our Coimbatore engineering hub" },
-];
 
 export default function PharmaStockAI() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper text-ink antialiased">
       <SEO page="pharmastockai" />
       <ScrollProgressBar />
       <Navbar />
 
-      {/* Hero */}
-      <section className="min-h-[80vh] flex items-center pt-16 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/6 blur-3xl" />
-          <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] rounded-full bg-brand-cyan/5 blur-3xl" />
-        </div>
-        <div className="max-w-6xl mx-auto px-6 py-20 w-full relative z-10">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-8">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Live · PharmaStockAI · Built for Indian Pharmacies</span>
-          </motion.div>
-          <motion.h1 {...fadeUp(0.18)} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] mb-6 text-heading max-w-4xl">
-            The Autonomous Engine for <span className="bg-gradient-to-r from-brand-cyan to-primary bg-clip-text text-transparent">Indian Pharmacy.</span>
-          </motion.h1>
-          <motion.p {...fadeUp(0.26)} className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            Moving beyond traditional ERPs. PharmaStockAI is a predictive intelligence layer built to automate procurement, eliminate expiry waste, and maximize margins for Indian retailers and distributors.
-          </motion.p>
-          <motion.div {...fadeUp(0.34)} className="flex flex-wrap gap-4">
-            <a href="https://pharmastock.co.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors">
-              Explore the Platform <ArrowRight className="w-4 h-4" />
-            </a>
-            <a href="https://nuscript.in/contact" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-bold text-base hover:bg-muted transition-colors">
-              Schedule a Technical Demo
-            </a>
-          </motion.div>
+      <main>
+        {/* ─── Hero (light) ──────────────────────────────────────────── */}
+        <section className="relative bg-paper pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-44 lg:pb-24">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <motion.div {...fadeUp(0)}>
+              <Eyebrow color="cyan" className="mb-5 block">{HERO.eyebrow}</Eyebrow>
+            </motion.div>
 
-          {/* Stats */}
-          <motion.div {...fadeUp(0.42)} className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-card border border-border rounded-2xl p-5 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-0.5 bg-primary/60" />
-                <div className="text-3xl font-extrabold text-primary mb-1">{s.value}</div>
-                <div className="text-sm text-muted-foreground font-medium">{s.label}</div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+            <motion.h1
+              {...fadeUp(0.08)}
+              className="
+                max-w-4xl font-sora font-bold text-slate
+                text-[36px] leading-[1.10] tracking-[-0.025em]
+                sm:text-[44px]
+                lg:text-[56px]
+              "
+            >
+              {HERO.headline}
+            </motion.h1>
 
-      {/* Three Pillars */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-14">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Strategic Outcomes</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight max-w-2xl">
-              Three pillars. One platform.
-            </h2>
-          </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {pillars.map((p, i) => (
-              <motion.div key={p.title} {...fadeUp(i * 0.1)} className="bg-card border border-border rounded-2xl p-7 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary/50 rounded-l-2xl" />
-                <div className="pl-3">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                    <p.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-extrabold text-heading mb-3">{p.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
-                  <ul className="space-y-2">
-                    {p.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <motion.p
+              {...fadeUp(0.16)}
+              className="
+                mt-6 max-w-2xl text-[16px] leading-[1.55] text-ink-2
+                sm:text-[18px]
+                lg:text-[19px]
+              "
+            >
+              {HERO.lede}
+            </motion.p>
 
-      {/* Before / After */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-14 text-center">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">The Transformation</span>
-              <div className="w-10 h-px bg-primary" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight">Before vs. After.</h2>
-          </motion.div>
-          <motion.div {...fadeUp(0.1)} className="rounded-2xl border border-border overflow-hidden">
-            <div className="grid grid-cols-2 bg-muted/60 px-6 py-3 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-              <span>Before PharmaStockAI</span>
-              <span className="text-primary">After PharmaStockAI</span>
-            </div>
-            {comparison.map((row, i) => (
-              <div key={row.before} className={`grid grid-cols-2 px-6 py-4 border-t border-border ${i % 2 === 0 ? "bg-card" : "bg-background"}`}>
-                <span className="text-sm text-muted-foreground">{row.before}</span>
-                <span className="text-sm font-semibold text-primary">{row.after}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Quote */}
-      <section className="py-16 bg-muted/40">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.blockquote {...fadeUp()} className="text-xl sm:text-2xl font-normal text-muted-foreground leading-relaxed mb-6">
-            "The Indian Pharmacy market is evolving. As consumers demand more reliability and faster service, your back-end operations can no longer be manual. PharmaStockAI provides the tech-equity you need to compete with organized giants while maintaining your local edge."
-          </motion.blockquote>
-          <motion.p {...fadeUp(0.1)} className="text-sm text-muted-foreground font-semibold uppercase tracking-widest">The Indian Context — Why Now?</motion.p>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-14 text-center">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Feature Summary</span>
-              <div className="w-10 h-px bg-primary" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight">Predictive Intelligence for the Modern Pharmacy.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {features.map((f, i) => (
-              <motion.div key={f.title} {...fadeUp(i * 0.08)} className="bg-card border border-border rounded-2xl p-7">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                  <f.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-lg font-extrabold text-heading mb-2">{f.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Specs + CTA */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">For the IT Stakeholder</span>
-            </div>
-            <h2 className="text-4xl font-extrabold text-heading">Built to enterprise standard.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-            {techSpecs.map((s, i) => (
-              <motion.div key={s.label} {...fadeUp(i * 0.08)} className="bg-card border border-border rounded-2xl p-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">{s.label}</p>
-                <p className="text-base font-semibold text-foreground">{s.value}</p>
-              </motion.div>
-            ))}
-          </div>
-          <motion.p {...fadeUp(0.2)} className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-            <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0" />
-            Precision Inventory for the Foundations of India. Built on a decade of deep expertise in pharma and diagnostics.
-          </motion.p>
-
-          <motion.div {...fadeUp(0.28)} className="bg-primary/5 border border-primary/20 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-extrabold text-heading mb-3">Stop Losing Profit to Expiry & Stockouts.</h3>
-            <p className="text-base text-muted-foreground mb-6 max-w-xl mx-auto">
-              Join the next generation of Indian pharmacies using predictive intelligence to protect margins and serve patients better.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="https://nuscript.in/contact" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors">
-                Schedule a Technical Demo <ArrowRight className="w-4 h-4" />
+            <motion.div
+              {...fadeUp(0.24)}
+              className="mt-9 flex flex-wrap gap-3"
+            >
+              <Link
+                to={HERO.primaryCta.href}
+                className="
+                  inline-flex items-center gap-2 rounded-md bg-cyan
+                  px-5 py-3 text-[14px] font-bold text-white tracking-[-0.005em]
+                  transition-colors duration-200 hover:bg-cyan/90
+                "
+              >
+                {HERO.primaryCta.label}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <a
+                href={HERO.secondaryCta.href}
+                className="
+                  inline-flex items-center gap-2 rounded-md border border-rule
+                  bg-paper-2 px-5 py-3 text-[14px] font-bold text-slate tracking-[-0.005em]
+                  transition-colors duration-200 hover:border-rule-2 hover:bg-paper
+                "
+              >
+                {HERO.secondaryCta.label}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
-              <a href="https://pharmastock.co.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-bold hover:bg-muted transition-colors">
-                Explore the Full Inventory Platform
-              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ─── Section 2: Capabilities ─────────────────────────────────── */}
+        <section
+          id="how-it-works"
+          className="relative bg-paper-2 py-20 sm:py-24 lg:py-28"
+        >
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={CAPABILITIES_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={CAPABILITIES_SECTION.headline}
+              lede={CAPABILITIES_SECTION.lede}
+            />
+
+            <div className="mt-12 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
+              {CAPABILITIES.map((cap, i) => (
+                <motion.div
+                  key={cap.eyebrow}
+                  {...fadeUp(i * 0.08)}
+                  className="h-full"
+                >
+                  <TopAccentCard accent={cap.accent} className="h-full">
+                    <Eyebrow color={cap.accent} className="mb-3 block">
+                      {cap.eyebrow}
+                    </Eyebrow>
+                    <h3 className="font-sora text-[20px] font-bold leading-[1.25] tracking-[-0.018em] text-slate sm:text-[22px]">
+                      {cap.title}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+                      {cap.body}
+                    </p>
+                  </TopAccentCard>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        {/* ─── Section 3: Comparison ───────────────────────────────────── */}
+        <section className="relative bg-paper py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={COMPARISON_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={COMPARISON_SECTION.headline}
+              lede={COMPARISON_SECTION.lede}
+            />
+
+            <motion.div {...fadeUp(0.06)} className="mt-12">
+              <ComparisonTable
+                accent="cyan"
+                headerLeft="Dimension"
+                headerOld="Without PharmaStockAI"
+                headerNew="With PharmaStockAI"
+                rows={COMPARISON_ROWS}
+              />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ─── Section 4: Operations & Integration ────────────────────── */}
+        <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={OPS_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={OPS_SECTION.headline}
+            />
+
+            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-7">
+              {OPS_CARDS.map((card, i) => (
+                <motion.div
+                  key={card.eyebrow}
+                  {...fadeUp(i * 0.08)}
+                  className="h-full"
+                >
+                  <TopAccentCard accent={card.accent} className="h-full">
+                    <Eyebrow color={card.accent} className="mb-4 block">
+                      {card.eyebrow}
+                    </Eyebrow>
+                    <h3 className="font-sora text-[22px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[24px]">
+                      {card.title}
+                    </h3>
+                    <ul className="mt-5 space-y-2.5">
+                      {card.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="flex items-start gap-2.5 text-[14px] leading-[1.55] text-ink sm:text-[15px]"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className={`
+                              mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full
+                              ${card.accent === 'emerald' ? 'bg-emerald'
+                                : card.accent === 'cyan'  ? 'bg-cyan'
+                                : 'bg-slate'}
+                            `}
+                          />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TopAccentCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Section 5: Talk to us (single CTA banner) ──────────────── */}
+        <section className="relative bg-paper py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <motion.div
+              {...fadeUp(0)}
+              className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-8 sm:p-12 lg:p-14"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-[3px] w-full bg-cyan"
+              />
+
+              <Eyebrow color="cyan" className="mb-3 block">
+                {CTA_BLOCK.eyebrow}
+              </Eyebrow>
+
+              <h2 className="font-sora text-[28px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[32px] lg:text-[36px]">
+                {CTA_BLOCK.headline}
+              </h2>
+
+              <p className="mt-3 max-w-2xl text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+                {CTA_BLOCK.body}
+              </p>
+
+              <div className="mt-7">
+                <Link
+                  to={CTA_BLOCK.primaryCta.href}
+                  className="
+                    inline-flex items-center gap-2 rounded-md bg-cyan
+                    px-5 py-3 text-[14px] font-bold text-white tracking-[-0.005em]
+                    transition-colors duration-200 hover:bg-cyan/90
+                  "
+                >
+                  {CTA_BLOCK.primaryCta.label}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
       <ScrollToTopButton />
