@@ -41,7 +41,6 @@ const PRODUCTS = [
       'Editor-productivity multiplier purpose-built into the chassis',
       'HIPAA-aligned · US East infrastructure · audit logs',
     ],
-    pricing: '₹25,000 – ₹1,00,000 / mo base + ₹0.50–0.70 / line',
     cta: 'Explore MedScribeAI',
     href: '/medscribeai',
   },
@@ -56,7 +55,6 @@ const PRODUCTS = [
       'Plugs into the billing software pharmacies already run',
       'Cuts hours of manual reorder work each week',
     ],
-    pricing: '₹499  ·  ₹1,499  ·  ₹1,999 per month',
     cta: 'Explore PharmaStockAI',
     href: '/pharmastockai',
   },
@@ -166,33 +164,22 @@ function ProductCard({ product, palette }) {
       </ul>
 
       <div className="mt-7 border-t border-rule pt-5 sm:mt-auto sm:pt-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
-          <span
-            className={`
-              numeric font-sora text-[13px] font-semibold tracking-[-0.01em]
-              sm:text-[14px]
-              ${palette.text}
-            `}
-          >
-            {product.pricing}
-          </span>
-          <Link
-            to={product.href}
-            className={`
-              group inline-flex flex-shrink-0 items-center gap-1.5 self-start
-              text-[12px] font-bold uppercase tracking-[0.08em]
-              transition-opacity hover:opacity-80
-              sm:self-auto sm:text-[13px]
-              ${palette.text}
-            `}
-          >
-            Explore
-            <ArrowRight
-              className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
-              aria-hidden="true"
-            />
-          </Link>
-        </div>
+        <Link
+          to={product.href}
+          className={`
+            group inline-flex items-center gap-2
+            text-[14px] font-bold tracking-[-0.005em]
+            transition-opacity hover:opacity-80
+            sm:text-[15px]
+            ${palette.text}
+          `}
+        >
+          {product.cta}
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
+        </Link>
       </div>
     </div>
   );

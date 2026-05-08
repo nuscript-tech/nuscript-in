@@ -39,7 +39,7 @@ const TAGLINE =
 
 const CONTACT = {
   location: 'Coimbatore, Tamil Nadu, India',
-  email:    'arvind.manohar@nuscript.in',
+  email:    'hello@nuscript.in',
 };
 
 export default function Footer() {
