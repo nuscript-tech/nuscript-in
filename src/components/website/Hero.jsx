@@ -100,7 +100,8 @@ export default function Hero() {
  *   • 1px brand-colored border at ~22% opacity
  *   • brand color at ~10% as background fill
  *   • brand color at full opacity for text
- *   • uppercase, 11px, +0.08em tracking, weight 700
+ *   • mixed-case 14px Sora bold — preserves the camelCase product names
+ *     (MedScribeAI, PharmaStockAI) which would lose readability if uppercased.
  * Hover state nudges border opacity up to 40% — restrained interactivity.
  * ─────────────────────────────────────────────────────────────────────── */
 function Chip({ to, accent, children }) {
@@ -113,8 +114,8 @@ function Chip({ to, accent, children }) {
     <Link
       to={to}
       className={`
-        inline-flex items-center rounded-md border px-3.5 py-2
-        text-[11px] font-bold uppercase tracking-[0.08em]
+        inline-flex items-center rounded-md border px-4 py-2.5
+        font-sora text-[14px] font-bold tracking-[-0.005em]
         transition-colors duration-200
         ${palette}
       `}

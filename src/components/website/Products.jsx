@@ -163,7 +163,14 @@ function ProductCard({ product, palette }) {
         ))}
       </ul>
 
-      <div className="mt-7 border-t border-rule pt-5 sm:mt-auto sm:pt-6">
+      {/* Spacer between bullets and footer divider:
+          - min-h-[28px] guarantees a comfortable gap above the divider on the
+            taller card (where bullet content nearly fills the card height).
+          - flex-grow lets the spacer absorb any extra height on the shorter
+            card, keeping both cards' footer rows aligned at the bottom. */}
+      <div aria-hidden="true" className="min-h-[28px] flex-grow" />
+
+      <div className="border-t border-rule pt-5 sm:pt-6">
         <Link
           to={product.href}
           className={`
