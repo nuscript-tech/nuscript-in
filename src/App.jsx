@@ -8,7 +8,6 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
-import PitchDeck from './pages/PitchDeck';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
-        <Route path="/pitchdeck" element={<PitchDeck />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Toaster />
