@@ -2,22 +2,22 @@ import { Link } from 'react-router-dom';
 import { MapPin, Mail } from 'lucide-react';
 
 /*
- * Footer — light surface, deck-aligned.
+ * Footer — dark slate-2 surface.
  *
- * Structure preserved from the existing site (three-column nav + bottom
- * legal bar). Visual refresh is automatic via the new design tokens:
- *   - Surface uses paper instead of muted-tinted gray.
- *   - Top edge is a thin slate rule rather than a cyan gradient bar
- *     (the gradient was too loud against the body sections).
- *   - Light logo always (footer sits on light surface, so no theme branch).
+ * Quieter than the hero gradient — flat #1E293B with no radial overlay, no
+ * gradient stops. Provides a clean dark close to the page without doubling
+ * down on the hero's strong brand moment.
  *
- * Tagline rewritten to operator register: vertical SaaS for healthcare &
- * pharmacy operations, engineered in Coimbatore. The original copy
- * ("Building intelligent systems...") was generic; this is concrete.
- *
- * Social icons dropped pending confirmation that the LinkedIn / Twitter
- * handles in the original code actually exist. Cleaner without them, and
- * matches the deck close-slide aesthetic which is contact-info-only.
+ * Color logic on a dark surface:
+ *   - Logo: always the white variant (no theme branch)
+ *   - Tagline + body text: offwhite/65 — readable but quieter than primary
+ *   - Section headings (PRODUCTS, COMPANY): offwhite/45, micro-uppercase
+ *   - Nav links default: offwhite/75
+ *   - Nav links hover: white (full opacity)
+ *   - Inline links (email, etc): cyan-bright on hover
+ *   - Top edge: a thin slate-3 rule for the bg-paper → bg-slate-2 transition
+ *   - Bottom legal bar: separated by a slate-3 rule, offwhite/40 micro text
+ *   - Status dot in legal bar: cyan-bright (matches hero accent)
  */
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
@@ -44,36 +44,40 @@ const CONTACT = {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-paper">
-      {/* thin top rule — deck convention for light section breaks */}
-      <div className="h-px w-full bg-rule" />
+    <footer className="relative bg-slate-2">
+      {/* Top edge separator — paper body to slate-2 footer transition.
+          Uses slate-3 rather than rule because the contrast against paper
+          would be too sharp with rule color, and we want the seam to feel
+          like a deliberate transition, not a hard cut. */}
+      <div className="h-px w-full bg-slate-3/40" />
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 sm:px-8 md:grid-cols-12 md:gap-10">
-        {/* Brand column — spans 5 of 12 on desktop */}
+        {/* ─── Brand column ─────────────────────────────────────────────
+            Spans 5 of 12. White logo, tagline, and contact rows. */}
         <div className="flex flex-col gap-5 md:col-span-5">
           <Link to="/" onClick={scrollToTop} className="inline-flex items-center">
             <img
-              src="/nuscript-logo.png"
+              src="/nuscript-logo-white.png"
               alt="NuScript Technologies"
               className="h-8 w-auto select-none object-contain"
               draggable={false}
             />
           </Link>
 
-          <p className="max-w-sm text-[14px] leading-[1.55] text-ink-2">
+          <p className="max-w-sm text-[14px] leading-[1.55] text-offwhite/65">
             {TAGLINE}
           </p>
 
           <ul className="flex flex-col gap-2 pt-1">
-            <li className="flex items-center gap-2 text-[13px] text-ink-3">
+            <li className="flex items-center gap-2 text-[13px] text-offwhite/55">
               <MapPin className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
               <span>{CONTACT.location}</span>
             </li>
-            <li className="flex items-center gap-2 text-[13px] text-ink-3">
+            <li className="flex items-center gap-2 text-[13px] text-offwhite/55">
               <Mail className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="transition-colors hover:text-cyan"
+                className="transition-colors hover:text-cyan-bright"
               >
                 {CONTACT.email}
               </a>
@@ -81,16 +85,19 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Products column — spans 3 of 12 */}
+        {/* ─── Products column ─────────────────────────────────────────
+            Spans 3 of 12. */}
         <div className="md:col-span-3">
-          <h4 className="eyebrow text-ink-3 mb-5">Products</h4>
+          <h4 className="mb-5 text-[11px] font-bold uppercase tracking-[0.08em] text-offwhite/45">
+            Products
+          </h4>
           <ul className="flex flex-col gap-3">
             {PRODUCT_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
                   to={link.to}
                   onClick={scrollToTop}
-                  className="text-[14px] text-ink-2 transition-colors hover:text-slate"
+                  className="text-[14px] text-offwhite/75 transition-colors hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -99,16 +106,19 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Company column — spans 4 of 12 */}
+        {/* ─── Company column ──────────────────────────────────────────
+            Spans 4 of 12. */}
         <div className="md:col-span-4">
-          <h4 className="eyebrow text-ink-3 mb-5">Company</h4>
+          <h4 className="mb-5 text-[11px] font-bold uppercase tracking-[0.08em] text-offwhite/45">
+            Company
+          </h4>
           <ul className="flex flex-col gap-3">
             {COMPANY_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
                   to={link.to}
                   onClick={scrollToTop}
-                  className="text-[14px] text-ink-2 transition-colors hover:text-slate"
+                  className="text-[14px] text-offwhite/75 transition-colors hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -118,18 +128,20 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom legal bar */}
-      <div className="border-t border-rule">
+      {/* ─── Bottom legal bar ────────────────────────────────────────────
+          Separated by a thin slate-3 rule. Micro text in offwhite/40 with a
+          cyan-bright status dot tying back to the hero's accent treatment. */}
+      <div className="border-t border-slate-3/40">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 px-6 py-5 sm:flex-row sm:items-center sm:px-8">
-          <p className="text-[12px] text-ink-3">
+          <p className="text-[12px] text-offwhite/45">
             © 2026 NuScript Technologies Private Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <span
               aria-hidden="true"
-              className="h-1.5 w-1.5 rounded-full bg-cyan"
+              className="h-1.5 w-1.5 rounded-full bg-cyan-bright"
             />
-            <span className="text-[12px] text-ink-3">
+            <span className="text-[12px] text-offwhite/45">
               Made with precision in Coimbatore, India
             </span>
           </div>
