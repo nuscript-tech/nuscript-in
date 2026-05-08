@@ -1,257 +1,444 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Target, Zap, ShieldCheck, MapPin, Globe, Layers, Lightbulb, TrendingUp, Rocket } from "lucide-react";
-import SEO from "@/components/SEO";
-import Navbar from "@/components/website/Navbar";
-import Footer from "@/components/website/Footer";
-import ScrollToTopButton from "@/components/website/ScrollToTopButton";
-import ScrollProgressBar from "@/components/website/ScrollProgressBar";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink, MapPin, Globe2, Layers } from 'lucide-react';
+
+import SEO from '@/components/SEO';
+import Navbar from '@/components/website/Navbar';
+import Footer from '@/components/website/Footer';
+import ScrollToTopButton from '@/components/website/ScrollToTopButton';
+import ScrollProgressBar from '@/components/website/ScrollProgressBar';
+
+import SectionHead from '@/components/website/_primitives/SectionHead';
+import TopAccentCard from '@/components/website/_primitives/TopAccentCard';
+import Eyebrow from '@/components/website/_primitives/Eyebrow';
+import Timeline from '@/components/website/_primitives/Timeline';
+
+/*
+ * /about — company page for NuScript Technologies.
+ *
+ * Buyer-facing throughout. The founder narrative is reduced to a single
+ * restrained "Founded by" card late in the page, demoted from being the
+ * page's anchor.
+ *
+ * Section flow (six):
+ *   1. Hero — what NuScript is, who it serves
+ *   2. Origins — timeline (3 entries) + lede paragraph
+ *   3. Two products — brief portfolio recap with links to product pages
+ *   4. Why Coimbatore — three structural reasons
+ *   5. Founded by — single card, restrained credentials
+ *   6. CTA — get-in-touch banner
+ *
+ * What was deliberately removed from the previous version of this page:
+ *   - "8 Startups Founded · 4 Successful Exits" stats block (investor flex)
+ *   - Founder quote that begins "As a founder with eight startups..."
+ *   - "venture-backed innovation hub" hero framing
+ *   - "Three Principles" virtue-card section (Precision/Automation/Integrity —
+ *     reads as values-page filler that says nothing concrete)
+ *
+ * What was kept and rewritten:
+ *   - Coimbatore positioning (pulled out of values-soup, made concrete)
+ *   - Timeline structure (rewritten to anchor on the company's birth and
+ *     what it does, not the founder's earlier ventures)
+ *   - Two-product portfolio recap (lifted with light edits)
+ */
+
+const HERO = {
+  eyebrow:  'NUSCRIPT TECHNOLOGIES',
+  headline: 'Vertical SaaS for healthcare and pharmacy operations.',
+  lede:
+    "An engineering-first product company in Coimbatore. We build AI for two markets we've operated inside for over two decades — global medical transcription and Indian retail pharmacy. Two live products, one engineering team.",
+  primaryCta:   { label: 'Talk to us',          href: '/contact' },
+  secondaryCta: { label: 'See our products',    href: '#products' },
+};
+
+const ORIGINS_SECTION = {
+  eyebrow:  'ORIGINS',
+  headline: 'Built where the work is.',
+  lede:
+    "NuScript Technologies was incorporated in March 2026 in Coimbatore, India. The company exists because the founder has spent over two decades inside the operations these products now automate — first in US healthcare documentation, more recently in Indian pharmacy supply chain. The products were built knowing what actually breaks at scale, not what looks good in a demo.",
+};
+
+const TIMELINE = [
+  {
+    date:  '2000–2025',
+    title: 'Operating depth.',
+    body:
+      'Two decades inside US healthcare documentation operations and Indian pharmacy supply chain — the domains these products now serve. NuScript Systems Inc. (US) is a profitable healthcare services business; the operating knowledge from running it shapes every product decision.',
+  },
+  {
+    date:  'March 2026',
+    title: 'NuScript Technologies incorporated.',
+    body:
+      "Founded as a Private Limited company headquartered in Coimbatore, India. Purpose-built as an engineering-first SaaS company, distinct from the services business — built to ship products, not to take on consulting work.",
+  },
+  {
+    date:  '2026',
+    title: 'Two products live.',
+    body:
+      'MedScribeAI ships as multi-tenant SaaS for medical transcription operators serving US, UK, and Australian healthcare clients. PharmaStockAI ships as inventory and expiry intelligence for Indian retail pharmacies, chains, and distributors. Both in production, both with paying operators.',
+  },
+];
+
+const PRODUCTS = [
+  {
+    accent:  'emerald',
+    eyebrow: 'FOR MTSOs',
+    name:    'MedScribeAI',
+    body:
+      'Multi-tenant SaaS for medical transcription operators serving US, UK, and Australian healthcare clients. HIPAA-aligned, BAA-ready, US East infrastructure.',
+    cta:     'Explore MedScribeAI',
+    href:    '/medscribeai',
+  },
+  {
+    accent:  'cyan',
+    eyebrow: 'FOR INDIAN PHARMACIES',
+    name:    'PharmaStockAI',
+    body:
+      'Inventory and expiry intelligence that runs alongside your existing billing software. Daily expiry alerts, WhatsApp-pushed reorder lists, stock visibility you can act on.',
+    cta:     'Explore PharmaStockAI',
+    href:    '/pharmastockai',
+  },
+];
+
+const COIMBATORE_SECTION = {
+  eyebrow:  'WHY COIMBATORE',
+  headline: 'A deliberate choice, not a default.',
+  lede:
+    "Coimbatore is one of India's quieter engineering hubs. Three structural reasons it's the right base for this company.",
+};
+
+const COIMBATORE_REASONS = [
+  {
+    accent:  'cyan',
+    icon:    MapPin,
+    title:   'Engineering depth without metro overhead.',
+    body:
+      "Strong engineering talent pool, lower cost-of-operations than Bengaluru or Hyderabad. Capital that would have gone to office overhead and salary inflation goes into product instead.",
+  },
+  {
+    accent:  'emerald',
+    icon:    Globe2,
+    title:   'Built for global delivery.',
+    body:
+      'India timezone has natural overlap with Australia, the UK, and the US East Coast across a working day. Engineering in Coimbatore, customers in your timezone — both work.',
+  },
+  {
+    accent:  'cyan',
+    icon:    Layers,
+    title:   'Vertical SaaS focus.',
+    body:
+      'No services arm pulling attention away from product work. The company exists to ship and operate two products; everything is structured around that focus.',
+  },
+];
+
+const FOUNDER = {
+  name:    'Arvind Manohar',
+  role:    'FOUNDED BY',
+  bio:
+    "Founder & CEO of NuScript Technologies. Operates NuScript Systems Inc. (US), a profitable healthcare services business, in parallel — the operating knowledge from running it informs every product decision NuScript Technologies makes. Engineering background, two decades inside US healthcare documentation operations, MBA from Madurai Kamaraj University, B.S. Physics from Bharathiar University.",
+  linkedin: { label: 'LinkedIn', href: 'https://linkedin.com/in/arvindmanohar' },
+  contact:  { label: 'Direct contact', href: 'mailto:arvind.manohar@nuscript.in' },
+};
+
+const CTA_BLOCK = {
+  eyebrow:  'GET IN TOUCH',
+  headline: 'Operator? Investor? Partner? Reach out.',
+  body:
+    "We respond within one business day. Whether you're evaluating one of our products, exploring a partnership, or just curious about what we're building — we'd like to hear from you.",
+  primaryCta: { label: 'Talk to us', href: '/contact' },
+};
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { delay, duration: 0.55, ease: "easeOut" },
+  viewport: { once: true, margin: '-60px' },
+  transition: { delay, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
 });
-
-const timeline = [
-  { year: "2000", title: "The Genesis", desc: "Our founder enters the HIM/RCM sector, laying the groundwork for two decades of global documentation standards.", icon: Lightbulb },
-  { year: "2000–2025", title: "A Legacy of Scale", desc: "Building 8 health-tech ventures and achieving 4 successful exits in the US and Indian markets.", icon: TrendingUp },
-  { year: "2026", title: "NuScript Tech is Born", desc: "A specialized hub in Coimbatore dedicated to replacing manual bottlenecks with autonomous AI for MTSOs and Pharmacies.", icon: Rocket },
-];
-
-const founderStats = [
-  { value: "8", label: "Startups Founded" },
-  { value: "4", label: "Successful Exits" },
-  { value: "25+", label: "Years in HealthTech" },
-  { value: "2", label: "AI Platforms Built" },
-];
-
-const coimbatoreReasons = [
-  { icon: MapPin, title: "Local Engineering", desc: "Our R&D center is strategically located in Coimbatore, tapping into a rich pool of engineering talent building world-class AI." },
-  { icon: Globe, title: "Global Delivery", desc: "We bridge the gap between US-grade quality standards and Indian operational realities — serving both markets with excellence." },
-  { icon: Layers, title: "SaaS-First", desc: "100% focused on Vertical SaaS — building deep, industry-specific solutions that solve real problems, not generic tools." },
-];
-
-const principles = [
-  { icon: Target, title: "Precision", desc: "Every product we build is engineered to exceed the highest accuracy benchmarks — because in healthcare and pharma, errors have consequences." },
-  { icon: Zap, title: "Automation", desc: "We systematically eliminate every manual bottleneck. If a human is doing something a machine can do better, we fix it." },
-  { icon: ShieldCheck, title: "Integrity", desc: "HIPAA-grade data standards, compliance-first architecture, and zero-compromise on privacy. Trust is our product." },
-];
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper text-ink antialiased">
       <SEO page="about" />
       <ScrollProgressBar />
       <Navbar />
 
-      {/* Hero */}
-      <section className="min-h-[80vh] flex items-center pt-16 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-brand-cyan/5 blur-3xl" />
-          <div className="absolute top-1/2 -right-40 w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl" />
-        </div>
-        <div className="max-w-6xl mx-auto px-6 py-20 w-full relative z-10">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-8">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Born in Coimbatore · Proven in Global Healthcare</span>
-          </motion.div>
-          <motion.h1 {...fadeUp(0.18)} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] mb-6 text-heading max-w-4xl">
-            Engineering Precision for <span className="bg-gradient-to-r from-brand-cyan to-primary bg-clip-text text-transparent">India's Essential Sectors.</span>
-          </motion.h1>
-          <motion.p {...fadeUp(0.26)} className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            We are NuScript Technologies — a venture-backed innovation hub dedicated to replacing manual bottlenecks with <strong className="text-foreground">autonomous intelligence.</strong>
-          </motion.p>
-          <motion.div {...fadeUp(0.34)} className="flex flex-wrap gap-4">
-            <a href="/medscribeai" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors">
-              Explore MedScribeAI <ArrowRight className="w-4 h-4" />
-            </a>
-            <a href="/pharmastockai" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-bold text-base hover:bg-muted transition-colors">
-              Explore PharmaStockAI
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <main>
+        {/* ─── 1. Hero (light) ──────────────────────────────────────────── */}
+        <section className="relative bg-paper pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-44 lg:pb-24">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <motion.div {...fadeUp(0)}>
+              <Eyebrow color="cyan" className="mb-5 block">{HERO.eyebrow}</Eyebrow>
+            </motion.div>
 
-      {/* Origins & Timeline */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <motion.div {...fadeUp()}>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Our Origins</span>
+            <motion.h1
+              {...fadeUp(0.08)}
+              className="
+                max-w-4xl font-sora font-bold text-slate
+                text-[36px] leading-[1.10] tracking-[-0.025em]
+                sm:text-[44px]
+                lg:text-[56px]
+              "
+            >
+              {HERO.headline}
+            </motion.h1>
+
+            <motion.p
+              {...fadeUp(0.16)}
+              className="
+                mt-6 max-w-2xl text-[16px] leading-[1.55] text-ink-2
+                sm:text-[18px]
+                lg:text-[19px]
+              "
+            >
+              {HERO.lede}
+            </motion.p>
+
+            <motion.div {...fadeUp(0.24)} className="mt-9 flex flex-wrap gap-3">
+              <Link
+                to={HERO.primaryCta.href}
+                className="
+                  inline-flex items-center gap-2 rounded-md bg-cyan
+                  px-5 py-3 text-[14px] font-bold text-white tracking-[-0.005em]
+                  transition-colors duration-200 hover:bg-cyan/90
+                "
+              >
+                {HERO.primaryCta.label}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <a
+                href={HERO.secondaryCta.href}
+                className="
+                  inline-flex items-center gap-2 rounded-md border border-rule
+                  bg-paper-2 px-5 py-3 text-[14px] font-bold text-slate tracking-[-0.005em]
+                  transition-colors duration-200 hover:border-rule-2 hover:bg-paper
+                "
+              >
+                {HERO.secondaryCta.label}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ─── 2. Origins + Timeline ─────────────────────────────────────── */}
+        <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-5">
+                <SectionHead
+                  eyebrow={ORIGINS_SECTION.eyebrow}
+                  eyebrowColor="cyan"
+                  headline={ORIGINS_SECTION.headline}
+                  lede={ORIGINS_SECTION.lede}
+                />
+              </div>
+              <div className="lg:col-span-7">
+                <Timeline entries={TIMELINE} />
+              </div>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading leading-tight mb-6">25 Years of Domain Mastery.</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              NuScript Technologies wasn't built in a vacuum. Our foundation lies in over two decades of excellence in Health Information Management (HIM) and Revenue Cycle Management (RCM) for the US market.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              In 2026, we brought that same obsession with precision to the Indian domestic market — building technology that works when it matters most.
-            </p>
-          </motion.div>
-          <div className="relative">
-            <div className="absolute left-[22px] top-3 bottom-3 w-px bg-border" />
-            <div className="space-y-8">
-              {timeline.map((t, i) => (
-                <motion.div key={t.year} {...fadeUp(0.1 + i * 0.1)} className="flex items-start gap-5">
-                  <div className="relative z-10 w-11 h-11 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                    <t.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-base font-extrabold text-heading mb-1">
-                      <span className="text-primary">{t.year}</span> — {t.title}
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
-                  </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Products ───────────────────────────────────────────────── */}
+        <section id="products" className="relative bg-paper py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow="WHAT WE BUILD"
+              eyebrowColor="cyan"
+              headline="Two products. One engineering team."
+              lede="Each product is purpose-built for its operator profile. Both are live today."
+            />
+
+            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-7">
+              {PRODUCTS.map((product, i) => (
+                <motion.div
+                  key={product.name}
+                  {...fadeUp(i * 0.08)}
+                  className="h-full"
+                >
+                  <ProductRecapCard product={product} />
                 </motion.div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Two Pillars */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="text-center mb-14">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Two Pillars of Innovation</span>
-              <div className="w-10 h-px bg-primary" />
+        {/* ─── 4. Why Coimbatore ──────────────────────────────────────────── */}
+        <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <SectionHead
+              eyebrow={COIMBATORE_SECTION.eyebrow}
+              eyebrowColor="cyan"
+              headline={COIMBATORE_SECTION.headline}
+              lede={COIMBATORE_SECTION.lede}
+            />
+
+            <div className="mt-12 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
+              {COIMBATORE_REASONS.map((reason, i) => (
+                <motion.div
+                  key={reason.title}
+                  {...fadeUp(i * 0.08)}
+                  className="h-full"
+                >
+                  <TopAccentCard accent={reason.accent} className="h-full">
+                    <reason.icon
+                      className={`mb-4 h-5 w-5 ${reason.accent === 'emerald' ? 'text-emerald' : 'text-cyan'}`}
+                      aria-hidden="true"
+                    />
+                    <h3 className="font-sora text-[18px] font-bold leading-[1.25] tracking-[-0.018em] text-slate sm:text-[19px]">
+                      {reason.title}
+                    </h3>
+                    <p className="mt-2.5 text-[14px] leading-[1.55] text-ink-2 sm:text-[15px]">
+                      {reason.body}
+                    </p>
+                  </TopAccentCard>
+                </motion.div>
+              ))}
             </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading">One mission. Two market-defining products.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {[
-              {
-                tag: "Pillar I · The Global Standard",
-                name: "MedScribeAI",
-                sub: "Built for US Healthcare",
-                desc: "We understand the high-stakes world of US Healthcare. Our platform is the culmination of years of managing complex transcription workflows — moving from manual processing to complete automation because technology should liberate human expertise, not burden it.",
-                cta: "Explore MedScribeAI →",
-                href: "/medscribeai",
-                accent: "border-brand-cyan/30",
-                tagColor: "text-brand-cyan",
-                btnClass: "text-brand-cyan hover:underline",
-              },
-              {
-                tag: "Pillar II · The Local Mission",
-                name: "PharmaStockAI",
-                sub: "Built for Indian Pharmacies",
-                desc: "We saw a gap in the Indian pharmacy ecosystem: brilliant pharmacists held back by manual inventory and unpredictable supply chains. PharmaStockAI was created to give the \"Neighborhood Chemist\" the same predictive power used by global retail giants.",
-                cta: "Explore PharmaStockAI →",
-                href: "/pharmastockai",
-                accent: "border-primary/30",
-                tagColor: "text-primary",
-                btnClass: "text-primary hover:underline",
-              },
-            ].map((p, i) => (
-              <motion.div key={p.name} {...fadeUp(i * 0.12)} className={`bg-card border rounded-2xl p-8 ${p.accent}`}>
-                <span className={`text-xs font-bold uppercase tracking-widest block mb-3 ${p.tagColor}`}>{p.tag}</span>
-                <h3 className="text-2xl font-extrabold text-heading mb-1">{p.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{p.sub}</p>
-                <p className="text-base text-muted-foreground leading-relaxed mb-6">{p.desc}</p>
-                <a href={p.href} className={`text-sm font-bold ${p.btnClass}`}>{p.cta}</a>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Founder Quote + Stats */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="bg-card border border-border rounded-2xl p-8 sm:p-12 mb-10">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Founder's Vision</span>
-            </div>
-            <blockquote className="text-xl sm:text-2xl font-normal text-muted-foreground leading-relaxed mb-6 max-w-3xl">
-              "As a founder with eight startups and four successful exits in HealthTech, my goal for NuScript Technologies is simple: to build the most reliable technology 'chassis' for India's healthcare and financial infrastructure. We aren't just building apps; we are building the connective tissue for modern Indian enterprises."
-            </blockquote>
-            <div>
-              <p className="text-base font-extrabold text-heading">Arvind Manohar</p>
-              <p className="text-sm text-muted-foreground">Founder & CEO, NuScript Technologies · 8 Startups · 4 Exits</p>
-            </div>
-          </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {founderStats.map((s, i) => (
-              <motion.div key={s.label} {...fadeUp(i * 0.08)} className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden text-center">
-                <div className="absolute top-0 left-0 w-full h-0.5 bg-primary/60" />
-                <div className="text-4xl font-extrabold text-primary mb-1">{s.value}</div>
-                <div className="text-sm text-muted-foreground font-medium">{s.label}</div>
-              </motion.div>
-            ))}
+        {/* ─── 5. Founded by ──────────────────────────────────────────────── */}
+        <section className="relative bg-paper py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-3xl px-6 sm:px-8">
+            <motion.div
+              {...fadeUp(0)}
+              className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-7 sm:p-9"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-[3px] w-full bg-cyan"
+              />
+
+              <Eyebrow color="cyan" className="mb-3 block">{FOUNDER.role}</Eyebrow>
+              <h3 className="font-sora text-[24px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[28px]">
+                {FOUNDER.name}
+              </h3>
+              <p className="mt-4 text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+                {FOUNDER.bio}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px]">
+                <a
+                  href={FOUNDER.linkedin.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 font-semibold text-cyan transition-opacity hover:opacity-80"
+                >
+                  {FOUNDER.linkedin.label}
+                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                </a>
+                <a
+                  href={FOUNDER.contact.href}
+                  className="font-semibold text-cyan transition-opacity hover:opacity-80"
+                >
+                  {FOUNDER.contact.label}
+                </a>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Why Coimbatore */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="text-center mb-14">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Why Coimbatore?</span>
-              <div className="w-10 h-px bg-primary" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading">India's quietly rising deep-tech hub.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {coimbatoreReasons.map((r, i) => (
-              <motion.div key={r.title} {...fadeUp(i * 0.1)} className="bg-card border border-border rounded-2xl p-7 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary/50 rounded-l-2xl" />
-                <div className="pl-3">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                    <r.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-extrabold text-heading mb-3">{r.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">{r.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+        {/* ─── 6. CTA banner ──────────────────────────────────────────────── */}
+        <section className="relative bg-paper-2 py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+            <motion.div
+              {...fadeUp(0)}
+              className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-8 sm:p-12 lg:p-14"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-[3px] w-full bg-cyan"
+              />
+
+              <Eyebrow color="cyan" className="mb-3 block">{CTA_BLOCK.eyebrow}</Eyebrow>
+
+              <h2 className="font-sora text-[28px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[32px] lg:text-[36px]">
+                {CTA_BLOCK.headline}
+              </h2>
+
+              <p className="mt-3 max-w-2xl text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+                {CTA_BLOCK.body}
+              </p>
+
+              <div className="mt-7">
+                <Link
+                  to={CTA_BLOCK.primaryCta.href}
+                  className="
+                    inline-flex items-center gap-2 rounded-md bg-cyan
+                    px-5 py-3 text-[14px] font-bold text-white tracking-[-0.005em]
+                    transition-colors duration-200 hover:bg-cyan/90
+                  "
+                >
+                  {CTA_BLOCK.primaryCta.label}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Three Principles */}
-      <section className="py-24 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="text-center mb-14">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">The NuScript Way</span>
-              <div className="w-10 h-px bg-primary" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-heading">Three principles. Zero compromise.</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
-            {principles.map((p, i) => (
-              <motion.div key={p.title} {...fadeUp(i * 0.1)} className="bg-card border border-border rounded-2xl p-7">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                  <p.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-xl font-extrabold text-heading mb-3">{p.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed">{p.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Join CTA */}
-          <motion.div {...fadeUp(0.3)} className="bg-primary/5 border border-primary/20 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-extrabold text-heading mb-3">Want to be part of the mission?</h3>
-            <p className="text-base text-muted-foreground mb-6 max-w-xl mx-auto">
-              We're always looking for engineers, domain experts, and partners who believe in building technology that matters.
-            </p>
-            <a href="mailto:hello@nuscript.in" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors">
-              Join the Mission <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
       <ScrollToTopButton />
+    </div>
+  );
+}
+
+/* ─── ProductRecapCard ──────────────────────────────────────────────────────
+ * Quieter variant of the home page's product card. No status eyebrow, no
+ * bullet list of facts — just brand-color top accent, audience eyebrow,
+ * product name, body, and a CTA link to the dedicated product page.
+ *
+ * Content is the recap of what's covered exhaustively on /medscribeai and
+ * /pharmastockai; this card exists on /about so a reader of the company
+ * page has obvious paths to either product page. */
+function ProductRecapCard({ product }) {
+  const palette = {
+    emerald: { bar: 'bg-emerald', text: 'text-emerald' },
+    cyan:    { bar: 'bg-cyan',    text: 'text-cyan'    },
+  }[product.accent];
+
+  return (
+    <div
+      className="
+        relative flex h-full flex-col overflow-hidden rounded-lg
+        border border-rule bg-paper-2 p-7 sm:p-9
+        transition-shadow duration-300 hover:shadow-card
+      "
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute left-0 top-0 h-[3px] w-full ${palette.bar}`}
+      />
+
+      <Eyebrow color={product.accent} className="mb-4 block">
+        {product.eyebrow}
+      </Eyebrow>
+
+      <h3 className="font-sora text-[28px] font-bold leading-[1.10] tracking-[-0.022em] text-slate sm:text-[32px]">
+        {product.name}
+      </h3>
+
+      <p className="mt-3 flex-grow text-[15px] leading-[1.55] text-ink-2 sm:text-[16px]">
+        {product.body}
+      </p>
+
+      <Link
+        to={product.href}
+        className={`
+          group mt-6 inline-flex items-center gap-2
+          text-[14px] font-bold tracking-[-0.005em]
+          transition-opacity hover:opacity-80
+          sm:text-[15px]
+          ${palette.text}
+        `}
+      >
+        {product.cta}
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
+      </Link>
     </div>
   );
 }
