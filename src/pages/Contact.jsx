@@ -76,11 +76,6 @@ const FOUNDER = {
   email: 'arvind.manohar@nuscript.in',
   emailHref: 'mailto:arvind.manohar@nuscript.in',
   role:  "Founder's Office · Enterprise & strategic discussions",
-  usReference: {
-    label: 'Looking for our US operations?',
-    name:  'NuScript Health',
-    href:  'https://nuscripthealth.com',
-  },
 };
 
 const fadeUp = (delay = 0) => ({
@@ -517,21 +512,6 @@ function FounderDirectCard() {
           aria-hidden="true"
         />
       </a>
-
-      <div className="mt-8 border-t border-rule pt-6">
-        <p className="text-[13px] text-ink-3 sm:text-[14px]">
-          {FOUNDER.usReference.label}{' '}
-          <a
-            href={FOUNDER.usReference.href}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-cyan transition-opacity hover:opacity-80"
-          >
-            {FOUNDER.usReference.name}
-          </a>
-          .
-        </p>
-      </div>
     </motion.div>
   );
 }
