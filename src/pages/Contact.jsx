@@ -216,9 +216,9 @@ export default function Contact() {
 function HqCard() {
   return (
     <div className="relative overflow-hidden rounded-lg border border-rule bg-paper-2 p-7 sm:p-8">
-      <div aria-hidden="true" className="absolute left-0 top-0 h-[3px] w-full bg-slate" />
+      <div aria-hidden="true" className="absolute left-0 top-0 h-[3px] w-full bg-clay" />
 
-      <Eyebrow color="muted" className="mb-3 block">COIMBATORE HQ</Eyebrow>
+      <Eyebrow color="clay" className="mb-3 block">COIMBATORE HQ</Eyebrow>
       <h3 className="font-sora text-[22px] font-bold leading-[1.20] tracking-[-0.022em] text-slate sm:text-[24px]">
         {HQ.legalName}
       </h3>
@@ -286,7 +286,7 @@ function InfoRow({ icon: Icon, children }) {
         aria-hidden="true"
         className="mt-0.5 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md border border-rule bg-paper"
       >
-        <Icon className="h-4 w-4 text-cyan" />
+        <Icon className="h-4 w-4 text-clay" />
       </span>
       <div className="flex-1 pt-1">{children}</div>
     </li>
