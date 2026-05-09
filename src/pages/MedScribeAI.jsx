@@ -59,7 +59,7 @@ const CAPABILITIES = [
     accent:  'cyan',
     eyebrow: '02 · OPERATE',
     icon:    Layers,
-    title:   'Multi-tenant by design.',
+    title:   'One platform, many clients.',
     body:
       'Org-isolated workspaces. Role-based access. SLA tracking. A centralized command center for managing multiple provider feeds across US, UK, and Australian clients — one MTSO, multiple geographies, one chassis.',
   },
