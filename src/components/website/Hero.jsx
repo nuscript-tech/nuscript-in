@@ -35,7 +35,7 @@ const HEADLINE = {
 };
 
 const SUBHEAD =
-  "Two live AI products. One Indian holdco. Vertical SaaS for global healthcare and Indian pharmacy — engineered in Coimbatore.";
+  "Two live AI products. One Indian company. Vertical SaaS for global healthcare and Indian pharmacy — engineered in Coimbatore.";
 
 const CTAS = {
   primary:   { label: "See our products", to: "#products" },
@@ -56,17 +56,17 @@ export default function Hero() {
       <div
         className="
           mx-auto flex w-full max-w-6xl flex-col justify-center
-          px-6 py-32
-          sm:px-10 sm:py-36
-          lg:px-12 lg:py-44
-          min-h-[88vh] lg:min-h-[92vh]
+          px-6 py-24
+          sm:px-10 sm:py-28
+          lg:px-12 lg:py-36
+          min-h-[78vh] lg:min-h-[80vh]
         "
       >
         <div className="flex flex-col gap-7">
           <motion.h1
             {...fadeUp(0.05)}
             className="
-              max-w-4xl font-sora font-bold text-white
+              max-w-5xl font-sora font-bold text-white
               leading-[1.04] tracking-[-0.038em]
             "
             style={{ fontSize: "clamp(2.5rem, 4.4vw + 1.25rem, 5.75rem)" }}
