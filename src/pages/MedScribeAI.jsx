@@ -61,7 +61,7 @@ const CAPABILITIES = [
     icon:    Layers,
     title:   'Multi-tenant by design.',
     body:
-      'Org-isolated workspaces. RBAC. SLA tracking. A centralized command center for managing multiple US provider feeds — one MTSO, multiple clients, one chassis.',
+      'Org-isolated workspaces. Role-based access. SLA tracking. A centralized command center for managing multiple provider feeds across US, UK, and Australian clients — one MTSO, multiple geographies, one chassis.',
   },
   {
     accent:  'slate',

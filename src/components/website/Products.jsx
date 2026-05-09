@@ -49,7 +49,7 @@ const PRODUCTS = [
     statusEyebrow: 'LIVE · PHARMACY SUPPLY CHAIN',
     name: 'PharmaStockAI',
     tagline:
-      'AI inventory, expiry, and reorder intelligence for Indian pharmacies, chains, and distributors.',
+      'AI inventory, expiry, and reorder intelligence for Indian pharmacies, multi-location chains, and distributors.',
     facts: [
       'Daily expiry alerts · WhatsApp-pushed reorder lists',
       'Plugs into the billing software pharmacies already run',
