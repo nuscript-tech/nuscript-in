@@ -97,9 +97,9 @@ const COIMBATORE_REASONS = [
   {
     accent:  'cyan',
     icon:    MapPin,
-    title:   'Engineering depth without metro overhead.',
+    title:   'Talent that stays.',
     body:
-      "Strong engineering talent pool, lower cost-of-operations than Bengaluru or Hyderabad. Capital that would have gone to office overhead and salary inflation goes into product instead.",
+      'Coimbatore has a deep engineering talent pool with lower attrition than the metro hubs. Engineers join, build the product, and stay long enough to know it deeply. That depth shows up in everything we ship.',
   },
   {
     accent:  'emerald',
