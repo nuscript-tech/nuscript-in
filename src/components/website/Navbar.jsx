@@ -80,9 +80,16 @@ export default function Navbar({ transparent = false }) {
         ${headerCls}
       `}
     >
-      <div className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-6 sm:px-8">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2" aria-label="NuScript Technologies — home">
+      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-6 sm:px-8">
+        {/* Logo — clicking always returns home and scrolls to top, giving
+            visible feedback even when the user is already on the home route.
+            cursor-pointer and hover opacity give a clear pre-click signal. */}
+        <Link
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+          className="flex items-center gap-2 transition-opacity hover:opacity-80"
+          aria-label="NuScript Technologies — home"
+        >
           <img
             src={logoSrc}
             alt="NuScript Technologies"

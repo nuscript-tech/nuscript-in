@@ -55,7 +55,12 @@ export default function Footer() {
         {/* ─── Brand column ─────────────────────────────────────────────
             Spans 5 of 12. White logo, tagline, and contact rows. */}
         <div className="flex flex-col gap-5 md:col-span-5">
-          <Link to="/" onClick={scrollToTop} className="inline-flex items-center">
+          <Link
+            to="/"
+            onClick={scrollToTop}
+            className="inline-flex items-center transition-opacity hover:opacity-80"
+            aria-label="NuScript Technologies — home"
+          >
             <img
               src="/nuscript-logo-white.png"
               alt="NuScript Technologies"
