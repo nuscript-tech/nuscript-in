@@ -41,15 +41,15 @@ const ORIGINS_SECTION = {
   eyebrow:  'ORIGINS',
   headline: 'Built where the work is.',
   lede:
-    "NuScript Technologies was incorporated in March 2026 in Coimbatore, India. The company exists because the founder has spent over two decades inside the operations these products now automate — first in US healthcare documentation, more recently in Indian pharmacy supply chain. The products were built knowing what actually breaks at scale, not what looks good in a demo.",
+    "NuScript Technologies was incorporated in March 2026 in Coimbatore, India. The company exists because the founder has spent over three decades inside healthcare — across pharmaceutical sales, equipment distribution, and over two decades of clinical documentation and RCM operations. The products were built knowing what actually breaks at scale, not what looks good in a demo.",
 };
 
 const TIMELINE = [
   {
-    date:  '2000–2025',
-    title: 'Operating depth.',
+    date:  'OPERATING DEPTH',
+    title: 'Over three decades inside healthcare.',
     body:
-      'Two decades inside US healthcare documentation operations and Indian pharmacy supply chain — the domains these products now serve. NuScript Systems Inc. (US) is a profitable healthcare services business; the operating knowledge from running it shapes every product decision.',
+      'Clinical documentation and RCM is the through-line — over two decades of running the work that MedScribeAI now automates. Layered onto earlier pharmaceutical sales experience and a chapter in medical, diagnostic, and surgical supplies distribution. Each chapter shapes how NuScript Technologies thinks about product.',
   },
   {
     date:  'March 2026',
