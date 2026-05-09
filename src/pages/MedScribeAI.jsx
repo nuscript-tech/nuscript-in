@@ -127,7 +127,7 @@ const COMPLIANCE_CARDS = [
       'BAA-ready · audit logs · RBAC',
       'US East infrastructure',
       'Org-isolated tenant data',
-      "Built on 25 years of HIM/RCM operating depth",
+      "Built on two decades of HIM/RCM operating depth",
     ],
   },
   {

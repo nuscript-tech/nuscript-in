@@ -32,7 +32,7 @@ const HERO = {
   eyebrow:  'NUSCRIPT TECHNOLOGIES',
   headline: 'Vertical SaaS for healthcare and pharmacy operations.',
   lede:
-    "An engineering-first product company in Coimbatore. We build AI for two markets we've operated inside for over two decades — global medical transcription and Indian retail pharmacy. Two live products, one engineering team.",
+    "An engineering-first product company in Coimbatore. We build AI for two markets — global medical transcription and Indian retail pharmacy — out of three decades of healthcare operating depth. Two live products, one engineering team.",
   primaryCta:   { label: 'Talk to us',          href: '/contact' },
   secondaryCta: { label: 'See our products',    href: '#products' },
 };

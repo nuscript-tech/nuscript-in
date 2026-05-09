@@ -20,7 +20,7 @@ const SECTION = {
   eyebrow:  'HOW WE SHIP',
   headline: 'Engineering-first vertical SaaS, built where the work is.',
   lede:
-    "NuScript Technologies builds AI products for two markets we've operated inside for over two decades — global medical transcription and Indian retail pharmacy. We don't ship general-purpose tools.",
+    "NuScript Technologies builds AI products for two markets — global medical transcription and Indian retail pharmacy — grounded in three decades of healthcare operating depth. We don't ship general-purpose tools.",
 };
 
 const CARDS = [
@@ -36,9 +36,9 @@ const CARDS = [
     eyebrow: '02 · OPERATOR-FOUNDED',
     eyebrowColor: 'emerald',
     accent: 'emerald',
-    title: '25 years inside the work we now automate.',
+    title: 'Decades inside the work we now automate.',
     body:
-      'The founder has spent 25 years inside US healthcare documentation operations. Every product decision is informed by what actually breaks at scale, not what looks good in a demo.',
+      'The founder has spent over two decades inside US healthcare documentation operations. Every product decision is informed by what actually breaks at scale, not what looks good in a demo.',
   },
   {
     eyebrow: '03 · ALREADY SHIPPING',

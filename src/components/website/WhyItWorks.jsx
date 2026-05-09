@@ -41,7 +41,7 @@ const REASONS = [
     eyebrow: 'DOMAIN',
     title:   'Operator depth, baked into every surface.',
     body:
-      'Two decades inside the work feed into every product decision — what gets denied, where ambient AI breaks, where editor cycles hide.',
+      'Over two decades inside the work feed into every product decision — what gets denied, where ambient AI breaks, where editor cycles hide.',
   },
   {
     accent:  'cyan',
