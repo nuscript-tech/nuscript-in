@@ -67,7 +67,7 @@ const CAPABILITIES = [
       "Reorder recommendations land in your team's WhatsApp — calibrated to your sales velocity, current stock, and lead times. No new app, no training, no friction.",
   },
   {
-    accent:  'cyan',
+    accent:  'clay',
     eyebrow: '03 · VISIBILITY',
     icon:    BarChart3,
     title:   'Stock movement you can act on.',

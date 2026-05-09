@@ -17,6 +17,7 @@
 const ACCENTS = {
   cyan:        'bg-cyan',
   emerald:     'bg-emerald',
+  clay:        'bg-clay',
   slate:       'bg-slate',
   'cyan-bright': 'bg-cyan-bright',
 };

@@ -66,7 +66,7 @@ export default function Hero() {
           <motion.h1
             {...fadeUp(0.05)}
             className="
-              max-w-5xl font-sora font-bold text-white
+              max-w-5xl font-sora font-semibold text-white
               leading-[1.04] tracking-[-0.038em]
             "
             style={{ fontSize: "clamp(2.5rem, 4.4vw + 1.25rem, 5.75rem)" }}

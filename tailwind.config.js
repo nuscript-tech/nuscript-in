@@ -36,6 +36,9 @@ module.exports = {
           DEFAULT: 'hsl(var(--emerald))',       // #10B981 — secondary brand
           tint:    '#D1FAE5',                   // very light emerald background
         },
+        clay: {
+          DEFAULT: 'hsl(var(--clay))',          // #C15F3C — third accent (three-card grids)
+        },
         slate: {
           DEFAULT: 'hsl(var(--slate))',         // #0F172A — dark surface, headings
           2:       'hsl(var(--slate-2))',       // #1E293B — gradient mid-tone

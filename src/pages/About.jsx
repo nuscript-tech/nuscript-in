@@ -109,7 +109,7 @@ const COIMBATORE_REASONS = [
       'India timezone has natural overlap with Australia, the UK, and the US East Coast across a working day. Engineering in Coimbatore, customers in your timezone — both work.',
   },
   {
-    accent:  'cyan',
+    accent:  'clay',
     icon:    Layers,
     title:   'Vertical SaaS focus.',
     body:
@@ -259,7 +259,11 @@ export default function About() {
                 >
                   <TopAccentCard accent={reason.accent} className="h-full">
                     <reason.icon
-                      className={`mb-4 h-5 w-5 ${reason.accent === 'emerald' ? 'text-emerald' : 'text-cyan'}`}
+                      className={`mb-4 h-5 w-5 ${
+                        reason.accent === 'emerald' ? 'text-emerald'
+                        : reason.accent === 'clay'  ? 'text-clay'
+                        : 'text-cyan'
+                      }`}
                       aria-hidden="true"
                     />
                     <h3 className="font-sora text-[18px] font-bold leading-[1.25] tracking-[-0.018em] text-slate sm:text-[19px]">

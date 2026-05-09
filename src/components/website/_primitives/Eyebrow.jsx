@@ -11,6 +11,7 @@
 const COLORS = {
   cyan:    'text-cyan',
   emerald: 'text-emerald',
+  clay:    'text-clay',
   slate:   'text-slate',
   ink:     'text-ink-2',
   muted:   'text-ink-3',
