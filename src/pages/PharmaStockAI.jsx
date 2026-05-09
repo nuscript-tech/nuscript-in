@@ -54,9 +54,9 @@ const CAPABILITIES = [
     accent:  'cyan',
     eyebrow: '01 · EXPIRY',
     icon:    Bell,
-    title:   'Daily expiry alerts.',
+    title:   'Daily expiry alerts, on WhatsApp.',
     body:
-      'Every morning, your team gets a list of stock about to expire — by SKU, by batch, with quantity and shelf location. Act on near-expiry stock before it becomes a writeoff.',
+      'Every morning, your team gets a WhatsApp list of stock about to expire — by SKU, by batch, with quantity and shelf location. Act on near-expiry stock before it becomes a writeoff.',
   },
   {
     accent:  'emerald',
