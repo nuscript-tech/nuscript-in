@@ -97,7 +97,7 @@ export default function Approach() {
         {/* Dark banner — the operator-register signature line. */}
         <div className="mt-10 sm:mt-12">
           <DarkBanner
-            lead="Most healthcare AI startups pitch what they will build."
+            lead="In healthcare AI, most products are still roadmap."
             accent="We invoice for what we already ship."
           />
         </div>
