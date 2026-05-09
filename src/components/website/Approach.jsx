@@ -46,7 +46,7 @@ const CARDS = [
     accent: 'slate',
     title: 'Production today, not a roadmap.',
     body:
-      'MedScribeAI is live with paying tenants. PharmaStockAI is live with pilot pharmacies. We invoice for what we ship.',
+      'MedScribeAI is live with paying tenants. PharmaStockAI is live with pilot pharmacies. Real customers, real workflows, real revenue today. We invoice for what we ship.',
   },
 ];
 
