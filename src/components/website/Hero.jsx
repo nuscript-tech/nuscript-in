@@ -56,10 +56,10 @@ export default function Hero() {
       <div
         className="
           mx-auto flex w-full max-w-6xl flex-col justify-center
-          px-6 py-24
-          sm:px-10 sm:py-28
-          lg:px-12 lg:py-36
-          min-h-[78vh] lg:min-h-[80vh]
+          px-6 py-32
+          sm:px-10 sm:py-36
+          lg:px-12 lg:py-44
+          min-h-[88vh] lg:min-h-[92vh]
         "
       >
         <div className="flex flex-col gap-7">
